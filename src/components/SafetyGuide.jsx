@@ -114,41 +114,43 @@ export default function SafetyGuide() {
           </p>
         </div>
 
-        {/* Dos Section */}
-        <div className="safety-block">
-          <div className="safety-block-header dos-theme">
-            <CheckCircle size={20} className="header-icon" />
-            <h3>Do's</h3>
-          </div>
-          <div className="safety-cards-grid">
-            {dos.map((item) => (
-              <div className="safety-card-item do-border" key={item.id}>
-                <div className="safety-card-check do-check">✓</div>
-                <div className="safety-card-content">
-                  <h4>{item.title}</h4>
-                  <p>{item.desc}</p>
+        <div className="safety-split-panels">
+          {/* Dos Section */}
+          <div className="safety-block dos-panel">
+            <div className="safety-block-header dos-theme">
+              <CheckCircle size={24} className="header-icon" />
+              <h3>Do's</h3>
+            </div>
+            <div className="safety-list">
+              {dos.map((item) => (
+                <div className="safety-list-item do-border" key={item.id}>
+                  <div className="safety-list-check do-check">✓</div>
+                  <div className="safety-list-content">
+                    <h4>{item.title}</h4>
+                    <p>{item.desc}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Donts Section */}
-        <div className="safety-block">
-          <div className="safety-block-header donts-theme">
-            <XCircle size={20} className="header-icon" />
-            <h3>Don'ts</h3>
-          </div>
-          <div className="safety-cards-grid">
-            {donts.map((item) => (
-              <div className="safety-card-item dont-border" key={item.id}>
-                <div className="safety-card-check dont-check">✕</div>
-                <div className="safety-card-content">
-                  <h4>{item.title}</h4>
-                  <p>{item.desc}</p>
+          {/* Donts Section */}
+          <div className="safety-block donts-panel">
+            <div className="safety-block-header donts-theme">
+              <XCircle size={24} className="header-icon" />
+              <h3>Don'ts</h3>
+            </div>
+            <div className="safety-list">
+              {donts.map((item) => (
+                <div className="safety-list-item dont-border" key={item.id}>
+                  <div className="safety-list-check dont-check">✕</div>
+                  <div className="safety-list-content">
+                    <h4>{item.title}</h4>
+                    <p>{item.desc}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 

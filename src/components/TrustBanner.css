@@ -4,9 +4,9 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   padding: 30px 5%;
-  background: #001A3A;
-  border-top: 1px solid rgba(255, 215, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+  background: linear-gradient(90deg, #0d0a00 0%, #1a1400 50%, #0d0a00 100%);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .trust-item-card {
@@ -15,18 +15,18 @@
   justify-content: center;
   gap: 20px;
   text-align: left;
-  border-right: 2px solid rgba(255, 215, 0, 0.1);
+  border-right: 1px solid rgba(212, 175, 55, 0.2);
 }
 .trust-item-card:nth-child(4) {
   border-right: none;
 }
 
 .trust-icon-box {
-  color: var(--color-primary);
+  color: #d4af37;
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3));
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
 }
 
 .trust-text-box {
@@ -37,12 +37,12 @@
 .trust-card-title {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--color-text-white);
+  color: #fff8e7;
 }
 
 .trust-card-subtitle {
   font-size: 0.75rem;
-  color: var(--color-text-muted);
+  color: rgba(212, 175, 55, 0.8);
 }
 
 /* Responsiveness */

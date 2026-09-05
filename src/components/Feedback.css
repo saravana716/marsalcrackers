@@ -2,10 +2,10 @@
 
 .feedback-section {
   padding: 90px 5%;
-  background: #001A3A; /* Pure dark theme background */
-  color: #FFFFFF;
-  border-top: 1px solid rgba(255, 215, 0, 0.12);
-  border-bottom: 1px solid rgba(255, 215, 0, 0.08);
+  background: #0d0a00;
+  color: #fff8e7;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
   position: relative;
   overflow: hidden;
 }
@@ -19,7 +19,7 @@
   transform: translate(-50%, -50%);
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(255, 215, 0, 0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
   z-index: 1;
   pointer-events: none;
 }
@@ -73,13 +73,13 @@
   font-weight: 800;
   line-height: 1.25;
   letter-spacing: -0.02em;
-  color: #FFFFFF;
+  color: #fff8e7;
   margin: 0;
 }
 
 .feedback-desc {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 248, 231, 0.7);
   line-height: 1.6;
   margin: 0 0 10px;
 }
@@ -92,8 +92,8 @@
 }
 
 .stat-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(212, 175, 55, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.15);
   padding: 18px 24px;
   border-radius: 16px;
   min-width: 150px;
@@ -102,8 +102,8 @@
 }
 
 .stat-card:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 215, 0, 0.25);
+  background: rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.35);
   transform: translateY(-3px);
 }
 
@@ -125,7 +125,7 @@
 .stat-label {
   font-size: 0.8rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 248, 231, 0.55);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -150,11 +150,11 @@
 }
 
 .feedback-slide-card {
-  background: #FFFAF0;
-  border: 1.5px solid rgba(255, 215, 0, 0.16);
+  background: linear-gradient(135deg, rgba(40, 30, 0, 0.95) 0%, rgba(20, 15, 0, 0.98) 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.25);
   border-radius: 24px;
   padding: 40px 30px 30px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -179,7 +179,7 @@
   position: absolute;
   top: 35px;
   right: 30px;
-  color: #001020;
+  color: rgba(212, 175, 55, 0.2);
   pointer-events: none;
 }
 
@@ -191,7 +191,7 @@
 
 .card-feedback-text {
   font-size: 0.96rem;
-  color: #001A3A;
+  color: rgba(255, 248, 231, 0.85);
   line-height: 1.65;
   font-style: italic;
   margin: 0;
@@ -218,25 +218,24 @@
 .user-name {
   font-size: 1rem;
   font-weight: 700;
-  color: #F28C18;
+  color: #d4af37;
 }
 
 .user-location {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 248, 231, 0.5);
 }
 
 .purchase-badge {
-  background: #001A3A;
-  border: 1px solid rgba(255, 159, 67, 0.3);
-  color: var(--color-accent);
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #d4af37;
   font-size: 0.7rem;
   font-weight: 700;
   padding: 5px 10px;
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  
 }
 
 /* Pagination Dot Colors Overrides */
@@ -245,13 +244,13 @@
 }
 
 .feedback-swiper-wrapper .swiper-pagination-bullet {
-  background: rgba(255, 255, 255, 0.3) !important;
+  background: rgba(212, 175, 55, 0.4) !important;
   opacity: 1;
 }
 
 .feedback-swiper-wrapper .swiper-pagination-bullet-active {
-  background: var(--color-primary) !important;
-  box-shadow: 0 0 8px var(--color-primary);
+  background: #d4af37 !important;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
 }
 
 /* Responsiveness adjustments */

@@ -1,7 +1,7 @@
 // src/components/Footer.jsx
 import React from 'react';
 import { Phone, MapPin, Mail } from 'lucide-react';
-import logoImg from '../assets/mylogo.png';
+import logoImg from '../assets/lo.png';
 import './Footer.css';
 
 export default function Footer({ onCategoryChange, onNavigate }) {

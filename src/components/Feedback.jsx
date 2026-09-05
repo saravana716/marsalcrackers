@@ -6,7 +6,7 @@ import { EffectCards, Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 import 'swiper/css/pagination';
-import logoImg from '../assets/mylogo.png';
+import logoImg from '../assets/lo.png';
 import './Feedback.css';
 
 export default function Feedback() {
