@@ -15,8 +15,8 @@
   --color-border-hover: rgba(255, 215, 0, 0.4);
   
   /* Color Palette - Light Base (for Categories, Offers, Product Grid, Features) */
-  --color-bg-light:#fffaf0;
-  --color-bg-light-alt: #FFFAF0;
+  --color-bg-light:white;
+  --color-bg-light-alt: white;
   --color-border-light: rgba(0, 0, 0, 0.08);
   --color-border-light1: rgba(0, 0, 0, 0.15);
   --color-border-light-hover: rgba(255, 159, 67, 0.3);

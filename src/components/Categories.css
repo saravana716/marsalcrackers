@@ -1,270 +1,109 @@
 /* src/components/Categories.css */
+
+/* ============================================================
+   SECTION WRAPPER
+   ============================================================ */
 .categories-section {
-  padding: 35px 5% 20px;
-  /* Reduced bottom padding to tighten gap with Best Sellers */
-  background: var(--color-bg-light);
+  padding: 50px 5%;
+  background: #070B19;
   position: relative;
   overflow: hidden;
 }
 
-/* Luxury Capsule Card Container - Full width robust layout */
+/* Subtle starfield/noise texture overlay */
+.categories-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(244, 174, 0, 0.04) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(244, 174, 0, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* ============================================================
+   CAPSULE CARD (Container)
+   ============================================================ */
 .categories-capsule-card {
-  background: #FFFAF0;
-  border-radius: 28px;
-  padding: 30px 0px 25px 0px;
+  background: transparent;
   max-width: 100%;
   width: 100%;
   margin: 0 auto;
   position: relative;
 }
 
-/* Premium header with flex-space-between to place navigation in top-right */
+/* ============================================================
+   HEADER
+   ============================================================ */
 .categories-card-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 25px;
-  text-align: left;
+  margin-bottom: 32px;
 }
 
-/* Group text separate from buttons */
 .categories-header-text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 5px;
+  gap: 6px;
 }
 
 .categories-card-sublabel {
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--color-accent);
+  color: #F4AE00;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
-.categories-title-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
 .categories-card-title {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 900;
-  color: var(--color-text-dark);
+  color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+  margin: 0;
 }
 
-.categories-spark-icon {
-  color: var(--color-accent);
-  display: flex;
-  align-items: center;
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Navigation button container in the top-right corner */
+/* ============================================================
+   HEADER NAV BUTTONS
+   ============================================================ */
 .categories-header-nav {
   display: flex;
   gap: 10px;
-  margin-bottom: 2px;
   align-items: center;
 }
 
-/* Slider Outer shell - Padding removed so that track spans the full card width */
-.categories-slider-outer {
-  width: 100%;
-  padding: 0;
-  position: relative;
-}
-
-/* Swiper styling overrides - Added vertical padding to allow hover translateY scaling without clipping */
-.categories-swiper {
-  width: 100%;
-  padding: 25px 0;
-}
-
-.categories-swiper .swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* ============================================================
-   NEW ANIMATED CIRCULAR CATEGORY CARD DESIGN
-   ============================================================ */
-
-/* Category item wrapper */
-.category-circle-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  width: 100%;
-  max-width: 160px;
-  text-align: center;
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.category-circle-wrapper:hover {
-  transform: translateY(-12px);
-}
-
-/* The circular card body - Increased size from 100px to 140px */
-.category-circle {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: #FFF;
-  border: 3px solid #ffe4b5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 14px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 8px 24px rgba(255, 165, 0, 0.12);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Gradient animated border wrapper on hover */
-.category-circle::after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #FFD700, #FF7A00, #FF007F, #FFD700);
-  background-size: 300% 300%;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  animation: rotateGradient 4s linear infinite;
-}
-
-@keyframes rotateGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.category-circle-wrapper:hover .category-circle::after,
-.category-circle-wrapper.active .category-circle::after {
-  opacity: 1;
-}
-
-/* Graphic container overlaying the border - Scaled up accordingly */
-.category-graphic-container {
-  width: 168px;
-  height: 168px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #FFF;
-  z-index: 2;
-  transition: transform 0.4s ease;
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.category-card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.category-circle-wrapper:hover .category-card-image {
-  transform: scale(1.15) rotate(4deg);
-}
-
-.category-svg-svg {
-  width: 50px;
-  height: 50px;
-  transition: transform 0.4s ease;
-  z-index: 2;
-  color: #FF8C00;
-}
-
-.category-circle-wrapper:hover .category-svg-svg {
-  transform: scale(1.1) rotate(15deg);
-}
-
-/* Selected state glow */
-.category-circle-wrapper.active .category-circle {
-  border-color: transparent;
-  box-shadow: 0 0 20px rgba(255, 122, 0, 0.4);
-}
-
-/* Label below the circle */
-.category-label-text {
-  display: block;
-  font-size: 1rem;
-  font-weight: 800;
-  color: #475569;
-  transition: color 0.3s ease;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 110px;
-  text-align: center;
-}
-
-.category-circle-wrapper:hover .category-label-text,
-.category-circle-wrapper.active .category-label-text {
-  color: #FF7A00;
-}
-
-/* Hide the old inline label inside the circle */
-.category-inline-label {
-  display: none;
-}
-
-/* ============================================================
-   CUSTOM VIEW ALL + ARROWS (unchanged)
-   ============================================================ */
 .view-all-header-btn {
   display: flex;
   align-items: center;
   gap: 8px;
   background: transparent;
-  border: 2px solid var(--color-accent);
-  color: var(--color-accent);
-  padding: 0 16px;
+  border: 1.5px solid #F4AE00;
+  color: #F4AE00;
+  padding: 0 18px;
   border-radius: 20px;
   font-size: 0.72rem;
   font-weight: 800;
   text-transform: uppercase;
   cursor: pointer;
-  transition: var(--transition-smooth);
+  transition: all 0.3s ease;
   letter-spacing: 0.05em;
   height: 38px;
-  box-shadow: 0 3px 8px rgba(255, 159, 67, 0.06);
 }
 
 .view-all-header-btn svg {
   color: inherit;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.3s ease;
 }
 
 .view-all-header-btn:hover {
-  background: var(--color-accent);
-  color: #FFFFFF;
+  background: linear-gradient(180deg, #FFF49E 0%, #FFD244 25%, #F4AE00 50%, #C46B07 75%, #A65A06 100%);
+  color: #111111;
+  border-color: transparent;
   transform: scale(1.04);
-  box-shadow: 0 4px 12px rgba(255, 159, 67, 0.2);
+  box-shadow: 0 4px 16px rgba(244, 174, 0, 0.3);
 }
 
 .view-all-header-btn:hover svg {
@@ -272,237 +111,210 @@
 }
 
 .categories-arrow-btn {
-  background: #FFFFFF;
-  border: 2px solid var(--color-accent);
-  color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid rgba(244, 174, 0, 0.4);
+  color: #F4AE00;
   width: 38px;
   height: 38px;
-  border-radius: var(--border-radius-circle);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: var(--transition-smooth);
-  box-shadow: 0 3px 8px rgba(255, 159, 67, 0.06);
+  transition: all 0.3s ease;
 }
 
 .categories-arrow-btn:hover {
-  background: var(--color-accent);
-  color: #FFFFFF;
-  border-color: var(--color-accent);
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(255, 159, 67, 0.2);
+  background: linear-gradient(180deg, #FFF49E 0%, #FFD244 25%, #F4AE00 50%, #C46B07 75%, #A65A06 100%);
+  color: #111111;
+  border-color: transparent;
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(244, 174, 0, 0.25);
 }
 
-/* Category Animations */
-.category-circle-wrapper:hover .anim-sparkler {
-  animation: float 2s infinite ease-in-out;
+/* ============================================================
+   SLIDER
+   ============================================================ */
+.categories-slider-outer {
+  width: 100%;
+  position: relative;
 }
 
-.category-circle-wrapper:hover .anim-rocket {
-  animation: rocket-launch 1.5s infinite ease-in-out;
+.categories-swiper {
+  width: 100%;
+  padding: 10px 0 20px;
+  overflow: visible !important;
 }
 
-.category-circle-wrapper:hover .anim-chakkar {
-  animation: spin 1.5s linear infinite;
+.categories-swiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: auto;
 }
 
-.category-circle-wrapper:hover .anim-pot {
-  animation: float 2s infinite ease-in-out;
+/* ============================================================
+   CATEGORY CARD (New Design — Rectangular, No Circles)
+   ============================================================ */
+.cat-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1.5px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
 }
 
-.category-circle-wrapper:hover .anim-bomb {
-  animation: bomb-fuse 0.5s infinite alternate;
+.cat-card:hover,
+.cat-card.active {
+  border-color: #F4AE00;
+  background: rgba(244, 174, 0, 0.06);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(244, 174, 0, 0.2), 0 0 0 1px rgba(244, 174, 0, 0.1);
 }
 
-@keyframes rocket-launch {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-8px) rotate(-5deg);
-  }
+/* Image area */
+.cat-card-img-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
 }
 
-@keyframes bomb-fuse {
-  0% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 2px #001A3A);
-  }
+.cat-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
 
-  100% {
-    transform: scale(1.08);
-    filter: drop-shadow(0 0 8px #ffd700);
-  }
+.cat-card:hover .cat-card-img {
+  transform: scale(1.1);
+}
+
+/* SVG fallback */
+.cat-card-svg {
+  width: 60%;
+  height: 60%;
+  margin: auto;
+  display: block;
+}
+
+/* Golden shimmer overlay that appears on hover */
+.cat-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(244, 174, 0, 0.15) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.cat-card:hover .cat-card-overlay,
+.cat-card.active .cat-card-overlay {
+  opacity: 1;
+}
+
+/* Label strip at the bottom */
+.cat-card-label {
+  padding: 12px 10px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.cat-card-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #cccccc;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.cat-card:hover .cat-card-name,
+.cat-card.active .cat-card-name {
+  background: linear-gradient(
+    180deg,
+    #FFF49E 0%,
+    #FFD244 25%,
+    #F4AE00 50%,
+    #C46B07 75%,
+    #A65A06 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.cat-card:hover .cat-card-label,
+.cat-card.active .cat-card-label {
+  border-top-color: rgba(244, 174, 0, 0.2);
 }
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
-  .categories-capsule-card {
-    padding: 25px 30px;
+  .categories-section {
+    padding: 40px 5%;
   }
 }
 
 @media (max-width: 768px) {
   .categories-section {
-    padding: 20px 4%;
+    padding: 30px 4%;
   }
-
-  .categories-capsule-card {
-    padding: 18px 16px;
-    border-radius: 20px;
-  }
-
   .categories-card-header {
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     gap: 8px;
   }
-
-  .categories-card-sublabel {
-    font-size: 0.58rem;
-    letter-spacing: 0.12em;
-  }
-
   .categories-card-title {
-    font-size: 1rem;
-    letter-spacing: 0.02em;
+    font-size: 1.1rem;
   }
-
-  .categories-header-text {
-    gap: 3px;
+  .categories-card-sublabel {
+    font-size: 0.6rem;
   }
-
   .view-all-header-btn {
     padding: 0 10px;
     font-size: 0.6rem;
-    height: 28px;
-    gap: 4px;
-    white-space: nowrap;
-  }
-
-  .categories-arrow-btn {
-    width: 28px;
-    height: 28px;
-  }
-
-  .categories-arrow-btn svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  .categories-header-nav {
-    gap: 6px;
-    flex-shrink: 0;
-  }
-}
-
-@media (max-width: 600px) {
-  .categories-capsule-card {
-    padding: 20px 15px 15px;
-  }
-
-  .categories-card-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 15px;
-  }
-
-  .categories-header-text {
-    align-items: flex-start;
-  }
-
-  .categories-card-title {
-    font-size: 1.05rem;
-  }
-
-  .categories-header-nav {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .category-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 8px;
-  }
-
-  .category-graphic-container {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-  }
-
-  .category-card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .category-svg-svg {
-    width: 32px;
-    height: 32px;
-  }
-
-  .view-all-header-btn {
-    padding: 0 8px;
-    font-size: 0.65rem;
     height: 30px;
-    gap: 4px;
   }
-
-  .view-all-header-btn svg {
-    width: 12px;
-    height: 12px;
-  }
-
   .categories-arrow-btn {
     width: 30px;
     height: 30px;
   }
-
-  .categories-arrow-btn svg {
-    width: 14px;
-    height: 14px;
+  .categories-header-nav {
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .cat-card-name {
+    font-size: 0.72rem;
+  }
+  .cat-card-label {
+    padding: 10px 8px;
   }
 }
 
-@media (max-width: 400px) {
-  .categories-capsule-card {
-    padding: 15px 10px;
-  }
-
-  .categories-card-title {
-    font-size: 1rem;
-  }
-
-  .category-circle {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-  }
-
-  .category-graphic-container {
-    width: 62px;
-    height: 62px;
-    border-radius: 50%;
-  }
-
-  .category-svg-svg {
-    width: 28px;
-    height: 28px;
+@media (max-width: 480px) {
+  .cat-card-name {
+    font-size: 0.68rem;
   }
 }

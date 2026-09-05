@@ -24,31 +24,26 @@ export default function FeatureBadges() {
       icon: <Award size={28} />,
       title: '100% Original Products',
       desc: 'Authorised & trusted brand crackers',
-      themeClass: 'badge-gold'
     },
     {
       icon: <Package size={28} />,
       title: 'Safe Packaging',
       desc: 'Premium quality waterproof packing',
-      themeClass: 'badge-rose'
     },
     {
       icon: <Truck size={28} />,
       title: 'Fast Delivery',
       desc: 'Timely delivery all over India',
-      themeClass: 'badge-green'
     },
     {
       icon: <Tag size={28} />,
       title: 'Best Price Guarantee',
       desc: 'Get the best prices in the market',
-      themeClass: 'badge-orange'
     },
     {
       icon: <Headphones size={28} />,
       title: '24/7 Customer Support',
       desc: 'We are here to help you anytime',
-      themeClass: 'badge-blue'
     }
   ];
 

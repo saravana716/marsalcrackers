@@ -1,6 +1,5 @@
-// src/components/ProductCard.jsx
 import React from 'react';
-import { Heart, ShoppingCart, Eye, Star } from 'lucide-react';
+import { ShoppingCart, Eye, Star } from 'lucide-react';
 import './ProductCard.css';
 
 // Component to render product image
@@ -51,16 +50,6 @@ export default function ProductCard({ product, onAddToCart, cartItems = [], onUp
         </span>
       )}
 
-      {/* Wishlist Button */}
-      <button 
-        className={`product-wishlist-btn ${isWished ? 'wished' : ''}`} 
-        onClick={handleWishlistClick}
-        title={isWished ? 'Remove from Wishlist' : 'Add to Wishlist'}
-        aria-label={isWished ? 'Remove from Wishlist' : 'Add to Wishlist'}
-      >
-        <Heart size={16} fill={isWished ? 'currentColor' : 'none'} />
-      </button>
-
       <div className="product-image-container">
         <ProductIcon type={product.image} alt={product.name} />
         {/* Particle Overlay effect on hover */}
@@ -77,7 +66,7 @@ export default function ProductCard({ product, onAddToCart, cartItems = [], onUp
         <div className="product-meta-row">
           <span className="product-category-tag">{product.categoryName}</span>
           {product.quantity && product.type && (
-            <span className="product-unit-tag" style={{ marginLeft: '8px', fontSize: '0.75rem', color: '#666', background: '#F0F0F0', padding: '2px 6px', borderRadius: '4px' }}>
+            <span className="product-unit-tag">
               {product.quantity} {product.type}
             </span>
           )}
@@ -112,7 +101,7 @@ export default function ProductCard({ product, onAddToCart, cartItems = [], onUp
             </div>
           ) : (
             <button className="add-cart-btn" onClick={handleAddToCart}>
-              <ShoppingCart size={16} /> <span>Add To Cart</span>
+              <ShoppingCart size={16} /> <span className="gold-gradient-text">Add To Cart</span>
             </button>
           )}
           <button className="quick-view-circle-btn" onClick={handleQuickView} title="Quick View" aria-label="Quick View">
