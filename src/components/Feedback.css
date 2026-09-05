@@ -139,8 +139,8 @@
 }
 
 .feedback-swiper-wrapper {
-  width: 340px;
-  height: 410px;
+  width: 400px;
+  height: 400px;
   position: relative;
 }
 
@@ -149,10 +149,17 @@
   height: 100%;
 }
 
+.feedback-cards-swiper .swiper-slide {
+  background-color: #0d0a00; /* Solid background crucial for cube effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .feedback-slide-card {
-  background: linear-gradient(135deg, rgba(40, 30, 0, 0.95) 0%, rgba(20, 15, 0, 0.98) 100%);
+  background: linear-gradient(135deg, #281e00 0%, #140f00 100%);
   border: 1.5px solid rgba(212, 175, 55, 0.25);
-  border-radius: 24px;
+  border-radius: 4px;
   padding: 40px 30px 30px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
   display: flex;

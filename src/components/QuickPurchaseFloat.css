@@ -16,7 +16,7 @@
 }
 
 .qp-float-image-el {
-  height: 170px; /* Clean size that stands out but fits the screen layout */
+  height: 250px; /* Clean size that stands out but fits the screen layout */
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 4px 12px rgba(255, 140, 0, 0.45));

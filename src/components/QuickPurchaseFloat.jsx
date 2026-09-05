@@ -9,7 +9,7 @@ export default function QuickPurchaseFloat({ onNavigate }) {
       aria-label="Quick Purchase Form"
     >
       <img 
-        src={new URL('../assets/quick-enquiry-removebg-preview.webp', import.meta.url).href} 
+        src={new URL('../assets/qucik.png', import.meta.url).href} 
         alt="Quick Purchase" 
         className="qp-float-image-el"
       />

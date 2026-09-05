@@ -292,6 +292,10 @@ export default function App() {
 
             {/* 4. TRUST BANNER — Guarantees to remove purchase hesitation */}
             <TrustBanner />
+             <VideoGallery
+              videos={galleryVideos && galleryVideos.length > 0 ? galleryVideos : videos}
+              onAddVideo={handleAddVideo}
+            />
 
             {/* WHY CHOOSE US — New attractive section to convert customers */}
             <WhyChooseUs />
@@ -303,10 +307,7 @@ export default function App() {
             <FAQAccordion />
 
             {/* 7. VIDEO GALLERY — Social proof and product demonstration */}
-            <VideoGallery
-              videos={galleryVideos && galleryVideos.length > 0 ? galleryVideos : videos}
-              onAddVideo={handleAddVideo}
-            />
+           
 
             {/* 8. FEEDBACK — Customer reviews */}
             <Feedback />

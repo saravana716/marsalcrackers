@@ -1,10 +1,10 @@
 import React from 'react';
 import { Star, Quote, Sparkles } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCards, Autoplay, Pagination } from 'swiper/modules';
+import { EffectCube, Autoplay, Pagination } from 'swiper/modules';
 
 import 'swiper/css';
-import 'swiper/css/effect-cards';
+import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
 import logoImg from '../assets/lo.png';
 import './Feedback.css';
@@ -96,9 +96,16 @@ export default function Feedback() {
         <div className="feedback-slider-side">
           <div className="feedback-swiper-wrapper">
             <Swiper
-              effect={'cards'}
+              effect={'cube'}
               grabCursor={true}
-              modules={[EffectCards, Autoplay, Pagination]}
+              loop={true}
+              cubeEffect={{
+                shadow: true,
+                slideShadows: true,
+                shadowOffset: 20,
+                shadowScale: 0.94,
+              }}
+              modules={[EffectCube, Autoplay, Pagination]}
               autoplay={{
                 delay: 4000,
                 disableOnInteraction: false,
