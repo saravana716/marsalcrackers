@@ -1,0 +1,337 @@
+/* ============================================================
+   HERO BANNER SLIDER — Clean, Mobile-Responsive
+   ============================================================ */
+
+.hero-banner-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  line-height: 0;
+  /* removes gap under img */
+}
+
+/* Banner image wrapper — handles fade transition */
+.hero-banner-wrapper {
+  width: 100%;
+  display: block;
+}
+
+.hero-fade-in {
+  animation: heroBannerFadeIn 0.5s ease forwards;
+}
+
+.hero-fade-out {
+  animation: heroBannerFadeOut 0.4s ease forwards;
+}
+
+@keyframes heroBannerFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes heroBannerFadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+/* Banner image — full width, full height, no cropping */
+.hero-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Subtle dark overlay at the bottom for readability */
+.hero-banner-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.25));
+  pointer-events: none;
+}
+
+/* ── Arrow Buttons ── */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  color: #FFF;
+  font-size: 2.4rem;
+  line-height: 1;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.hero-arrow:hover {
+  background: rgba(255, 165, 0, 0.75);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.hero-arrow-prev {
+  left: 14px;
+}
+
+.hero-arrow-next {
+  right: 14px;
+}
+
+/* ── Minimum Order Badge ── */
+.top-min-order-badge-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #000;
+  padding: 8px 0; /* Minimal padding */
+}
+
+.hero-min-order-badge {
+  position: relative;
+  /* Yellow to Orange to Red gradient */
+  background: linear-gradient(90deg, #FFD700 0%, #FF8C00 50%, #E60000 100%);
+  color: #fff;
+  padding: 6px 24px; /* Reduced vertical padding */
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 20;
+  /* Glow + 3D Inner Highlight */
+  box-shadow: 0 6px 20px rgba(230, 0, 0, 0.4), inset 0 3px 8px rgba(255, 255, 255, 0.6), inset 0 -3px 8px rgba(0, 0, 0, 0.15);
+  border: 2px solid #FFEA00;
+  white-space: nowrap;
+
+  /* Entrance animation */
+  animation: badgeDropIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.badge-pulse-ring {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50px;
+  border: 2px solid #FFD700;
+  animation: badgeExtremePulse 1.5s infinite ease-out;
+  pointer-events: none;
+}
+
+.badge-icon {
+  font-size: 1.3rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  animation: iconWobble 2s infinite ease-in-out;
+}
+
+.badge-text {
+  font-family: var(--font-primary, sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.badge-text strong {
+  font-weight: 900;
+  font-size: 1.15rem;
+  margin-left: 4px;
+  color: #FFFFFF;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Animations */
+@keyframes badgeDropIn {
+  0% {
+    transform: translateY(-30px) scale(0.5);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateY(5px) scale(1.05);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes badgeExtremePulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.05) scaleY(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes iconWobble {
+
+  0%,
+  100% {
+    transform: rotate(-10deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(10deg) scale(1.2);
+  }
+}
+
+/* ── Dot Indicators ── */
+.hero-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  padding: 0;
+}
+
+.hero-dot-active {
+  background: #FFD700;
+  transform: scale(1.35);
+}
+
+/* ── CTA Bar ── */
+.hero-cta-bar {
+  position: absolute;
+  bottom: 36px;
+  right: 20px;
+  z-index: 10;
+}
+
+.hero-cta-btn {
+  background: linear-gradient(135deg, #FF8C00, #FFD700);
+  color: #1a0a00;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(255, 140, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-cta-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.55);
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .hero-arrow {
+    font-size: 1.8rem;
+    width: 34px;
+    height: 34px;
+  }
+
+  .hero-arrow-prev {
+    left: 8px;
+  }
+
+  .hero-arrow-next {
+    right: 8px;
+  }
+
+  .hero-cta-bar {
+    bottom: 28px;
+    right: 12px;
+  }
+
+  .hero-cta-btn {
+    padding: 8px 18px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-arrow {
+    font-size: 1.5rem;
+    width: 28px;
+    height: 28px;
+  }
+
+  .hero-dots {
+    bottom: 8px;
+    gap: 6px;
+  }
+
+  .hero-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .top-min-order-badge-container {
+    padding: 6px 0;
+  }
+
+  .hero-min-order-badge {
+    padding: 4px 16px;
+    gap: 6px;
+  }
+
+  .badge-text {
+    font-size: 0.8rem;
+  }
+
+  .badge-text strong {
+    font-size: 0.9rem;
+  }
+
+  .badge-icon {
+    font-size: 1rem;
+  }
+
+  .hero-cta-bar {
+    bottom: 22px;
+    right: 10px;
+  }
+
+  .hero-cta-btn {
+    padding: 7px 14px;
+    font-size: 0.7rem;
+  }
+}

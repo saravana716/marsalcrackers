@@ -1,0 +1,212 @@
+.offers-grid-container {
+  padding: 60px 80px; /* Standardized side margins */
+  background: #070B19; /* Global dark theme navy background extending 100% full width */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 100%; /* Aligned with standard 1200px section bounds */
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Base Card Style - Dark high contrast design */
+.offer-banner-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 32px 28px;
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr; /* Text on left, color SVG on right */
+  align-items: center;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Deep shadow backdrop */
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s, box-shadow 0.4s;
+}
+
+.offer-banner-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Dark Banners Premium Gradient Colors & Accents */
+.banner-combos {
+  background: linear-gradient(135deg, #420A0A 0%, #1A0202 100%); /* Deep Crimson Maroon */
+  border-color: rgba(255, 159, 67, 0.15);
+}
+.banner-combos:hover {
+  border-color: rgba(255, 159, 67, 0.35);
+  box-shadow: 0 15px 35px rgba(255, 159, 67, 0.18);
+}
+
+.banner-diwali {
+  background: linear-gradient(135deg, #210836 0%, #0A0212 100%); /* Deep indigo-amethyst */
+  border-color: rgba(159, 84, 200, 0.15);
+}
+.banner-diwali:hover {
+  border-color: rgba(159, 84, 200, 0.35);
+  box-shadow: 0 15px 35px rgba(159, 84, 200, 0.18);
+}
+
+.banner-new {
+  background: linear-gradient(135deg, #081E38 0%, #010A14 100%); /* Deep Sapphire Navy */
+  border-color: rgba(41, 128, 185, 0.15);
+}
+.banner-new:hover {
+  border-color: rgba(41, 128, 185, 0.35);
+  box-shadow: 0 15px 35px rgba(41, 128, 185, 0.18);
+}
+
+/* Highlight background glow */
+.offer-card-glow {
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+  transition: var(--transition-smooth);
+}
+
+.offer-banner-card:hover .offer-card-glow {
+  transform: scale(1.3) translate(-20px, 20px);
+}
+
+/* Content Layout */
+.offer-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  text-align: left;
+  gap: 20px;
+  z-index: 2;
+}
+
+.offer-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.offer-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  display: block;
+}
+
+/* Custom Tag Overrides - High Contrast Colors */
+.tag-combos { color: #FF9F43; } /* Gold-orange tag */
+.tag-diwali { color: #FF9F43; }
+.tag-new { color: #FF9F43; }
+
+.offer-heading-text {
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1.2;
+  color: #FFFFFF; /* Bright white headers */
+  letter-spacing: 0.02em;
+}
+
+.heading-sublabel {
+  color: #FFFFFF;
+}
+
+.offer-sub-label {
+  font-size: 1.4rem; /* Prominent discount tag sizes */
+  font-weight: 900;
+  color: #FF9F43; /* Gold accent color */
+  letter-spacing: 0.02em;
+}
+
+.banner-new .offer-sub-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.75); /* White text sublabel for Mega Sale bottom row */
+}
+
+/* Call to Action Button - Premium Solid Gold Pill Button */
+.offer-banner-button {
+  border-radius: 6px; /* Matches block rectangle button look */
+  padding: 10px 22px;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  border: none;
+  width: fit-content;
+  background: #FF9F43; /* Solid gold button fill */
+  color: #070B19; /* Navy text */
+  transition: var(--transition-smooth);
+}
+
+.offer-banner-button:hover {
+  background: #FFFFFF;
+  color: #070B19;
+  transform: scale(1.04);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Right Graphic Container & Centering */
+.offer-banner-graphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.banner-graphic-svg {
+  width: 90px;
+  height: 90px;
+  filter: drop-shadow(0 6px 15px rgba(0,0,0,0.15));
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Hover-triggered Graphic Animations */
+.offer-banner-card:hover .graphic-diya {
+  transform: translateY(-8px) scale(1.08);
+}
+
+.offer-banner-card:hover .graphic-rocket {
+  transform: translate(4px, -4px) scale(1.08);
+}
+
+/* Diya Flicker Animation keyframes */
+.graphic-diya-flame {
+  transform-origin: 50% 38px;
+  animation: flame-flicker 2s infinite ease-in-out;
+}
+
+@keyframes flame-flicker {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.95; }
+  25% { transform: scale(1.05) rotate(-2deg); opacity: 1; }
+  50% { transform: scale(0.95) rotate(1deg); opacity: 0.9; }
+  75% { transform: scale(1.02) rotate(-1deg); opacity: 0.95; }
+}
+
+/* Responsive Layout Breakpoints */
+@media (max-width: 1024px) {
+  .offers-grid-container {
+    gap: 20px;
+    padding: 30px 4% 50px;
+  }
+  .offer-heading-text {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .offers-grid-container {
+    grid-template-columns: 1fr; /* Single column on tablet/mobile */
+    gap: 20px;
+    padding: 20px 4% 40px;
+  }
+  .offer-banner-card {
+    padding: 28px 24px;
+  }
+}

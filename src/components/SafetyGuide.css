@@ -1,0 +1,251 @@
+/* src/components/SafetyGuide.css */
+
+.safety-section {
+  padding: 60px 5%;
+  background: #fffaf0; /* Clean white background to match mockup */
+  border-top: 1px solid #EAEAEA;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.safety-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.safety-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.safety-badge {
+  display: none; /* Hide badge to match clean header in mockup */
+}
+
+.safety-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1A1A1A;
+  margin: 0;
+  font-family: inherit;
+  text-align: center;
+}
+
+.safety-desc {
+  font-size: 0.95rem;
+  color: #555555;
+  max-width: 800px;
+  line-height: 1.6;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Block Styles for Dos and Donts headers */
+.safety-block {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.safety-block-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.safety-block-header h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.dos-theme {
+  color: #138A43; /* Green */
+}
+
+.donts-theme {
+  color: #A92C2C; /* Red */
+}
+
+.header-icon {
+  stroke-width: 2.5px;
+}
+
+/* Grid of Cards */
+.safety-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .safety-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .safety-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .safety-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card Item */
+.safety-card-item {
+  background: #FFFFFF;
+  border-radius: 6px;
+  padding: 15px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.do-border {
+  border: 1px solid #E2E8F0;
+  border-left: 3px solid #138A43;
+}
+
+.dont-border {
+  border: 1px solid #E2E8F0;
+  border-left: 3px solid #A92C2C;
+}
+
+/* Check Icons */
+.safety-card-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.do-check {
+  background: #E8F5E9;
+  color: #138A43;
+}
+
+.dont-check {
+  background: #FFEBEE;
+  color: #A92C2C;
+}
+
+/* Content inside cards */
+.safety-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.safety-card-content h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin: 0;
+}
+
+.safety-card-content p {
+  font-size: 0.85rem;
+  color: #555555;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Emergency Callout Box styling */
+.safety-emergency-callout {
+  background: #001A3A; /* Soft warm light color to match mockup */
+  border: 1px solid #FFE4C4;
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.callout-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.callout-icon {
+  color: white;
+  flex-shrink: 0;
+}
+
+.callout-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.callout-subtitle {
+  font-size: 0.88rem;
+  color: #F5B51B;
+  margin: 2px 0 0 0;
+}
+
+.emergency-numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .emergency-numbers-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.emergency-number-box {
+  background: #FFFFFF;
+  border: 1px solid #FFE8D6;
+  border-radius: 6px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.emergency-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: 0.05em;
+}
+
+.emergency-value {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #C25E00;
+}
+
+.callout-footer-tip {
+  font-size: 0.85rem;
+  color: #F5B51B;
+  border-top: 1px dashed #FFE0C0;
+  padding-top: 12px;
+  line-height: 1.4;
+}

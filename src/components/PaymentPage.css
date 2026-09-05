@@ -1,0 +1,1195 @@
+/* ================================================
+   PaymentPage.css — Sai Sparkz Hub Light Theme
+   Primary: #001A3A (deep navy)
+   Accent:  #F5B51B / #C8860A (gold/amber)
+   Bg:      #F7F4EE (warm cream) / #FFFFFF
+   ================================================ */
+
+/* ---------- Full-Page Container ---------- */
+.payment-page-container {
+  min-height: 100vh;
+  background: #F7F4EE;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-family: var(--font-primary, 'Inter', sans-serif);
+  overflow-x: hidden;
+}
+
+/* ---------- Main Panel (wraps all content) ---------- */
+.pay-main-modal {
+  background: transparent;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ---------- Hero Banner Header ---------- */
+.pay-modal-header {
+  text-align: center;
+  background: linear-gradient(135deg, #C8860A 0%, #F5B51B 50%, #C8860A 100%);
+  width: 100%;
+  height: 400px;
+}
+
+.pay-modal-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pay-modal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 5px 16px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.pay-modal-title {
+  font-family: var(--font-display, 'inter', sans-serif);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #1a0a00;
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+.pay-modal-subtitle {
+  font-size: 1rem;
+  color: rgba(30, 15, 0, 0.75);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ---------- Amount Row ---------- */
+.pay-amount-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: #fff;
+  border: 1.5px solid #e8dfc8;
+  border-radius: 14px;
+  padding: 16px 24px;
+  margin: 32px auto 0;
+  max-width: 540px;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.pay-amount-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #888;
+}
+
+.pay-amount-value {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #001A3A;
+  font-family: var(--font-display, 'Baloo 2', sans-serif);
+}
+
+/* ---------- Content Wrapper (white section) ---------- */
+.pay-section-label {
+  text-align: center;
+  margin: 40px auto 28px;
+  padding: 0 16px;
+}
+
+.pay-section-tag {
+  display: inline-block;
+  background: rgba(200, 134, 10, 0.12);
+  border: 1px solid rgba(200, 134, 10, 0.35);
+  color: #C8860A;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 16px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.pay-section-title {
+  font-family: var(--font-display, 'Baloo 2', sans-serif);
+  font-size: 2rem;
+  font-weight: 900;
+  color: #111;
+  margin: 0 0 10px;
+}
+
+.pay-section-divider {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #C8860A, #F5B51B);
+  border-radius: 2px;
+  margin: 0 auto 14px;
+}
+
+.pay-section-hint {
+  font-size: 0.92rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* ================================================
+   FLIP CARDS
+   ================================================ */
+.pay-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 0 0 36px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pay-flip-card {
+  height: 400px;
+  perspective: 1200px;
+  cursor: pointer;
+  outline: none;
+  border-radius: 20px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.pay-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.pay-flip-card.pay-flipped .pay-flip-inner {
+  transform: rotateY(180deg);
+}
+
+/* Shared face styles */
+.pay-flip-front,
+.pay-flip-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 24px 20px;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- FRONT FACE ---------- */
+.pay-flip-front {
+  background: #FFFFFF;
+  border: 1.5px solid #ece5d8;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 0;
+  padding: 22px 22px 18px;
+}
+
+/* Top row: label left + small icon right */
+.pay-card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.pay-card-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #aaa;
+  text-transform: uppercase;
+  text-align: left;
+  line-height: 1.3;
+  flex: 1;
+}
+
+/* Small icon top-right */
+.pay-card-icon-small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pay-card-icon-small svg {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Large centered icon */
+.pay-card-icon-large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.pay-card-icon-large svg {
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 18px;
+}
+
+.pay-card-title {
+  font-family: var(--font-display, 'Baloo 2', sans-serif);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 5px;
+  text-align: center;
+}
+
+.pay-card-sub {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #C8860A;
+  text-transform: uppercase;
+  margin: 0 0 auto;
+  text-align: center;
+}
+
+.pay-card-hint {
+  margin-top: 16px;
+  font-size: 0.77rem;
+  color: #001A3A;
+  font-weight: 600;
+  background: rgba(200, 134, 10, 0.06);
+  border: 1px solid rgba(200, 134, 10, 0.25);
+  border-radius: 8px;
+  padding: 9px 12px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pay-flip-card:hover .pay-card-hint,
+.pay-flip-card:focus .pay-card-hint {
+  background: rgba(200, 134, 10, 0.15);
+}
+
+/* ---------- BACK FACE ---------- */
+.pay-flip-back {
+  background: linear-gradient(145deg, #001A3A 0%, #003070 100%);
+  border: 1.5px solid rgba(245, 181, 27, 0.3);
+  transform: rotateY(180deg);
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.pay-back-badge-top {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #F5B51B;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.pay-back-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.pay-back-field {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.pay-back-field-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #F5B51B;
+  opacity: 0.9;
+}
+
+.pay-back-field-value-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pay-back-field-value {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.01em;
+  font-family: var(--font-display, 'Baloo 2', sans-serif);
+  line-height: 1.2;
+}
+
+.pay-copy-btn {
+  background: rgba(245, 181, 27, 0.15);
+  border: 1px solid rgba(245, 181, 27, 0.3);
+  color: #F5B51B;
+  border-radius: 5px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.pay-copy-btn:hover,
+.pay-copy-btn.copied {
+  background: rgba(245, 181, 27, 0.35);
+  color: #fff;
+}
+
+.pay-back-note {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-top: 10px;
+  line-height: 1.45;
+  display: flex;
+  gap: 6px;
+}
+
+.pay-back-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pay-back-status {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #F5B51B;
+}
+
+.pay-back-brand {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---------- Verify Button ---------- */
+.pay-verify-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #001A3A 0%, #003070 100%);
+  color: #F5B51B;
+  border: 2px solid rgba(245, 181, 27, 0.4);
+  border-radius: 14px;
+  font-size: 1.08rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 0.03em;
+}
+
+.pay-verify-btn:hover {
+  background: linear-gradient(135deg, #002a5c 0%, #004090 100%);
+  border-color: #F5B51B;
+  color: #FFD700;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 26, 58, 0.2);
+}
+
+/* ---------- Verifying Full-Screen ---------- */
+.pay-verifying-fullscreen {
+  position: fixed;
+  inset: 0;
+  background: rgba(247, 244, 238, 0.97);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1300;
+  gap: 18px;
+  color: #001A3A;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.pay-verifying-fullscreen h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #001A3A;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.pay-verifying-fullscreen p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.pay-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(200, 134, 10, 0.2);
+  border-top: 4px solid #C8860A;
+  border-radius: 50%;
+  animation: pay-spin 0.9s linear infinite;
+}
+
+@keyframes pay-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Success Card ---------- */
+.pay-success-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 52px 40px;
+  max-width: 460px;
+  width: calc(100% - 32px);
+  text-align: center;
+  margin: 48px auto;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+  border: 1.5px solid #ece5d8;
+}
+
+.pay-success-icon {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, #001A3A, #003070);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: #F5B51B;
+}
+
+.pay-success-title {
+  font-family: var(--font-display, 'Baloo 2', sans-serif);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #001A3A;
+  margin-bottom: 8px;
+}
+
+.pay-success-sub {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.pay-invoice-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pay-dl-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  background: linear-gradient(135deg, #001A3A, #003070);
+  color: #F5B51B;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pay-dl-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 26, 58, 0.2);
+}
+
+.pay-back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  background: transparent;
+  color: #001A3A;
+  border: 2px solid rgba(0, 26, 58, 0.2);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pay-back-btn:hover {
+  background: rgba(0, 26, 58, 0.05);
+  border-color: #001A3A;
+}
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+@media (max-width: 780px) {
+  .pay-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pay-flip-card {
+    height: 280px;
+  }
+
+  .pay-modal-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 550px) and (max-width: 780px) {
+  .pay-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pay-flip-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 320px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .pay-modal-header {
+    height: 165px;
+  }
+
+  .pay-modal-header img {
+    object-fit: contain;
+  }
+
+  .pay-main-modal {
+    padding: 0 16px 40px;
+  }
+
+  .pay-amount-label {
+    font-size: 0.55rem;
+  }
+
+  .pay-amount-value {
+    font-size: 1.2rem;
+  }
+
+  .pay-amount-row {
+    padding: 12px 16px;
+    margin-top: 20px;
+  }
+
+  .pay-section-title {
+    font-size: 1.3rem;
+  }
+
+  .pay-section-hint {
+    font-size: 0.65rem;
+  }
+
+  .pay-card-title {
+    font-size: 1rem;
+  }
+
+  .pay-back-field-value {
+    font-size: 0.85rem;
+  }
+
+  .pay-verify-btn {
+    font-size: 0.75rem;
+    padding: 14px 16px;
+  }
+
+  .pay-success-title {
+    font-size: 1.3rem;
+  }
+
+  .pay-success-card {
+    padding: 30px 20px;
+    margin: 30px auto;
+  }
+
+  .pay-verifying-fullscreen h3 {
+    font-size: 1.15rem;
+  }
+}
+
+/* ================================================
+   PRINT INVOICE (hidden on screen)
+   ================================================ */
+.hidden-invoice {
+  display: none;
+}
+
+.premium-invoice-wrapper.generating-pdf {
+  display: block;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  width: 800px;
+}
+
+.premium-invoice-container {
+  display: none;
+}
+
+.premium-invoice-container.generating-pdf,
+.premium-invoice-page {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  height: 1131px;
+  /* Exact A4 aspect ratio */
+  background: white;
+  color: #001A3A;
+  /* Force dark text so it doesn't inherit white from dark mode */
+  margin-bottom: 20px;
+  /* Space between pages when rendering off-screen */
+  padding-bottom: 30px;
+  box-sizing: border-box;
+  overflow: hidden;
+  /* Ensure nothing accidentally stretches the canvas */
+}
+
+@media print {
+  @page {
+    margin: 0;
+    size: A4;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  /* Completely remove the normal UI flow to prevent blank pages */
+  .payment-page-container,
+  header,
+  footer,
+  .wa-float-btn,
+  .qp-image-float {
+    display: none !important;
+  }
+
+  .premium-invoice-container,
+  .premium-invoice-container * {
+    visibility: visible;
+  }
+
+  .premium-invoice-container {
+    display: block !important;
+  }
+}
+
+/* Base styles for the invoice (applies for both print and PDF generation) */
+.premium-invoice-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* Header */
+.pi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  position: relative;
+  padding: 20px 0 0 20px;
+}
+
+.pi-logo-section {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pi-logo-img {
+  max-height: 120px;
+  object-fit: contain;
+  margin-bottom: 5px;
+  align-self: flex-start;
+}
+
+.pi-tagline {
+  font-size: 11px;
+  font-weight: 700;
+  color: #001A3A !important;
+  letter-spacing: 1.5px;
+  margin-top: 5px;
+  padding-left: 10px;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* Ribbon */
+.pi-ribbon-wrapper {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  width: 40%;
+  height: 160px;
+  overflow: hidden;
+}
+
+.pi-ribbon-bg {
+  background: #001A3A !important;
+  width: 150%;
+  height: 100%;
+  transform: skewX(-35deg) translateX(40px);
+  border-left: 8px solid #C8860A !important;
+  border-bottom: 8px solid #C8860A !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pi-ribbon-text {
+  position: absolute;
+  top: 50px;
+  right: 40px;
+  text-align: center;
+  color: #C8860A !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pi-title {
+  font-size: 36px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: 2px;
+  border-bottom: 1px solid rgba(200, 134, 10, 0.5);
+  padding-bottom: 8px;
+}
+
+.pi-thankyou {
+  font-size: 11px;
+  color: #fff !important;
+  margin-top: 10px;
+  font-weight: 500;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* Top Info */
+.pi-top-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.pi-separator-star {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+}
+
+.pi-section-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #001A3A !important;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pi-bill-to {
+  flex: 1.8;
+}
+
+.pi-invoice-details {
+  flex: 1.2;
+  border-left: 1px solid rgba(200, 134, 10, 0.3) !important;
+  padding-left: 25px;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pi-customer-details p {
+  margin: 3px 0;
+  font-size: 11px;
+  color: #555 !important;
+  word-break: break-all;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pi-customer-details strong {
+  font-size: 13px;
+  color: #001A3A !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pi-details-table {
+  font-size: 11px;
+  border-collapse: collapse;
+}
+
+.pi-details-table td {
+  padding: 3px 5px 3px 0;
+  color: #555 !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pi-discount-badge {
+  text-align: center;
+  border: 2px dashed #C8860A !important;
+  background: #FFF9EB !important;
+  border-radius: 12px;
+  padding: 15px 25px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pi-discount-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: #001A3A !important;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.pi-discount-value {
+  font-family: var(--font-display, 'Baloo 2', 'Arial Black', sans-serif);
+  font-size: 34px;
+  font-weight: 900;
+  color: #FF0000 !important;
+  line-height: 0.95;
+  margin: 8px 0;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+.pi-discount-subtitle {
+  font-size: 10px;
+  font-weight: 800;
+  color: #001A3A !important;
+  letter-spacing: 1.5px;
+  line-height: 1.4;
+  margin-top: 5px;
+}
+
+/* Table */
+.pi-main-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0px;
+  font-size: 11px;
+}
+
+.pi-main-table th,
+.pi-main-table td {
+  border-left: 1px solid #e0e0e0 !important;
+  border-right: 1px solid #e0e0e0 !important;
+}
+
+.pi-main-table th:first-child,
+.pi-main-table td:first-child {
+  border-left: none !important;
+}
+
+.pi-main-table th:last-child,
+.pi-main-table td:last-child {
+  border-right: none !important;
+}
+
+.pi-main-table th {
+  background: #001A3A !important;
+  color: #C8860A !important;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pi-main-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pi-main-table tbody tr:nth-child(even) {
+  background: #FFFAF0 !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pi-premium-qty {
+  font-size: 9px;
+  color: #888 !important;
+  font-style: italic;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Bottom Split */
+.pi-bottom-split {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding-top: 10px;
+}
+
+.pi-notes-section {
+  width: 45%;
+  padding-left: 10px;
+}
+
+.pi-notes-list li {
+  margin-bottom: 3px;
+}
+
+.pi-thank-you-block {
+  text-align: center;
+  margin-top: 20px;
+  color: #001A3A !important;
+}
+
+.pi-ty-script {
+  font-family: 'Brush Script MT', cursive, serif;
+  color: #C8860A !important;
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.pi-ty-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 15px;
+}
+
+.pi-ty-line {
+  height: 1px;
+  width: 60px;
+  background: #C8860A !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pi-ty-text {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.pi-ty-text strong {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.pi-ty-subtext {
+  font-size: 11px;
+  color: #555 !important;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+.pi-summary-section {
+  width: 40%;
+  background: #FFFDF4 !important;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pi-summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4a5568 !important;
+}
+
+.pi-summary-table td {
+  padding: 8px 5px;
+  border: none !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pi-sum-label {
+  text-align: left;
+}
+
+.pi-sum-savings td {
+  color: #16a34a !important;
+  font-weight: 600;
+}
+
+.pi-sum-divider hr {
+  border: none;
+  border-top: 1px solid #cbd5e1;
+  margin: 5px 0;
+}
+
+.pi-sum-divider td {
+  padding: 0 !important;
+}
+
+.pi-grand-total {
+  background: transparent !important;
+}
+
+.pi-grand-total td {
+  padding-top: 15px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #001A3A !important;
+  border: none !important;
+}
+
+/* Footer */
+.pi-footer-area {
+  display: flex;
+  justify-content: space-between;
+  background: #FFFAF0 !important;
+  padding: 20px 30px;
+  border-top: 1px solid #D4AF37 !important;
+  border-bottom: 1px solid #D4AF37 !important;
+  margin-bottom: 30px;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pi-bank-details {
+  width: 32%;
+}
+
+.pi-bank-table {
+  font-size: 12px;
+}
+
+.pi-bank-table td {
+  padding: 4px 2px;
+  border: none !important;
+  color: #444 !important;
+}
+
+.pi-payment-methods {
+  width: 32%;
+}
+
+.pi-methods-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  color: #444 !important;
+}
+
+.pi-methods-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.pi-notes-footer {
+  width: 32%;
+}
+
+.pi-notes-list-footer {
+  margin: 0;
+  padding-left: 15px;
+  font-size: 11px;
+  color: #444 !important;
+  line-height: 1.5;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.pi-notes-list-footer li {
+  margin-bottom: 5px;
+}
+
+.pi-bottom-strip {
+  background: #001A3A !important;
+  color: #fff !important;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 30px;
+  font-size: 11px;
+  font-weight: bold;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}

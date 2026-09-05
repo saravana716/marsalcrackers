@@ -1,0 +1,88 @@
+/* src/index.css */
+@import './styles/variables.css';
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: inherit;
+  transition: var(--transition-smooth);
+}
+
+a:hover {
+  color: var(--color-text-white);
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Base layout wrappers */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--color-bg-dark);
+}
+
+.main-content {
+  flex-grow: 1;
+}
+
+/* Firework Background Effect */
+.fireworks-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+.fireworks-bg::before,
+.fireworks-bg::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  box-shadow: 
+    200px 300px #001A3A, 
+    400px 150px #FFD700, 
+    100px 500px #00FFFF, 
+    800px 200px #FF00FF, 
+    600px 400px #00FF00, 
+    900px 600px #FF9F43, 
+    300px 700px #FFD700, 
+    700px 100px #001A3A;
+  animation: spark 8s infinite ease-in-out;
+}
+
+.fireworks-bg::after {
+  animation-delay: 4s;
+  box-shadow: 
+    150px 250px #FFD700, 
+    350px 350px #00FFFF, 
+    550px 150px #001A3A, 
+    750px 500px #00FF00, 
+    950px 300px #FF00FF, 
+    50px 600px #FF9F43, 
+    500px 650px #FFD700, 
+    850px 150px #001A3A;
+}

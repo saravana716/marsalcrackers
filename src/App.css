@@ -1,0 +1,11 @@
+/* src/App.css */
+/* Global wrapper adjustments */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex-grow: 1;
+}

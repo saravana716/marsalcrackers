@@ -1,0 +1,15 @@
+/* CountdownFireworks.css */
+
+.countdown-fireworks-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* allow clicks through */
+  z-index: 9999;
+  /* background dim removed for clearer view */
+  background: transparent;
+  /* backdrop blur removed */
+  backdrop-filter: none;
+}

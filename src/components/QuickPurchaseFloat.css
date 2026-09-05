@@ -1,0 +1,52 @@
+/* src/components/QuickPurchaseFloat.css */
+
+.qp-float-btn.qp-image-float {
+  position: fixed;
+  bottom: 25px;
+  left: 25px; /* Opposite side of WhatsApp float */
+  z-index: 999;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qp-float-image-el {
+  height: 170px; /* Clean size that stands out but fits the screen layout */
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(255, 140, 0, 0.45));
+  transition: transform 0.2s ease;
+  animation: qpPulseZoom 2s infinite ease-in-out;
+}
+
+.qp-float-btn:hover .qp-float-image-el {
+  animation-play-state: paused; /* Pause pulsation on hover so user can click stably */
+  transform: scale(1.12);
+}
+
+@keyframes qpPulseZoom {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 4px 10px rgba(255, 140, 0, 0.45));
+  }
+  50% {
+    transform: scale(1.12);
+    filter: drop-shadow(0 8px 20px rgba(255, 140, 0, 0.65));
+  }
+}
+
+@media (max-width: 768px) {
+  .qp-float-btn.qp-image-float {
+    bottom: 20px;
+    left: 15px;
+  }
+  
+  .qp-float-image-el {
+    height: 65px; /* Standout mobile height */
+  }
+}
