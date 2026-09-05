@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Phone, Mail, MapPin, Send, Clock } from 'lucide-react';
 import './ContactUs.css';
-import contactbanner from "../assets/contact.jpeg"
+import contactbanner from "../assets/contact.png"
 const INFO_CARDS = [
   {
     icon: <Phone size={24} />,

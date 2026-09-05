@@ -10,11 +10,11 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import './AboutUs.css';
 import logoImg from '../assets/mylogo.png';
-import visionImg from '../assets/vi.jpeg';
-import missionImg from '../assets/mission.jpeg';
+import visionImg from '../assets/vision.png';
+import missionImg from '../assets/mission.png';
 import productBgImg from '../assets/premium_photo-1731329153268-40b257da9240.jpeg';
-import bannerBgImg from '../assets/about.jpeg';
-import ctaBgImg from '../assets/nihal-prabhudesai-YVgpxEQOdjY-unsplash.jpeg';
+import bannerBgImg from '../assets/about.png';
+import ctaBgImg from '../assets/b1.png';
 import FireworkBurst from './FireworkBurst';
 
 // Shop Images
