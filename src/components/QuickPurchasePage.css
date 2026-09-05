@@ -301,13 +301,11 @@
   margin: 0 auto;
   transition: all 0.2s ease;
   color: #f5c518;
-  text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
 }
 
 .qp-add-btn:hover {
   background: #d4af37;
   color: #0d0a00;
-  text-shadow: none;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35);
 }
