@@ -1,8 +1,8 @@
 /* src/components/QuickPurchasePage.css */
 
 .quick-purchase-section {
-  padding-top: 10px; /* Reduced from 80px to remove white space */
-  background-color: #FFFAF0;
+  padding-top: 10px;
+  background: linear-gradient(180deg, #0d0a00 0%, #1a1400 100%);
   min-height: 100vh;
   padding-bottom: 60px;
 }
@@ -11,11 +11,11 @@
 .quick-purchase-summary-sticky {
   position: sticky;
   top: var(--header-height, 134px);
-  background: #EAEAEA;
-  border-bottom: 1px solid #D0D0D0;
+  background: #1a1400;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
   z-index: 100;
   padding: 10px 0;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .qp-summary-container {
@@ -42,40 +42,42 @@
   font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 1.1rem;
   font-weight: 700;
-  color: #333333;
+  color: #fff8e7;
 }
 
 .qp-summary-val {
-  background: #800000;
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #d4af37, #f5c518);
+  color: #0d0a00;
   padding: 4px 12px;
   border-radius: 4px;
   font-family: monospace;
   font-size: 1.1rem;
+  font-weight: 800;
 }
 
 .original-val {
-  background: #7F8C8D;
+  background: rgba(255, 248, 231, 0.15);
+  color: rgba(255, 248, 231, 0.5);
   text-decoration: line-through;
 }
 
 .qp-min-order-alert-desktop {
-  color: #d9534f;
+  color: #f5a623;
   font-size: 0.9rem;
   font-weight: 600;
-  background-color: #fdf3f2;
+  background-color: rgba(245, 166, 35, 0.1);
   padding: 8px 16px;
   border-radius: 6px;
-  border: 1px solid #f5c6cb;
+  border: 1px solid rgba(245, 166, 35, 0.3);
   display: flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 2px 5px rgba(217, 83, 79, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .qp-sticky-checkout-btn {
-  background: #F5B51B; /* Matches site CTA color */
-  color: #001A3A;
+  background: linear-gradient(135deg, #d4af37 0%, #f5c518 100%);
+  color: #0d0a00;
   border: none;
   border-radius: 6px;
   padding: 8px 20px;
@@ -85,17 +87,17 @@
   transition: all 0.2s ease;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  box-shadow: 0 4px 12px rgba(245, 181, 27, 0.25);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35);
 }
 
 .qp-sticky-checkout-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(245, 181, 27, 0.4);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
 }
 
 .qp-sticky-checkout-btn:disabled {
-  background: #BDC3C7;
-  color: #7F8C8D;
+  background: rgba(255, 248, 231, 0.1);
+  color: rgba(255, 248, 231, 0.3);
   cursor: not-allowed;
   box-shadow: none;
 }
@@ -110,7 +112,7 @@
 .quick-purchase-container {
   max-width: 100%;
   margin: 20px auto 0;
-  padding: 0; /* Full width */
+  padding: 0;
 }
 
 .qp-header {
@@ -122,22 +124,25 @@
 .qp-title {
   font-family: var(--font-display, 'Baloo 2', sans-serif);
   font-size: 2.2rem;
-  color: #1A1A1A;
+  background: linear-gradient(135deg, #f5a623 0%, #d4af37 50%, #f5c518 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 5px;
 }
 
 .qp-subtitle {
-  color: #666666;
+  color: rgba(255, 248, 231, 0.65);
   font-size: 1rem;
 }
 
 /* Wholesale Table */
 .qp-table-wrapper {
-  background: #FFFFFF;
-  border-top: 2px solid #800000;
-  border-bottom: 2px solid #800000;
+  background: #120e00;
+  border-top: 2px solid rgba(212, 175, 55, 0.4);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.4);
   border-radius: 0;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .qp-wholesale-table {
@@ -145,30 +150,36 @@
   border-collapse: collapse;
   text-align: center;
   font-family: var(--font-body, 'Inter', sans-serif);
-  table-layout: fixed; /* Dynamic alignment allocation */
+  table-layout: fixed;
 }
 
 .qp-wholesale-table th,
 .qp-wholesale-table td {
   padding: 12px 15px;
-  border: 1px solid #D0D0D0;
+  border: 1px solid rgba(212, 175, 55, 0.15);
 }
 
 .qp-wholesale-table thead th {
-  background: #4A148C; /* Purple header */
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #1a1400 0%, #2a1e00 100%);
+  color: #d4af37;
   font-weight: 700;
   font-size: 1.05rem;
   text-transform: capitalize;
+  border-bottom: 2px solid rgba(212, 175, 55, 0.4);
 }
 
 /* Category Header Row */
 .qp-category-header-row {
-  background: #8B0000; /* Dark Red */
+  background: linear-gradient(90deg, #1a1400 0%, #2a1e00 100%);
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .qp-category-header-cell {
-  color: #FFD700; /* Gold Text */
+  background: linear-gradient(135deg, #f5a623 0%, #d4af37 50%, #f5c518 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 800;
   font-size: 1.1rem;
   text-align: center;
@@ -177,20 +188,20 @@
 
 /* Product Rows */
 .qp-product-row {
-  background: #FFFFCC; /* Yellow background like screenshot */
+  background: #0d0a00;
   transition: background 0.2s;
 }
 
 .qp-product-row:hover {
-  background: #FFFACD;
+  background: #1a1400;
 }
 
 /* Image Box */
 .qp-img-box {
   width: 50px;
   height: 50px;
-  background: #FFFFFF;
-  border: 1px solid #E5E7EB;
+  background: rgba(212, 175, 55, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
   border-radius: 4px;
   margin: 0 auto;
   display: flex;
@@ -201,7 +212,7 @@
 
 /* Columns */
 .qp-col-img { width: 8%; }
-.qp-col-name { width: 44%; text-align: left; font-weight: 600; color: #333333; }
+.qp-col-name { width: 44%; text-align: left; font-weight: 600; color: #fff8e7; }
 .qp-col-actual { width: 12%; }
 .qp-col-price { width: 11%; }
 .qp-col-qty { width: 11%; }
@@ -217,33 +228,36 @@
 
 .qp-strike-price {
   text-decoration: line-through;
-  color: #555555;
+  color: rgba(255, 248, 231, 0.4);
   font-weight: 600;
 }
 
 .qp-unit-text {
   font-size: 0.85rem;
-  color: #666666;
+  color: rgba(255, 248, 231, 0.5);
 }
 
 .qp-discounted-price {
   font-weight: 700;
-  color: #333333;
+  color: #fff8e7;
   font-size: 1.1rem;
 }
 
 .qp-row-total {
   font-weight: 800;
-  color: #8B0000;
+  background: linear-gradient(135deg, #f5a623, #f5c518);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Quantity Controls (Replacing Input) */
+/* Quantity Controls */
 .qp-qty-control-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #FFFFFF;
-  border: 1px solid #800000;
+  background: #1a1400;
+  border: 1px solid rgba(212, 175, 55, 0.4);
   border-radius: 4px;
   overflow: hidden;
   height: 35px;
@@ -252,8 +266,8 @@
 }
 
 .qp-qty-ctrl-btn {
-  background: #FFF0F0;
-  color: #800000;
+  background: rgba(212, 175, 55, 0.1);
+  color: #d4af37;
   border: none;
   width: 30px;
   height: 100%;
@@ -267,8 +281,8 @@
 }
 
 .qp-qty-ctrl-btn:hover {
-  background: #800000;
-  color: #FFFFFF;
+  background: #d4af37;
+  color: #0d0a00;
 }
 
 .qp-qty-ctrl-val {
@@ -276,13 +290,13 @@
   text-align: center;
   font-weight: 700;
   font-size: 1.1rem;
-  color: #333333;
+  color: #fff8e7;
   min-width: 30px;
 }
 
 .qp-add-btn {
-  background: #800000;
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #d4af37, #f5c518);
+  color: #0d0a00;
   border: none;
   border-radius: 4px;
   height: 35px;
@@ -298,8 +312,9 @@
 }
 
 .qp-add-btn:hover {
-  background: #A00000;
+  background: linear-gradient(135deg, #f5a623, #d4af37);
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
 
 .qp-product-desc-mobile-only {
@@ -317,7 +332,7 @@
     padding: 0 10px;
   }
   .qp-title {
-    font-size: 1.5rem; /* Reduced from 2.2rem */
+    font-size: 1.5rem;
     margin-bottom: 2px;
   }
   .qp-subtitle {
@@ -325,7 +340,7 @@
   }
   
   .quick-purchase-container {
-    padding-top: 85px; /* Offset for the fixed summary wrapper so text isn't hidden */
+    padding-top: 85px;
   }
   
   .quick-purchase-summary-sticky {
@@ -341,25 +356,26 @@
   
   .qp-mobile-bottom-wrapper {
     position: fixed;
-    top: var(--header-height, 64px); /* Fixed immediately below header */
+    top: var(--header-height, 64px);
     left: 0;
     right: 0;
     width: 100%;
     z-index: 900;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    background: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    background: #1a1400;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
     display: flex;
     flex-direction: column;
   }
 
   .qp-min-order-alert-mobile {
-    color: #d9534f;
+    color: #f5a623;
     font-size: 0.75rem;
     font-weight: 600;
-    background-color: #fdf3f2;
+    background-color: rgba(245, 166, 35, 0.1);
     padding: 6px 12px;
     text-align: center;
-    border-bottom: 1px solid #f5c6cb;
+    border-bottom: 1px solid rgba(245, 166, 35, 0.2);
     width: 100%;
   }
   
@@ -383,15 +399,15 @@
   }
   
   .mobile-item-count {
-    color: #1A1A1A;
+    color: #fff8e7;
   }
   
   .mobile-dot-separator {
-    color: #999;
+    color: rgba(212, 175, 55, 0.4);
   }
   
   .mobile-total-price {
-    color: #E63946;
+    color: #d4af37;
   }
   
   .mobile-bottom-actions {
@@ -401,9 +417,9 @@
   }
   
   .mobile-clear-btn {
-    background: #FFFFFF;
-    color: #2C3E50;
-    border: 1px solid #BDC3C7;
+    background: transparent;
+    color: rgba(255, 248, 231, 0.7);
+    border: 1px solid rgba(255, 248, 231, 0.2);
     border-radius: 4px;
     padding: 8px 12px;
     font-weight: 700;
@@ -412,31 +428,32 @@
   }
   
   .mobile-order-btn {
-    background: #E65100;
-    color: #FFFFFF;
+    background: linear-gradient(135deg, #d4af37, #f5c518);
+    color: #0d0a00;
     border: none;
     border-radius: 4px;
     padding: 8px 16px;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 0.9rem;
     cursor: pointer;
   }
   
   .mobile-order-btn:disabled {
-    background: #BDC3C7;
+    background: rgba(255, 248, 231, 0.1);
+    color: rgba(255, 248, 231, 0.3);
     cursor: not-allowed;
   }
 
-  /* Ultra-compact table for mobile to prevent horizontal scrolling */
+  /* Ultra-compact table for mobile */
   .qp-wholesale-table {
-    table-layout: fixed; /* Ensures strict percentage-based alignment */
+    table-layout: fixed;
     width: 100%;
   }
 
   .qp-wholesale-table th,
   .qp-wholesale-table td {
     padding: 6px 2px;
-    word-break: break-word; /* Allow wrapping */
+    word-break: break-word;
   }
 
   .qp-wholesale-table thead th {
@@ -460,7 +477,6 @@
     margin: 0 auto;
   }
 
-  /* Column adjustments for mobile - perfectly neat fixed alignment */
   .qp-col-name { 
     width: 25%;
     font-size: 0.7rem; 
@@ -474,7 +490,6 @@
   .qp-col-qty { width: 20%; }
   .qp-col-total { width: 22%; }
 
-  /* Text scaling */
   .qp-strike-price {
     font-size: 0.75rem;
   }
@@ -486,12 +501,11 @@
   }
   .qp-row-total {
     font-size: 0.75rem;
-    word-break: break-all; /* Let very large numbers break to next line instead of expanding table */
+    word-break: break-all;
     display: inline-block;
     max-width: 100%;
   }
 
-  /* Quantity Controls Mobile */
   .qp-qty-control-wrapper {
     width: 100%;
     max-width: 75px;
@@ -521,7 +535,6 @@
 }
 
 @media (max-width: 400px) {
-  /* Extreme squish for very small phones like iPhone SE */
   .qp-summary-container.desktop-summary {
     padding: 6px 8px;
   }

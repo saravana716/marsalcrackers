@@ -1,0 +1,243 @@
+/* src/components/FamilyCombos.css */
+
+.family-combos-section {
+  padding: 80px 5%;
+  background: #0d0a00;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background gradient orb */
+.family-combos-section::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.combos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header */
+.combos-header {
+  text-align: center;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.combos-subtitle {
+  color: #d4af37;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+}
+
+.combos-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #fff8e7;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #f5a623 0%, #d4af37 50%, #f5c518 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.combos-desc {
+  font-size: 1.1rem;
+  color: rgba(255, 248, 231, 0.65);
+  max-width: 600px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Grid Layout */
+.combos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .combos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .combos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Combo Card */
+.combo-card {
+  background: linear-gradient(145deg, #1a1400 0%, #120e00 100%);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 20px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.combo-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.combo-popular {
+  border-color: rgba(212, 175, 55, 0.6);
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.08) 0%, #120e00 100%);
+  transform: scale(1.03);
+}
+
+.combo-popular:hover {
+  transform: scale(1.03) translateY(-8px);
+}
+
+@media (max-width: 900px) {
+  .combo-popular {
+    transform: none;
+  }
+  .combo-popular:hover {
+    transform: translateY(-8px);
+  }
+}
+
+.combo-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #d4af37, #f5c518);
+  color: #0d0a00;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 50px;
+  letter-spacing: 0.1em;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.combo-icon-wrap {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.combo-emoji {
+  font-size: 2rem;
+}
+
+.combo-card-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff8e7;
+  margin: 0 0 12px;
+}
+
+.combo-card-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 248, 231, 0.65);
+  line-height: 1.6;
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+
+.combo-price-tag {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #d4af37;
+  margin-bottom: 24px;
+}
+
+.combo-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.combo-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #fff8e7;
+}
+
+.check-icon {
+  width: 18px;
+  height: 18px;
+  color: #00E676; /* Kept green for checkmarks to pop */
+  flex-shrink: 0;
+}
+
+.combo-cta-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: transparent;
+  border: 2px solid #d4af37;
+  color: #d4af37;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.combo-cta-btn:hover {
+  background: #d4af37;
+  color: #0d0a00;
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.combo-popular .combo-cta-btn {
+  background: linear-gradient(135deg, #d4af37, #f5c518);
+  border: none;
+  color: #0d0a00;
+}
+
+.combo-popular .combo-cta-btn:hover {
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+}

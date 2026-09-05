@@ -5,7 +5,7 @@ import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
 import FeatureBadges from './components/FeatureBadges';
 import Categories from './components/Categories';
-import PackageCards from './components/PackageCards';
+import FamilyCombos from './components/FamilyCombos';
 import Offers from './components/Offers';
 import BestSellers from './components/BestSellers';
 import TrustBanner from './components/TrustBanner';
@@ -285,8 +285,8 @@ export default function App() {
               onResetFilters={handleResetFilters}
             />
 
-            {/* 5. PACKAGE CARDS — Gift Boxes & Family Combos replacing Offers */}
-            <PackageCards onCategorySelect={handleCategoryChange} categories={categories} />
+            {/* 5. FAMILY COMBOS — Highlights gift boxes and big packs */}
+            <FamilyCombos onCategorySelect={handleCategoryChange} categories={categories} />
 
 
 
