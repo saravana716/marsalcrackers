@@ -12,7 +12,7 @@
 /* Top Promo Bar - Split 3 Columns Layout */
 .top-promo-bar {
   background: #feda6a; /* Vibrant Yellow background to grab attention first */
-  color: #1d1e22; /* Pure black text for high contrast readability */
+  color: #000000; /* Pure black text for high contrast readability */
   padding: 12px 5%; /* Standardized side margins */
   font-size: 0.8rem; /* Highly legible */
   font-weight: 800;
@@ -85,8 +85,7 @@
 
 /* Main Header Row - Unified Single Row */
 .main-header {
-  background: linear-gradient(135deg, #030616 0%, #271664 50%, #8B1E8F 75%, #FF167F 100%);
-
+  background: #1d1e22;
   backdrop-filter: var(--backdrop-blur);
   padding: 16px 5%; /* Standardized side margins */
   display: flex;
@@ -349,8 +348,16 @@
 
 /* Premium Solid Gold Block CTA Button */
 .whatsapp-solid-btn {
-  background: #070B19; /* Solid gold */
-  color: #ffffff; /* Navy text */
+  background: linear-gradient(
+  180deg,
+  #FFF49E 0%,
+  #FFD244 25%,
+  #F4AE00 50%,
+  #C46B07 75%,
+  #A65A06 100%
+);
+
+  color: #070B19; /* Navy text */
   font-weight: 800;
   font-size: 0.8rem; /* Matching neat button text */
   text-transform: uppercase;
@@ -366,7 +373,7 @@
 }
 
 .whatsapp-solid-btn:hover {
-  background: #FFFFFF;
+  background: #B8860B;
   color: #070B19;
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(255, 255, 255, 0.2);

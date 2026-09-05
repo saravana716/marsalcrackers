@@ -1,7 +1,7 @@
 // src/components/Header.jsx
 import React, { useState, useEffect } from 'react';
 import { ShoppingCart, Search, ChevronDown, Sparkles, X, Menu, Home, Grid, Download } from 'lucide-react';
-import logoImg from '../assets/logo.png';
+import logoImg from '../assets/lo.png';
 import './Header.css';
 
 export default function Header({
