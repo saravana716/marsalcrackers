@@ -18,6 +18,7 @@ import Feedback from './components/Feedback';
 import FestiveCountdown from './components/FestiveCountdown';
 import SafetyGuide from './components/SafetyGuide';
 import FAQAccordion from './components/FAQAccordion';
+import WhyChooseUs from './components/WhyChooseUs';
 import ProductsPage from './components/ProductsPage';
 import QuickPurchasePage from './components/QuickPurchasePage';
 import QuickPurchaseFloat from './components/QuickPurchaseFloat';
@@ -258,6 +259,8 @@ export default function App() {
               onShopNowClick={() => handleCategoryChange('all')}
               minOrderAmount={minOrderAmount}
             />
+            
+            {/* NEW: FLASH SALE BANNER — High conversion attractive section */}
 
             {/* 2. FEATURE BADGES — Instant trust: delivery, quality, safety */}
             <FeatureBadges />
@@ -285,11 +288,13 @@ export default function App() {
             {/* 5. PACKAGE CARDS — Gift Boxes & Family Combos replacing Offers */}
             <PackageCards onCategorySelect={handleCategoryChange} categories={categories} />
 
-            {/* 6. FESTIVE COUNTDOWN — Urgency/FOMO trigger for Diwali */}
-            <FestiveCountdown />
+
 
             {/* 4. TRUST BANNER — Guarantees to remove purchase hesitation */}
             <TrustBanner />
+
+            {/* WHY CHOOSE US — New attractive section to convert customers */}
+            <WhyChooseUs />
 
             {/* 5. SAFETY GUIDE — Educational value, positions brand as responsible */}
             <SafetyGuide />

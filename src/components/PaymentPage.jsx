@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { ShieldCheck, Download, CheckCircle, ArrowLeft, Copy, CheckCheck } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
@@ -114,7 +114,7 @@ function PaymentFlipCard({ method }) {
           <h3 className="pay-card-title">{method.frontTitle}</h3>
           <p className="pay-card-sub">{method.frontSub}</p>
           <div className="pay-card-hint">
-            <span>↻</span> {method.frontHint}
+            <span>â†»</span> {method.frontHint}
           </div>
         </div>
 
@@ -139,11 +139,11 @@ function PaymentFlipCard({ method }) {
             ))}
           </div>
           <div className="pay-back-note">
-            <span>ℹ</span> {method.backNote}
+            <span>â„¹</span> {method.backNote}
           </div>
           <div className="pay-back-footer">
             <span className="pay-back-status">{method.backBadge}</span>
-            <span className="pay-back-brand">Sai Sparkz Hub</span>
+            <span className="pay-back-brand">Marsal Traders</span>
           </div>
         </div>
       </div>
@@ -391,7 +391,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
         {paymentStatus === 'verifying' && (
           <div className="pay-verifying-fullscreen">
             <div className="pay-spinner" />
-            <h3>Processing Order & Generating Invoice…</h3>
+            <h3>Processing Order & Generating Invoiceâ€¦</h3>
             <p>Please do not refresh the page or navigate away.</p>
           </div>
         )}
@@ -430,7 +430,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
               {/* Amount */}
               <div className="pay-amount-row">
                 <span className="pay-amount-label">Amount to Pay</span>
-                <span className="pay-amount-value">₹{orderData.netTotal.toFixed(2)}</span>
+                <span className="pay-amount-value">â‚¹{orderData.netTotal.toFixed(2)}</span>
               </div>
 
               {/* Section heading */}
@@ -450,7 +450,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
 
               {/* Verify Button */}
               <button className="pay-verify-btn" onClick={handlePlaceOrder} disabled={paymentStatus === 'verifying'}>
-                <ShieldCheck size={20} /> Place Order (₹{orderData.netTotal.toFixed(2)})
+                <ShieldCheck size={20} /> Place Order (â‚¹{orderData.netTotal.toFixed(2)})
               </button>
             </div>
           </>
@@ -470,7 +470,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                 {/* Header Strip with Angled Ribbon (Always show on first page) */}
                 <div className="pi-header">
                   <div className="pi-logo-section">
-                    <img src={logoImg} alt="Sai Sparkz Hub Logo" className="pi-logo-img" />
+                    <img src={logoImg} alt="Marsal Traders Logo" className="pi-logo-img" />
                     <div className="pi-tagline">LIGHTING HAPPINESS, IGNITING CELEBRATIONS</div>
                   </div>
                   <div className="pi-ribbon-wrapper">
@@ -485,7 +485,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                 {/* Top Info Columns */}
                 <div className="pi-top-info">
                   <div className="pi-bill-to">
-                    <div className="pi-section-title"><span className="pi-icon">👤</span> BILL TO</div>
+                    <div className="pi-section-title"><span className="pi-icon">ðŸ‘¤</span> BILL TO</div>
                     <div className="pi-customer-details">
                       <strong>{orderData.customer.fullName}</strong>
                       <p>{orderData.customer.address}</p>
@@ -503,7 +503,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                   </div>
 
                   <div className="pi-invoice-details">
-                    <div className="pi-section-title"><span className="pi-icon">📄</span> INVOICE DETAILS</div>
+                    <div className="pi-section-title"><span className="pi-icon">ðŸ“„</span> INVOICE DETAILS</div>
                     <table className="pi-details-table">
                       <tbody>
                         <tr><td>Invoice No.</td><td>:</td><td>{orderData.orderId}</td></tr>
@@ -537,9 +537,9 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                   <th>#</th>
                   <th>DESCRIPTION</th>
                   <th className="text-center">QTY</th>
-                  <th className="text-right">MRP (₹)</th>
-                  <th className="text-right">NET PRICE (₹)</th>
-                  <th className="text-right">TOTAL (₹)</th>
+                  <th className="text-right">MRP (â‚¹)</th>
+                  <th className="text-right">NET PRICE (â‚¹)</th>
+                  <th className="text-right">TOTAL (â‚¹)</th>
                 </tr>
               </thead>
               <tbody>
@@ -582,7 +582,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                       </svg>
                       <span className="pi-ty-line"></span>
                     </div>
-                    <div className="pi-ty-text">Thank you for shopping with<br /><strong>Sai Sparkz Hub!</strong></div>
+                    <div className="pi-ty-text">Thank you for shopping with<br /><strong>Marsal Traders!</strong></div>
                     <div className="pi-ty-subtext">This is a computer generated invoice<br />and does not require a physical signature.</div>
                   </div>
                 </div>
@@ -592,22 +592,22 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                     <tbody>
                       <tr>
                         <td className="pi-sum-label">Total MRP:</td>
-                        <td className="text-right">₹{(orderData.originalTotal).toFixed(2)}</td>
+                        <td className="text-right">â‚¹{(orderData.originalTotal).toFixed(2)}</td>
                       </tr>
                       <tr className="pi-sum-savings">
                         <td className="pi-sum-label">Total Savings:</td>
-                        <td className="text-right">- ₹{orderData.savings.toFixed(2)}</td>
+                        <td className="text-right">- â‚¹{orderData.savings.toFixed(2)}</td>
                       </tr>
                       <tr>
                         <td className="pi-sum-label">Subtotal:</td>
-                        <td className="text-right">₹{(orderData.subTotal).toFixed(2)}</td>
+                        <td className="text-right">â‚¹{(orderData.subTotal).toFixed(2)}</td>
                       </tr>
                       <tr className="pi-sum-divider">
                         <td colSpan="2"><hr /></td>
                       </tr>
                       <tr className="pi-grand-total">
                         <td className="pi-sum-label">Net Amount Payable:</td>
-                        <td className="text-right">₹{orderData.netTotal.toFixed(2)}</td>
+                        <td className="text-right">â‚¹{orderData.netTotal.toFixed(2)}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -622,7 +622,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                 <>
                   <div className="pi-footer-area">
                     <div className="pi-bank-details">
-                      <div className="pi-section-title"><span className="pi-icon">🏛️</span> BANK DETAILS</div>
+                      <div className="pi-section-title"><span className="pi-icon">ðŸ›ï¸</span> BANK DETAILS</div>
                       <table className="pi-bank-table">
                         <tbody>
                           <tr><td>Bank Name</td><td>:</td><td>State Bank of India</td></tr>
@@ -635,16 +635,16 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                     </div>
 
                     <div className="pi-payment-methods">
-                      <div className="pi-section-title"><span className="pi-icon">⚡</span> PAYMENT METHOD</div>
+                      <div className="pi-section-title"><span className="pi-icon">âš¡</span> PAYMENT METHOD</div>
                       <ul className="pi-methods-list">
-                        <li><span className="pi-method-icon">📱</span> UPI / QR Code</li>
-                        <li><span className="pi-method-icon">🏦</span> Bank Transfer</li>
-                        <li><span className="pi-method-icon">💵</span> Cash / Cheque</li>
+                        <li><span className="pi-method-icon">ðŸ“±</span> UPI / QR Code</li>
+                        <li><span className="pi-method-icon">ðŸ¦</span> Bank Transfer</li>
+                        <li><span className="pi-method-icon">ðŸ’µ</span> Cash / Cheque</li>
                       </ul>
                     </div>
 
                     <div className="pi-notes-footer">
-                      <div className="pi-section-title"><span className="pi-icon">📝</span> NOTES</div>
+                      <div className="pi-section-title"><span className="pi-icon">ðŸ“</span> NOTES</div>
                       <ul className="pi-notes-list-footer">
                         <li>Goods once sold will not be taken back.</li>
                         <li>Please check the items before purchase.</li>
@@ -657,9 +657,9 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
 
                   {/* Bottom Dark Strip */}
                   <div className="pi-bottom-strip">
-                    <div>📞 +91 89400 98344</div>
-                    <div>✉️ saisparkzhub@gmail.com</div>
-                    <div>📍 Sivakasi, Tamil Nadu - 626123</div>
+                    <div>ðŸ“ž +91 89400 98344</div>
+                    <div>âœ‰ï¸ saisparkzhub@gmail.com</div>
+                    <div>ðŸ“ Sivakasi, Tamil Nadu - 626123</div>
                   </div>
                 </>
               )}
@@ -675,3 +675,4 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
     </>
   );
 }
+

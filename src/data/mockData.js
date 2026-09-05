@@ -1,4 +1,4 @@
-// src/data/mockData.js
+﻿// src/data/mockData.js
 
 export const categories = [
   { id: 'sparklers', name: 'Sparklers', iconName: 'sparklers', color: '#FFD700' },
@@ -121,7 +121,7 @@ export const products = [
   },
   {
     id: 9,
-    name: 'Sai Sparkz Ultimate Festival Pack',
+    name: 'Marsal Traders Ultimate Festival Pack',
     category: 'combo-packs',
     price: 1999.00,
     originalPrice: 2999.00,
@@ -146,3 +146,4 @@ export const products = [
     safetyInfo: 'For use by kids 5+ under direct adult supervision. Wear cotton clothing.'
   }
 ];
+

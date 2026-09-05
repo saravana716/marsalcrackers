@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import './LegalPage.css';
 
 const legalContent = {
@@ -7,7 +7,7 @@ const legalContent = {
     lastUpdated: 'August 29, 2026',
     content: (
       <>
-        <p>Sai Sparkz Hub (“we”, “us”, or “our”) respects your privacy and is committed to protecting the information you share with us.</p>
+        <p>Marsal Traders (â€œweâ€, â€œusâ€, or â€œourâ€) respects your privacy and is committed to protecting the information you share with us.</p>
         <p>This Privacy Policy explains how we collect, use, and protect your information when you visit or interact with our website.</p>
         
         <h3>1. Information We Collect</h3>
@@ -60,7 +60,7 @@ const legalContent = {
         <h3>9. Contact Us</h3>
         <p>For questions regarding this Privacy Policy, please contact:</p>
         <p>
-          <strong>Sai Sparkz Hub</strong><br />
+          <strong>Marsal Traders</strong><br />
           Phone: +91 89400 98344<br />
           Email: saisparkzhub@gmail.com<br />
           Address: Virudhunagar to sivakasi main road, near kia show room, opposite to nayara bulk, amathur, 626005
@@ -73,10 +73,10 @@ const legalContent = {
     lastUpdated: 'August 29, 2026',
     content: (
       <>
-        <p>Welcome to Sai Sparkz Hub. By accessing or using this website, you agree to the following Terms & Conditions.</p>
+        <p>Welcome to Marsal Traders. By accessing or using this website, you agree to the following Terms & Conditions.</p>
         
         <h3>1. Website Purpose</h3>
-        <p>This website is intended to provide information about fireworks, crackers, product varieties, brands, prices and related services offered by Sai Sparkz Hub.</p>
+        <p>This website is intended to provide information about fireworks, crackers, product varieties, brands, prices and related services offered by Marsal Traders.</p>
         <p>Product information displayed on the website may be subject to availability and applicable laws and regulations.</p>
         
         <h3>2. Product Information</h3>
@@ -86,12 +86,12 @@ const legalContent = {
           <li>Packaging may change depending on the manufacturer.</li>
           <li>Product availability may change without prior notice.</li>
           <li>Prices may change due to market conditions, taxes, transportation or other factors.</li>
-          <li>Displayed prices should be confirmed with Sai Sparkz Hub before placing an order.</li>
+          <li>Displayed prices should be confirmed with Marsal Traders before placing an order.</li>
         </ul>
         
         <h3>3. Enquiries and Orders</h3>
         <p>Submitting an enquiry through the website, phone or WhatsApp does not automatically constitute confirmation of an order.</p>
-        <p>Orders, availability, pricing, payment, delivery and other conditions must be confirmed by Sai Sparkz Hub.</p>
+        <p>Orders, availability, pricing, payment, delivery and other conditions must be confirmed by Marsal Traders.</p>
         <p>We reserve the right to accept or decline an enquiry or order where required by law or business requirements.</p>
         
         <h3>4. Legal Compliance</h3>
@@ -100,16 +100,16 @@ const legalContent = {
         
         <h3>5. Pricing</h3>
         <p>Prices displayed on the website are subject to change without prior notice.</p>
-        <p>The final applicable price will be communicated and confirmed by Sai Sparkz Hub before an order is finalized.</p>
+        <p>The final applicable price will be communicated and confirmed by Marsal Traders before an order is finalized.</p>
         
         <h3>6. Intellectual Property</h3>
-        <p>All website content, including logos, images, graphics, text, designs and other materials, belongs to Sai Sparkz Hub or its respective owners and may not be copied, reproduced or used without permission.</p>
+        <p>All website content, including logos, images, graphics, text, designs and other materials, belongs to Marsal Traders or its respective owners and may not be copied, reproduced or used without permission.</p>
         
         <h3>7. Website Availability</h3>
         <p>We make reasonable efforts to keep the website available and updated. However, we do not guarantee that the website will always be available, error-free or uninterrupted.</p>
         
         <h3>8. Limitation of Liability</h3>
-        <p>Sai Sparkz Hub shall not be responsible for losses arising from inaccurate third-party information, website interruptions, unauthorized access, events beyond our reasonable control, or misuse of products.</p>
+        <p>Marsal Traders shall not be responsible for losses arising from inaccurate third-party information, website interruptions, unauthorized access, events beyond our reasonable control, or misuse of products.</p>
         
         <h3>9. Changes to Terms</h3>
         <p>We reserve the right to modify these Terms & Conditions at any time. Updated terms will be published on this page.</p>
@@ -117,7 +117,7 @@ const legalContent = {
         <h3>10. Contact</h3>
         <p>For questions regarding these Terms & Conditions:</p>
         <p>
-          <strong>Sai Sparkz Hub</strong><br />
+          <strong>Marsal Traders</strong><br />
           Phone: +91 89400 98344<br />
           Email: saisparkzhub@gmail.com<br />
           Address: Virudhunagar to sivakasi main road, near kia show room, opposite to nayara bulk, amathur, 626005
@@ -130,7 +130,7 @@ const legalContent = {
     lastUpdated: 'August 29, 2026',
     content: (
       <>
-        <p>Sai Sparkz Hub follows all applicable laws and regulations relating to the transportation, handling and delivery of fireworks.</p>
+        <p>Marsal Traders follows all applicable laws and regulations relating to the transportation, handling and delivery of fireworks.</p>
         
         <h3>1. Delivery Availability</h3>
         <p>Delivery availability depends on:</p>
@@ -156,7 +156,7 @@ const legalContent = {
         <p>The customer may be required to provide identification, address or other information where legally required.</p>
         
         <h3>5. Delays</h3>
-        <p>Sai Sparkz Hub shall not be responsible for delays caused by circumstances beyond our reasonable control, including:</p>
+        <p>Marsal Traders shall not be responsible for delays caused by circumstances beyond our reasonable control, including:</p>
         <ul>
           <li>Government restrictions</li>
           <li>Transportation restrictions</li>
@@ -169,17 +169,17 @@ const legalContent = {
         </ul>
         
         <h3>6. Damaged or Missing Products</h3>
-        <p>If a legally permitted delivery is received with visible damage or missing items, the customer should contact Sai Sparkz Hub as soon as possible with relevant details and photographs where applicable.</p>
+        <p>If a legally permitted delivery is received with visible damage or missing items, the customer should contact Marsal Traders as soon as possible with relevant details and photographs where applicable.</p>
         <p>Any resolution will be subject to verification and applicable laws.</p>
         
         <h3>7. Important Fireworks Restriction</h3>
         <p>Fireworks cannot be transported or delivered through methods that are prohibited by applicable laws or safety regulations.</p>
-        <p>Sai Sparkz Hub will not arrange or facilitate any delivery that violates applicable laws.</p>
+        <p>Marsal Traders will not arrange or facilitate any delivery that violates applicable laws.</p>
         
         <h3>8. Contact Us</h3>
         <p>For delivery-related enquiries:</p>
         <p>
-          <strong>Sai Sparkz Hub</strong><br />
+          <strong>Marsal Traders</strong><br />
           Phone: +91 89400 98344<br />
           Email: saisparkzhub@gmail.com
         </p>
@@ -191,14 +191,14 @@ const legalContent = {
     lastUpdated: 'August 29, 2026',
     content: (
       <>
-        <p>Sai Sparkz Hub aims to provide a clear and transparent enquiry and order process.</p>
+        <p>Marsal Traders aims to provide a clear and transparent enquiry and order process.</p>
         
         <h3>1. Cancellation of Enquiry</h3>
         <p>Product enquiries submitted through the website, phone or WhatsApp may be cancelled at any time before an order is confirmed.</p>
         
         <h3>2. Cancellation of Confirmed Orders</h3>
         <p>Cancellation of a confirmed order is subject to the order status, product availability, applicable laws and the terms communicated at the time of confirmation.</p>
-        <p>Customers should contact Sai Sparkz Hub as soon as possible if they wish to request cancellation.</p>
+        <p>Customers should contact Marsal Traders as soon as possible if they wish to request cancellation.</p>
         
         <h3>3. Refunds</h3>
         <p>Where a refund is legally applicable and approved, the refund amount and method will be communicated to the customer.</p>
@@ -215,7 +215,7 @@ const legalContent = {
         </ul>
         
         <h3>5. Damaged Products</h3>
-        <p>If a product is received damaged, the customer should contact Sai Sparkz Hub promptly with photographs and order details.</p>
+        <p>If a product is received damaged, the customer should contact Marsal Traders promptly with photographs and order details.</p>
         <p>The issue will be reviewed and handled according to applicable law and the circumstances of the case.</p>
         
         <h3>6. Regulatory Restrictions</h3>
@@ -224,7 +224,7 @@ const legalContent = {
         <h3>7. Contact Us</h3>
         <p>For cancellation or refund enquiries:</p>
         <p>
-          <strong>Sai Sparkz Hub</strong><br />
+          <strong>Marsal Traders</strong><br />
           Phone: +91 89400 98344<br />
           Email: saisparkzhub@gmail.com
         </p>
@@ -236,7 +236,7 @@ const legalContent = {
     lastUpdated: 'August 29, 2026',
     content: (
       <>
-        <p>The information provided on the Sai Sparkz Hub website is intended for general informational and product enquiry purposes.</p>
+        <p>The information provided on the Marsal Traders website is intended for general informational and product enquiry purposes.</p>
         
         <h3>1. Product Information</h3>
         <p>We make reasonable efforts to keep product names, descriptions, images and prices accurate. However, product packaging, appearance, specifications, availability and pricing may change without prior notice.</p>
@@ -244,7 +244,7 @@ const legalContent = {
         
         <h3>2. Prices</h3>
         <p>Prices displayed on the website are indicative unless specifically stated otherwise.</p>
-        <p>Customers should confirm the latest price, availability and applicable charges with Sai Sparkz Hub before placing an order.</p>
+        <p>Customers should confirm the latest price, availability and applicable charges with Marsal Traders before placing an order.</p>
         
         <h3>3. Fireworks Safety</h3>
         <p>Fireworks must always be handled and used responsibly and in accordance with the manufacturer's instructions and applicable laws.</p>
@@ -252,13 +252,13 @@ const legalContent = {
         
         <h3>4. Legal Restrictions</h3>
         <p>The availability, sale, purchase, transportation, storage and use of fireworks may be subject to restrictions under applicable laws and regulations.</p>
-        <p>Sai Sparkz Hub does not encourage or facilitate any activity that violates applicable law.</p>
+        <p>Marsal Traders does not encourage or facilitate any activity that violates applicable law.</p>
         
         <h3>5. Website Links</h3>
-        <p>Our website may contain links to third-party websites or services. Sai Sparkz Hub is not responsible for the content, availability, privacy practices or policies of third-party websites.</p>
+        <p>Our website may contain links to third-party websites or services. Marsal Traders is not responsible for the content, availability, privacy practices or policies of third-party websites.</p>
         
         <h3>6. No Guarantee</h3>
-        <p>Although we make reasonable efforts to maintain accurate information, Sai Sparkz Hub does not guarantee that all website content will always be complete, accurate, current or free from errors.</p>
+        <p>Although we make reasonable efforts to maintain accurate information, Marsal Traders does not guarantee that all website content will always be complete, accurate, current or free from errors.</p>
         
         <h3>7. Customer Responsibility</h3>
         <p>Customers are responsible for verifying applicable laws and regulations in their location before purchasing, transporting, storing or using fireworks.</p>
@@ -266,7 +266,7 @@ const legalContent = {
         <h3>8. Contact</h3>
         <p>For any clarification regarding products or website information:</p>
         <p>
-          <strong>Sai Sparkz Hub</strong><br />
+          <strong>Marsal Traders</strong><br />
           Phone: +91 89400 98344<br />
           Email: saisparkzhub@gmail.com<br />
           Address: Virudhunagar to sivakasi main road, near kia show room, opposite to nayara bulk, amathur, 626005
@@ -296,3 +296,4 @@ export default function LegalPage({ pageType }) {
     </div>
   );
 }
+

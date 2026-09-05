@@ -1,0 +1,308 @@
+/* src/components/WhyChooseUs.css */
+
+.wcu-section {
+  padding: 90px 5%;
+  background: #0d0a00;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+/* Background glow orbs */
+.wcu-bg-orb {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wcu-orb-left {
+  top: -150px;
+  left: -150px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+}
+
+.wcu-orb-right {
+  bottom: -150px;
+  right: -150px;
+  background: radial-gradient(circle, rgba(245, 166, 35, 0.06) 0%, transparent 70%);
+}
+
+.wcu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* Header */
+.wcu-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.wcu-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #d4af37;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border-radius: 50px;
+  letter-spacing: 0.1em;
+}
+
+.wcu-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #fff8e7;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.wcu-title-highlight {
+  background: linear-gradient(135deg, #f5a623 0%, #d4af37 50%, #f5c518 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.wcu-desc {
+  font-size: 1.1rem;
+  color: rgba(255, 248, 231, 0.65);
+  max-width: 650px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Features Grid */
+.wcu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1100px) {
+  .wcu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .wcu-grid {
+    grid-template-columns: 1fr;
+  }
+  .wcu-title {
+    font-size: 2rem;
+  }
+}
+
+/* Cards */
+.wcu-card {
+  position: relative;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  background: rgba(212, 175, 55, 0.03);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+  animation: wcu-fade-in 0.5s ease both;
+  animation-delay: calc(var(--i) * 0.08s);
+}
+
+@keyframes wcu-fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.wcu-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 175, 55, 0.35);
+  background: rgba(212, 175, 55, 0.07);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 175, 55, 0.08);
+}
+
+.wcu-card-inner {
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Golden glow line on bottom of card on hover */
+.wcu-card-glow {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.wcu-card:hover .wcu-card-glow {
+  opacity: 1;
+}
+
+/* Icon Ring */
+.wcu-icon-ring {
+  width: 62px;
+  height: 62px;
+  border-radius: 16px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4af37;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.2));
+}
+
+.wcu-card:hover .wcu-icon-ring {
+  background: rgba(212, 175, 55, 0.18);
+  border-color: rgba(212, 175, 55, 0.4);
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+  transform: scale(1.05);
+}
+
+/* Stat Badge */
+.wcu-stat-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.wcu-stat-value {
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #f5a623 0%, #d4af37 50%, #f5c518 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.wcu-stat-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(212, 175, 55, 0.6);
+}
+
+/* Card text */
+.wcu-card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #fff8e7;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.wcu-card-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 248, 231, 0.55);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* Bottom CTA Strip */
+.wcu-cta-strip {
+  background: linear-gradient(135deg, rgba(40, 30, 0, 0.9) 0%, rgba(20, 15, 0, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 20px;
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.1);
+}
+
+@media (max-width: 768px) {
+  .wcu-cta-strip {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
+  }
+  .wcu-section {
+    padding: 60px 4%;
+  }
+}
+
+.wcu-cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wcu-cta-big {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff8e7;
+  display: block;
+}
+
+.wcu-cta-small {
+  font-size: 0.95rem;
+  color: rgba(255, 248, 231, 0.65);
+}
+
+.wcu-cta-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #d4af37 0%, #f5c518 100%);
+  color: #0d0a00;
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 16px 36px;
+  border-radius: 50px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.wcu-cta-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: skewX(-20deg);
+  transition: 0.6s ease;
+}
+
+.wcu-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(212, 175, 55, 0.5);
+}
+
+.wcu-cta-btn:hover::after {
+  left: 120%;
+}

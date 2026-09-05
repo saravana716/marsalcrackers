@@ -17,7 +17,7 @@ export default function Footer({ onCategoryChange, onNavigate }) {
         {/* Col 1: About */}
         <div className="footer-brand-section">
           <a href="#home" className="footer-logo" onClick={handleLogoClick}>
-            <img src={logoImg} alt="Sai Sparkz Hub Logo" className="footer-logo-image" />
+            <img src={logoImg} alt="Marsal Traders Logo" className="footer-logo-image" />
           </a>
           <p className="footer-brand-desc">
             We bring happiness, sparkle, and light to your festive celebrations with the finest, safest, and highest quality wholesale crackers directly from Sivakasi.
@@ -102,7 +102,7 @@ export default function Footer({ onCategoryChange, onNavigate }) {
       <div className="footer-bottom-bar">
         <div className="footer-bottom-content">
           <p className="footer-copyright-text">
-            © {new Date().getFullYear()} Sai Sparkz Hub. All Rights Reserved.
+            © {new Date().getFullYear()} Marsal Traders. All Rights Reserved.
           </p>
           <p className="footer-developer-text">
             Designed & Developed by Nexsun Technologies

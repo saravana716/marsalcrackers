@@ -36,7 +36,7 @@ export default function Feedback() {
       rating: 5,
       date: 'Nov 2025',
       purchase: 'Sky Shots & Bombs',
-      text: 'The Sky Shot Rockets are outstanding! They soar incredibly high and explode into bright green and gold palms. Sai Sparkz Hub is my new go-to crackers website.'
+      text: 'The Sky Shot Rockets are outstanding! They soar incredibly high and explode into bright green and gold palms. Marsal Traders is my new go-to crackers website.'
     },
     {
       id: 4,
@@ -64,7 +64,7 @@ export default function Feedback() {
         
         {/* Left Side: Summary & Static info */}
         <div className="feedback-text-side">
-          <img src={logoImg} alt="Sai Sparkz Hub Logo" className="feedback-logo" />
+          <img src={logoImg} alt="Marsal Traders Logo" className="feedback-logo" />
           <span className="feedback-sublabel">
             <Sparkles size={14} className="sparkle-gold" />
             Customer Reviews

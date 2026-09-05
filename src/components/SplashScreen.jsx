@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import logoImg from '../assets/mylogo.png';
+import logoImg from '../assets/lo.png';
 import './SplashScreen.css';
 
 export default function SplashScreen({ onComplete }) {
@@ -28,11 +28,11 @@ export default function SplashScreen({ onComplete }) {
   }, [onComplete]);
 
   const quotes = [
-    "Igniting Joy, One Spark at a Time",
-    "Light Up Your Celebrations",
-    "Premium Fireworks for Magical Nights",
-    "Let's Make Some Noise!",
-    "Bringing the Sky to Life"
+    "Welcome to Marsal Traders",
+    "Direct from Sivakasi to Your Doorstep",
+    "Experience the Golden Sparkle",
+    "The Premium Cracker Destination",
+    "Lighting Up Your Diwali Safely"
   ];
 
   const [quote] = useState(() => quotes[Math.floor(Math.random() * quotes.length)]);
@@ -40,7 +40,7 @@ export default function SplashScreen({ onComplete }) {
   return (
     <div className={`splash-screen ${isFading ? 'fade-out' : ''}`}>
       <div className="splash-content">
-        <img src={logoImg} alt="Sai Sparkz Hub" className="splash-logo" />
+        <img src={logoImg} alt="Marsal Traders" className="splash-logo" />
         <h2 className="splash-quote">{quote}</h2>
         <div className="splash-loader"></div>
       </div>

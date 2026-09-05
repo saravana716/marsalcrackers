@@ -109,7 +109,7 @@ export default function Header({
 
         {/* Left: Serif Logo Group */}
         <a href="/" className="header-logo-section" onClick={(e) => { e.preventDefault(); handleNavClick('home'); if (onResetFilters) onResetFilters(); }}>
-          <img src={logoImg} alt="Sai Sparkz Hub Logo" className="header-logo-image" />
+          <img src={logoImg} alt="Marsal Traders Logo" className="header-logo-image" />
         </a>
 
         {/* Center: Navigation Menu Links */}
@@ -179,7 +179,7 @@ export default function Header({
 
           {/* Solid Gold WhatsApp Order CTA button */}
           <a
-            href="https://wa.me/918940098344?text=Hello%20Sai%20Sparkz%20Hub,%20I%20want%20to%20order%20some%20crackers."
+            href="https://wa.me/918940098344?text=Hello%20Marsal%20Traders,%20I%20want%20to%20order%20some%20crackers."
             target="_blank"
             rel="noopener noreferrer"
             className="whatsapp-solid-btn"
@@ -197,7 +197,7 @@ export default function Header({
         <div className="mobile-drawer-sidebar" onClick={(e) => e.stopPropagation()}>
           <div className="mobile-drawer-header">
             <a href="/" className="header-logo-section" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); if (onResetFilters) onResetFilters(); }}>
-              <img src={logoImg} alt="Sai Sparkz Hub Logo" className="header-logo-image mobile-drawer-logo" />
+              <img src={logoImg} alt="Marsal Traders Logo" className="header-logo-image mobile-drawer-logo" />
             </a>
             <button className="close-drawer-btn" onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
               <X size={24} />
@@ -270,7 +270,7 @@ export default function Header({
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12.012 2C6.48 2 2 6.48 2 12.012c0 1.767.46 3.427 1.267 4.904L2 22l5.244-1.22c1.427.777 3.05 1.232 4.768 1.232C17.52 22.012 22 17.532 22 12.012 22 6.48 17.52 2 12.012 2zm0 18.012c-1.57 0-3.037-.417-4.32-1.144l-.31-.184-3.21.748.766-3.125-.2-.32C3.93 14.73 3.51 13.4 3.51 12.01 3.51 7.33 7.33 3.51 12.01 3.51c4.68 0 8.5 3.82 8.5 8.5 0 4.68-3.82 8.502-8.5 8.502zM16.5 13.5c-.244-.12-1.442-.71-1.666-.79-.224-.084-.388-.12-.55.124-.165.244-.64.79-.785.952-.145.163-.29.183-.537.062-.244-.12-1.034-.38-1.97-1.215-.728-.65-1.22-1.45-1.362-1.696-.145-.244-.015-.376.107-.497.11-.11.244-.286.366-.43.122-.14.163-.242.244-.405.082-.163.04-.306-.02-.43-.06-.12-.55-1.32-.754-1.815-.2-.48-.4-.41-.55-.418h-.47c-.162 0-.427.06-.65.306-.225.245-.858.837-.858 2.04 0 1.2 1.058 2.37 1.2 2.57.143.204 2.083 3.18 5.047 4.46.705.305 1.256.487 1.684.623.708.225 1.353.193 1.863.117.57-.085 1.442-.59 1.644-1.162.2-.57.2-1.06.142-1.162-.058-.1-.223-.16-.467-.28z" />
               </svg>
-              <span>WhatsApp Order</span>
+              <span>WhatsApp Enquiry</span>
             </a>
           </div>
         </div>

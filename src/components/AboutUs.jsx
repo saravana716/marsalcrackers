@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import {
   ShieldCheck, Truck, Sparkles, Zap, Award, Target,
   MapPin, Phone, Clock, Users, Heart, CheckCircle,
@@ -59,14 +59,14 @@ export default function AboutUs() {
   ];
 
   const productTypes = [
-    { name: "Sparklers", icon: "✨", color: "#FFD700" },
-    { name: "Flower Pots", icon: "🌋", color: "#FF5722" },
-    { name: "Ground Chakkars", icon: "🌀", color: "#00E676" },
-    { name: "Sky Shots", icon: "🚀", color: "#2979FF" },
-    { name: "Garlands (Walas)", icon: "🎊", color: "#F50057" },
-    { name: "Kids Combos", icon: "🎁", color: "#9C27B0" },
-    { name: "Fancy Fountains", icon: "⛲", color: "#00E5FF" },
-    { name: "Family Packs", icon: "🎇", color: "#FF3D00" },
+    { name: "Sparklers", icon: "âœ¨", color: "#FFD700" },
+    { name: "Flower Pots", icon: "ðŸŒ‹", color: "#FF5722" },
+    { name: "Ground Chakkars", icon: "ðŸŒ€", color: "#00E676" },
+    { name: "Sky Shots", icon: "ðŸš€", color: "#2979FF" },
+    { name: "Garlands (Walas)", icon: "ðŸŽŠ", color: "#F50057" },
+    { name: "Kids Combos", icon: "ðŸŽ", color: "#9C27B0" },
+    { name: "Fancy Fountains", icon: "â›²", color: "#00E5FF" },
+    { name: "Family Packs", icon: "ðŸŽ‡", color: "#FF3D00" },
   ];
 
   const teamMembers = [
@@ -97,7 +97,7 @@ export default function AboutUs() {
 
             <div className="story-visual-area">
               <div className="modern-logo-display">
-                <img src={shobImg} alt="Sai Sparkz Hub Shop" className="modern-shop-img" />
+                <img src={shobImg} alt="Marsal Traders Shop" className="modern-shop-img" />
               </div>
             </div>
 
@@ -105,7 +105,7 @@ export default function AboutUs() {
               <span className="eyebrow">The Heritage</span>
               <h2 className="section-title-light">Our Legacy of Light</h2>
               <p className="story-paragraph-light story-lead">
-                Rooted in Sivakasi—the fireworks capital of India—<strong className="text-amber">Sai Sparkz Hub</strong> began with a powerful vision: to transform every celebration into a mesmerizing spectacle of joy, while ensuring safety and affordability for every family.
+                Rooted in Sivakasiâ€”the fireworks capital of Indiaâ€”<strong className="text-amber">Marsal Traders</strong> began with a powerful vision: to transform every celebration into a mesmerizing spectacle of joy, while ensuring safety and affordability for every family.
               </p>
               <p className="story-paragraph-light">
                 From a humble local distributor, we have evolved into India's most trusted premium fireworks brand. We bring the magic of Sivakasi directly to your doorstep, delivering spectacular quality without the premium price tag.
@@ -182,7 +182,7 @@ export default function AboutUs() {
           <div className="zigzag-row reverse">
             <div className="zigzag-content">
               <p className="mission-statement-light">
-                "To deliver <span>premium-quality</span> crackers at <span>affordable</span> prices, with a strong focus on <span>safety</span>, <span>reliability</span>, <span>customer satisfaction</span>, and <span>responsible celebrations</span>. We aim to continuously improve our products and provide every customer with a bright and happy experience through Sai Sparkz Hub."
+                "To deliver <span>premium-quality</span> crackers at <span>affordable</span> prices, with a strong focus on <span>safety</span>, <span>reliability</span>, <span>customer satisfaction</span>, and <span>responsible celebrations</span>. We aim to continuously improve our products and provide every customer with a bright and happy experience through Marsal Traders."
               </p>
             </div>
             <div className="zigzag-visual text-right">
@@ -202,7 +202,7 @@ export default function AboutUs() {
         <div className="about-us-container">
           <div className="text-center mb-50">
             <h2 className="section-title-light">Why Choose Us</h2>
-            <p className="story-paragraph-light">What makes Sai Sparkz Hub the preferred choice for thousands of families.</p>
+            <p className="story-paragraph-light">What makes Marsal Traders the preferred choice for thousands of families.</p>
           </div>
           <div className="features-light-grid-wrapper">
             <Swiper
@@ -299,7 +299,7 @@ export default function AboutUs() {
         <div className="about-us-container">
           <div className="text-center mb-50">
             <h2 className="section-title-light">Our Shop Gallery</h2>
-            <p className="story-paragraph-light">Take a virtual tour of Sai Sparkz Hub.</p>
+            <p className="story-paragraph-light">Take a virtual tour of Marsal Traders.</p>
           </div>
           <div className="shop-gallery-wrapper">
             <Swiper
@@ -391,7 +391,7 @@ export default function AboutUs() {
             <div className="contact-item">
               <MapPin className="contact-icon" />
               <h4>Our Location</h4>
-              <p>Virudhunagar–Sivakasi Main Road,<br />Near Kia Showroom, Opp. Nayara Bulk,<br />Amathur, Virudhunagar – 626005,</p>
+              <p>Virudhunagarâ€“Sivakasi Main Road,<br />Near Kia Showroom, Opp. Nayara Bulk,<br />Amathur, Virudhunagar â€“ 626005,</p>
               <p>Tamil Nadu</p>
             </div>
             <div className="contact-item">
@@ -418,3 +418,4 @@ export default function AboutUs() {
     </div>
   );
 }
+
