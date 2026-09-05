@@ -24,16 +24,30 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  background: linear-gradient(180deg, #FFF49E 0%, #FFD244 25%, #F4AE00 50%, #C46B07 75%, #A65A06 100%);
-  color: #111111;
+  background: #1d1e22;
   font-size: 0.65rem;
   font-weight: 800;
   text-transform: uppercase;
   padding: 4px 10px;
   border-radius: 20px;
   z-index: 10;
-  box-shadow: 0 4px 12px rgba(244, 174, 0, 0.25);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   letter-spacing: 0.06em;
+}
+
+.gold-gradient-text {
+  background-image: linear-gradient(
+    180deg,
+    #FFF49E 0%,
+    #FFD244 25%,
+    #F4AE00 50%,
+    #C46B07 75%,
+    #A65A06 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 /* Wishlist Heart */
@@ -123,7 +137,7 @@
   margin-bottom: 8px;
 }
 
-/* "10 pcs" unit badge — golden background matching Add to Cart */
+/* "10 pcs" unit badge — dark background with gold text */
 .product-unit-tag {
   display: inline-flex;
   align-items: center;
@@ -132,8 +146,7 @@
   padding: 2px 8px;
   border-radius: 6px;
   letter-spacing: 0.03em;
-  background: linear-gradient(180deg, #FFF49E 0%, #FFD244 25%, #F4AE00 50%, #C46B07 75%, #A65A06 100%);
-  color: #111111;
+  background: #1d1e22;
 }
 
 .product-rating {

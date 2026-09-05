@@ -46,7 +46,7 @@ export default function ProductCard({ product, onAddToCart, cartItems = [], onUp
       {/* Product Tag/Badge */}
       {product.tag && (
         <span className={`product-badge ${product.tag === 'Premium Pack' || product.tag === 'Mega Deal' ? 'gold' : ''}`}>
-          {product.tag}
+          <span className="gold-gradient-text">{product.tag}</span>
         </span>
       )}
 
@@ -67,7 +67,7 @@ export default function ProductCard({ product, onAddToCart, cartItems = [], onUp
           <span className="product-category-tag">{product.categoryName}</span>
           {product.quantity && product.type && (
             <span className="product-unit-tag">
-              {product.quantity} {product.type}
+              <span className="gold-gradient-text">{product.quantity} {product.type}</span>
             </span>
           )}
         </div>
