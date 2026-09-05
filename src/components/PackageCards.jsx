@@ -1,4 +1,5 @@
 import React from 'react';
+import bannerImg from '../assets/marsel-banner-with-logo.jpg';
 import './PackageCards.css';
 
 export default function PackageCards({ onCategorySelect, categories = [] }) {
@@ -18,8 +19,12 @@ export default function PackageCards({ onCategorySelect, categories = [] }) {
       <div className="package-cards-header">
         <p className="package-cards-subtitle">Choose the right package for your family, event or wholesale requirement.</p>
       </div>
-      
-      <div className="package-cards-grid">
+      <div className="package-layout-wrapper">
+        <div className="package-banner-left">
+          <img src={bannerImg} alt="Marsel Traders Special Packages" className="package-banner-img" />
+        </div>
+        
+        <div className="package-cards-grid">
         {/* Gift Boxes Card */}
         <div className="package-card gift-box-card">
           <div className="package-card-glow"></div>
@@ -31,10 +36,10 @@ export default function PackageCards({ onCategorySelect, categories = [] }) {
           
           <div className="package-content">
             <svg viewBox="0 0 100 100" className="package-illustration" width="60" height="60" style={{marginBottom: '15px'}}>
-              <rect x="25" y="40" width="50" height="45" fill="#D4AF37"/>
-              <rect x="20" y="30" width="60" height="15" fill="#C0392B"/>
-              <rect x="45" y="30" width="10" height="55" fill="#C0392B"/>
-              <path d="M30 30 Q45 10 50 30 Q55 10 70 30" fill="none" stroke="#C0392B" strokeWidth="4"/>
+              <rect x="25" y="40" width="50" height="45" fill="var(--color-primary)"/>
+              <rect x="20" y="30" width="60" height="15" fill="#FFF"/>
+              <rect x="45" y="30" width="10" height="55" fill="#FFF"/>
+              <path d="M30 30 Q45 10 50 30 Q55 10 70 30" fill="none" stroke="#FFF" strokeWidth="4"/>
             </svg>
             <h3 className="package-title">Gift Boxes</h3>
             <p className="package-desc">Colourful assortments designed for complete family celebrations.</p>
@@ -62,9 +67,9 @@ export default function PackageCards({ onCategorySelect, categories = [] }) {
           
           <div className="package-content">
             <svg viewBox="0 0 100 100" className="package-illustration" width="60" height="60" style={{marginBottom: '15px'}}>
-              <rect x="25" y="25" width="50" height="50" fill="#2C3E50"/>
-              <rect x="30" y="30" width="40" height="40" fill="#FFF"/>
-              <path d="M50 70 L50 30 M30 50 L70 50 M35 35 L65 65 M35 65 L65 35" stroke="#E74C3C" strokeWidth="2"/>
+              <rect x="25" y="25" width="50" height="50" fill="var(--color-primary)"/>
+              <rect x="30" y="30" width="40" height="40" fill="#222"/>
+              <path d="M50 70 L50 30 M30 50 L70 50 M35 35 L65 65 M35 65 L65 35" stroke="#FFF" strokeWidth="2"/>
             </svg>
             <h3 className="package-title">Family Combo Packs</h3>
             <p className="package-desc">Ready-to-order combinations with popular crackers for every age group.</p>
@@ -79,6 +84,7 @@ export default function PackageCards({ onCategorySelect, categories = [] }) {
               Explore Products
             </button>
           </div>
+        </div>
         </div>
       </div>
     </section>

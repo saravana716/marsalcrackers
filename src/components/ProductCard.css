@@ -135,6 +135,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
+  gap: 8px;
 }
 
 /* "10 pcs" unit badge — dark background with gold text */
@@ -147,6 +148,8 @@
   border-radius: 6px;
   letter-spacing: 0.03em;
   background: #1d1e22;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .product-rating {
@@ -163,6 +166,10 @@
   color: #999999;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
 }
 
 .product-card-name {
@@ -323,10 +330,11 @@
     height: 70px;
   }
   .product-badge {
-    top: 8px;
-    left: 8px;
-    font-size: 0.55rem;
-    padding: 2px 6px;
+    top: 6px;
+    left: 6px;
+    font-size: 0.45rem;
+    padding: 2px 4px;
+    letter-spacing: 0.02em;
   }
   .product-wishlist-btn {
     top: 8px;
@@ -339,7 +347,11 @@
     height: 13px;
   }
   .product-category-tag {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
+  }
+  .product-unit-tag {
+    font-size: 0.5rem;
+    padding: 1px 4px;
   }
   .product-rating {
     font-size: 0.7rem;
