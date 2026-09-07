@@ -291,9 +291,9 @@
 }
 
 .qty-ctrl-btn {
-  background: linear-gradient(180deg, #FFD244 0%, #F4AE00 50%, #C46B07 100%);
+  background: #1d1e22;
   border: none;
-  color: #111111;
+  color: #FFD244;
   width: 28px;
   height: 28px;
   border-radius: 4px;
