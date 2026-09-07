@@ -21,13 +21,14 @@
 
 /* Sidebar Styles - Premium UI */
 .products-sidebar {
-  background: #0B1026; /* Dark theme card */
-  border: 1px solid rgba(255, 166, 48, 0.15); /* Subtle gold border */
-  border-radius: 16px;
+  background: #0a0e17; /* Dark theme card */
+  border: 1px solid rgba(255, 193, 7, 0.15); /* Subtle yellow border */
+  border-top: 4px solid var(--color-primary, #ffc107); /* Yellow top border */
+  border-radius: 12px;
   padding: 30px 25px;
   position: sticky;
   top: 100px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
 .sidebar-main-title {
@@ -43,7 +44,7 @@
 }
 
 .filter-title {
-  color: var(--color-accent);
+  color: var(--color-primary, #ffc107);
   font-size: 1.05rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -72,9 +73,9 @@
   border: 1px solid transparent;
   color: #A0A5C0;
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   text-align: left;
-  padding: 8px 12px;
+  padding: 10px 14px;
   width: 100%;
   border-radius: 8px;
   cursor: pointer;
@@ -91,11 +92,11 @@
   transform: translateX(-10px);
   transition: all 0.3s ease;
   font-size: 1.1rem;
-  color: var(--color-accent);
+  color: var(--color-primary, #ffc107);
 }
 
 .category-filter-item button:hover {
-  background: rgba(255, 166, 48, 0.05);
+  background: rgba(255, 193, 7, 0.1); /* Dark yellow hover */
   color: #FFFFFF;
 }
 
@@ -105,17 +106,17 @@
 }
 
 .category-filter-item.active button {
-  background: linear-gradient(90deg, rgba(232, 69, 43, 0.2), transparent);
-  color: var(--color-primary);
-  border-left: 3px solid var(--color-primary);
+  background: rgba(255, 193, 7, 0.15); /* Yellow active background */
+  color: var(--color-primary, #ffc107); /* Yellow active text */
+  border-left: 4px solid var(--color-primary, #ffc107);
   font-weight: 700;
-  box-shadow: inset 2px 0 10px rgba(232, 69, 43, 0.1);
+  box-shadow: none;
 }
 
 .category-filter-item.active button::after {
   opacity: 1;
   transform: translateX(0);
-  color: var(--color-primary);
+  color: var(--color-primary, #ffc107);
 }
 
 /* Main Content Styles */
@@ -239,7 +240,7 @@
   left: -100%;
   width: 300px;
   height: 100vh;
-  background: #0B1026;
+  background: #0a0e17;
   z-index: 1000;
   transition: left 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   display: flex;

@@ -109,10 +109,6 @@ export default function CheckoutPage({ cartItems, onNavigate, clearCart, onUpdat
 
   return (
     <div className="checkout-page-container">
-      <div className="checkout-header">
-        <h1 className="checkout-title">Checkout</h1>
-      </div>
-
       <div className="checkout-content">
 
         {/* Left Column: Order Summary */}
@@ -141,7 +137,7 @@ export default function CheckoutPage({ cartItems, onNavigate, clearCart, onUpdat
                       <div className="checkout-item-qty-controls">
                         <button
                           type="button"
-                          className="checkout-qty-btn"
+                          className="checkout-qty-btn checkout-qty-minus"
                           onClick={() => onUpdateQuantity(item.product.id, item.quantity - 1)}
                           title="Decrease quantity"
                         >
@@ -150,7 +146,7 @@ export default function CheckoutPage({ cartItems, onNavigate, clearCart, onUpdat
                         <span className="checkout-qty-display">{item.quantity}</span>
                         <button
                           type="button"
-                          className="checkout-qty-btn"
+                          className="checkout-qty-btn checkout-qty-plus"
                           onClick={() => onUpdateQuantity(item.product.id, item.quantity + 1)}
                           title="Increase quantity"
                         >

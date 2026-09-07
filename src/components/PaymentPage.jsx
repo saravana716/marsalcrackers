@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ShieldCheck, Download, CheckCircle, ArrowLeft, Copy, CheckCheck } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
@@ -6,150 +6,7 @@ import logoImg from '../assets/mylogo.png';
 import { supabase } from '../lib/supabase';
 import './PaymentPage.css';
 import payment from "../assets/payment.jpeg";
-// --- Payment Methods Data ---
-const paymentMethods = [
-  {
-    id: 'sbi',
-    type: 'bank',
-    label: 'Official Bank Account',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="54" height="54">
-        <rect width="48" height="48" rx="14" fill="#001A3A" />
-        <path d="M24 8L8 17H40L24 8Z" fill="#F5B51B" />
-        <rect x="11" y="19" width="4" height="14" fill="#F5B51B" />
-        <rect x="18" y="19" width="4" height="14" fill="#F5B51B" />
-        <rect x="25" y="19" width="4" height="14" fill="#F5B51B" />
-        <rect x="32" y="19" width="4" height="14" fill="#F5B51B" />
-        <rect x="8" y="35" width="32" height="3" rx="1.5" fill="#F5B51B" />
-      </svg>
-    ),
-    frontTitle: 'State Bank of India',
-    frontSub: 'NEFT / RTGS / IMPS',
-    frontHint: 'Tap / Hover to View Account Info',
-    backTitle: 'BANK ACCOUNT',
-    backFields: [
-      { label: 'Bank Name', value: 'State Bank of India' },
-      { label: 'Account Holder', value: 'DHINESHKANNAN.T' },
-      { label: 'Account Number', value: '33946548414' },
-      { label: 'IFSC Code', value: 'SBINOO12767' },
-      { label: 'Branch', value: 'Thiruthangal' },
-    ],
-    backNote: 'After transfer, share screenshot on WhatsApp for confirmation.',
-    backBadge: 'VERIFIED ACCOUNT',
-  },
-  {
-    id: 'gpay',
-    type: 'upi',
-    label: 'Instant UPI Transfer',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="54" height="54">
-        <rect width="48" height="48" rx="14" fill="#4285F4" />
-        <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle" fontSize="11" fontWeight="bold" fill="white" fontFamily="sans-serif">G Pay</text>
-      </svg>
-    ),
-    frontTitle: 'Google Pay',
-    frontSub: 'MOBILE UPI PAYMENT',
-    frontHint: 'Tap / Hover to View GPay Mobile No',
-    backTitle: 'GOOGLE PAY UPI',
-    backFields: [
-      { label: 'UPI Mobile Number', value: '8525858075' },
-    ],
-    backNote: 'Send payment & share transfer screenshot on WhatsApp for instant confirmation.',
-    backBadge: 'INSTANT TRANSFER',
-  },
-  {
-    id: 'phonepe',
-    type: 'upi',
-    label: 'Instant UPI Transfer',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="54" height="54">
-        <rect width="48" height="48" rx="14" fill="#5f259f" />
-        <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle" fontSize="8" fontWeight="bold" fill="white" fontFamily="sans-serif">PhonePe</text>
-      </svg>
-    ),
-    frontTitle: 'PhonePe',
-    frontSub: 'MOBILE UPI PAYMENT',
-    frontHint: 'Tap / Hover to View PhonePe No',
-    backTitle: 'PHONEPE UPI',
-    backFields: [
-      { label: 'UPI Mobile Number', value: '8525858075' },
-    ],
-    backNote: 'Send payment & share transfer screenshot on WhatsApp for instant confirmation.',
-    backBadge: 'INSTANT CONFIRMATION',
-  },
-];
-
-// --- Single Flip Card Component ---
-function PaymentFlipCard({ method }) {
-  const [flipped, setFlipped] = useState(false);
-  const [copied, setCopied] = useState(null);
-
-  const handleCopy = (e, value, id) => {
-    e.stopPropagation();
-    navigator.clipboard.writeText(value).catch(() => { });
-    setCopied(id);
-    setTimeout(() => setCopied(null), 2000);
-  };
-
-  return (
-    <div
-      className={`pay-flip-card ${flipped ? 'pay-flipped' : ''}`}
-      onClick={() => setFlipped((f) => !f)}
-      onMouseEnter={() => setFlipped(true)}
-      onMouseLeave={() => setFlipped(false)}
-      tabIndex={0}
-      onKeyDown={(e) => e.key === 'Enter' && setFlipped((f) => !f)}
-      aria-label={`Payment card for ${method.frontTitle}`}
-    >
-      <div className="pay-flip-inner">
-        {/* FRONT */}
-        <div className="pay-flip-front">
-          {/* Top row: label left, small icon right */}
-          <div className="pay-card-top-row">
-            <span className="pay-card-label">{method.label}</span>
-            <span className="pay-card-icon-small">{method.icon}</span>
-          </div>
-          {/* Large centered icon */}
-          <div className="pay-card-icon-large">{method.icon}</div>
-          <h3 className="pay-card-title">{method.frontTitle}</h3>
-          <p className="pay-card-sub">{method.frontSub}</p>
-          <div className="pay-card-hint">
-            <span>â†»</span> {method.frontHint}
-          </div>
-        </div>
-
-        {/* BACK */}
-        <div className="pay-flip-back">
-          <div className="pay-back-badge-top">{method.backTitle}</div>
-          <div className="pay-back-fields">
-            {method.backFields.map((field, i) => (
-              <div key={i} className="pay-back-field">
-                <span className="pay-back-field-label">{field.label}</span>
-                <div className="pay-back-field-value-row">
-                  <span className="pay-back-field-value">{field.value}</span>
-                  <button
-                    className={`pay-copy-btn ${copied === `${method.id}-${i}` ? 'copied' : ''}`}
-                    onClick={(e) => handleCopy(e, field.value, `${method.id}-${i}`)}
-                    title="Copy"
-                  >
-                    {copied === `${method.id}-${i}` ? <CheckCheck size={13} /> : <Copy size={13} />}
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="pay-back-note">
-            <span>â„¹</span> {method.backNote}
-          </div>
-          <div className="pay-back-footer">
-            <span className="pay-back-status">{method.backBadge}</span>
-            <span className="pay-back-brand">Marsal Traders</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+// Replaced flip cards with direct QR code layout
 
 // --- Main PaymentPage Component ---
 export default function PaymentModal({ orderData, onNavigate, clearCart }) {
@@ -391,7 +248,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
         {paymentStatus === 'verifying' && (
           <div className="pay-verifying-fullscreen">
             <div className="pay-spinner" />
-            <h3>Processing Order & Generating Invoiceâ€¦</h3>
+            <h3>Processing Order & Generating Invoice...</h3>
             <p>Please do not refresh the page or navigate away.</p>
           </div>
         )}
@@ -426,32 +283,72 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
             </div>
 
             {/* Constrained content below banner */}
-            <div className="pay-main-modal">
-              {/* Amount */}
-              <div className="pay-amount-row">
-                <span className="pay-amount-label">Amount to Pay</span>
-                <span className="pay-amount-value">â‚¹{orderData.netTotal.toFixed(2)}</span>
-              </div>
+            <div className="pay-main-modal qr-layout">
+              <div className="qr-split-container">
+                {/* Left side: Order Instructions & Amount */}
+                <div className="pay-left-panel">
+                  <div className="pay-amount-box">
+                    <span className="pay-amount-label">Amount to Pay</span>
+                    <span className="pay-amount-value">₹{orderData.netTotal.toFixed(2)}</span>
+                  </div>
+                  <div className="pay-instructions">
+                    <h3>How to Pay</h3>
+                    <ol>
+                      <li>Open your preferred UPI App (GPay, PhonePe, Paytm).</li>
+                      <li>Scan the QR code on the right or copy the UPI ID.</li>
+                      <li>Enter the exact amount shown above.</li>
+                      <li>Once successful, click the "I have made the payment" button below.</li>
+                    </ol>
+                  </div>
+                </div>
 
-              {/* Section heading */}
-              <div className="pay-section-label">
-                <span className="pay-section-tag">EASY &amp; SAFE PAYMENTS</span>
-                <h2 className="pay-section-title">Official Payment Options</h2>
-                <div className="pay-section-divider" />
-                <p className="pay-section-hint">Hover or tap on any card to flip and view complete account &amp; UPI transfer details.</p>
-              </div>
+                {/* Right side: QR Code Scanner */}
+                <div className="pay-right-panel">
+                  <div className="qr-container">
+                    <h3 className="qr-title">Scan to Pay</h3>
+                    <div className="qr-box">
+                      <svg viewBox="0 0 100 100" width="180" height="180">
+                        {/* A simple placeholder QR pattern */}
+                        <rect width="100" height="100" fill="#FFFFFF" rx="8"/>
+                        <path d="M10,10 h25 v25 h-25 z M15,15 h15 v15 h-15 z M10,65 h25 v25 h-25 z M15,70 h15 v15 h-15 z M65,10 h25 v25 h-25 z M70,15 h15 v15 h-15 z M45,45 h10 v10 h-10 z M30,40 h10 v10 h-10 z M60,60 h10 v10 h-10 z M40,75 h20 v5 h-20 z M75,40 h15 v20 h-15 z M75,75 h15 v15 h-15 z M80,80 h5 v5 h-5 z M20,20 h5 v5 h-5 z M20,75 h5 v5 h-5 z M75,20 h5 v5 h-5 z M35,20 h5 v10 h-5 z M45,15 h10 v5 h-10 z M55,30 h10 v5 h-10 z M15,45 h10 v5 h-10 z M30,55 h15 v5 h-15 z" fill="#0a0e17" />
+                        <rect x="42" y="20" width="15" height="5" fill="#0a0e17" />
+                        <rect x="42" y="30" width="5" height="10" fill="#0a0e17" />
+                        <rect x="20" y="45" width="5" height="15" fill="#0a0e17" />
+                      </svg>
+                    </div>
+                    <div className="upi-id-box">
+                      <div className="upi-id-text">
+                        <span className="upi-label">UPI ID:</span>
+                        <strong className="upi-value">8525858075@ybl</strong>
+                      </div>
+                      <button className="qr-copy-btn" onClick={(e) => {
+                         navigator.clipboard.writeText('8525858075@ybl');
+                      }}>
+                        <Copy size={16} />
+                      </button>
+                    </div>
+                  </div>
 
-              {/* Flip Cards */}
-              <div className="pay-cards-grid">
-                {paymentMethods.map((m) => (
-                  <PaymentFlipCard key={m.id} method={m} />
-                ))}
+                  <div className="bank-transfer-alternative">
+                    <details className="bank-details-accordion">
+                      <summary>Alternatively, pay via Bank Transfer</summary>
+                      <div className="bank-details-content">
+                        <div className="bank-row"><strong>Bank:</strong> State Bank of India</div>
+                        <div className="bank-row"><strong>A/C Name:</strong> DHINESHKANNAN.T</div>
+                        <div className="bank-row"><strong>A/C No:</strong> 33946548414</div>
+                        <div className="bank-row"><strong>IFSC:</strong> SBINOO12767</div>
+                      </div>
+                    </details>
+                  </div>
+                </div>
               </div>
 
               {/* Verify Button */}
-              <button className="pay-verify-btn" onClick={handlePlaceOrder} disabled={paymentStatus === 'verifying'}>
-                <ShieldCheck size={20} /> Place Order (â‚¹{orderData.netTotal.toFixed(2)})
-              </button>
+              <div className="pay-action-bottom">
+                <button className="pay-verify-btn new-theme-btn" onClick={handlePlaceOrder} disabled={paymentStatus === 'verifying'}>
+                  <ShieldCheck size={20} /> I have made the payment
+                </button>
+              </div>
             </div>
           </>
         )}
@@ -485,7 +382,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                 {/* Top Info Columns */}
                 <div className="pi-top-info">
                   <div className="pi-bill-to">
-                    <div className="pi-section-title"><span className="pi-icon">ðŸ‘¤</span> BILL TO</div>
+                    <div className="pi-section-title"><span className="pi-icon">👤</span> BILL TO</div>
                     <div className="pi-customer-details">
                       <strong>{orderData.customer.fullName}</strong>
                       <p>{orderData.customer.address}</p>
@@ -503,7 +400,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                   </div>
 
                   <div className="pi-invoice-details">
-                    <div className="pi-section-title"><span className="pi-icon">ðŸ“„</span> INVOICE DETAILS</div>
+                    <div className="pi-section-title"><span className="pi-icon">📄</span> INVOICE DETAILS</div>
                     <table className="pi-details-table">
                       <tbody>
                         <tr><td>Invoice No.</td><td>:</td><td>{orderData.orderId}</td></tr>
@@ -537,9 +434,9 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                   <th>#</th>
                   <th>DESCRIPTION</th>
                   <th className="text-center">QTY</th>
-                  <th className="text-right">MRP (â‚¹)</th>
-                  <th className="text-right">NET PRICE (â‚¹)</th>
-                  <th className="text-right">TOTAL (â‚¹)</th>
+                  <th className="text-right">MRP (₹)</th>
+                  <th className="text-right">NET PRICE (₹)</th>
+                  <th className="text-right">TOTAL (₹)</th>
                 </tr>
               </thead>
               <tbody>
@@ -592,22 +489,22 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                     <tbody>
                       <tr>
                         <td className="pi-sum-label">Total MRP:</td>
-                        <td className="text-right">â‚¹{(orderData.originalTotal).toFixed(2)}</td>
+                        <td className="text-right">₹{(orderData.originalTotal).toFixed(2)}</td>
                       </tr>
                       <tr className="pi-sum-savings">
                         <td className="pi-sum-label">Total Savings:</td>
-                        <td className="text-right">- â‚¹{orderData.savings.toFixed(2)}</td>
+                        <td className="text-right">- ₹{orderData.savings.toFixed(2)}</td>
                       </tr>
                       <tr>
                         <td className="pi-sum-label">Subtotal:</td>
-                        <td className="text-right">â‚¹{(orderData.subTotal).toFixed(2)}</td>
+                        <td className="text-right">₹{(orderData.subTotal).toFixed(2)}</td>
                       </tr>
                       <tr className="pi-sum-divider">
                         <td colSpan="2"><hr /></td>
                       </tr>
                       <tr className="pi-grand-total">
                         <td className="pi-sum-label">Net Amount Payable:</td>
-                        <td className="text-right">â‚¹{orderData.netTotal.toFixed(2)}</td>
+                        <td className="text-right">₹{orderData.netTotal.toFixed(2)}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -635,11 +532,11 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                     </div>
 
                     <div className="pi-payment-methods">
-                      <div className="pi-section-title"><span className="pi-icon">âš¡</span> PAYMENT METHOD</div>
+                      <div className="pi-section-title"><span className="pi-icon">⚡</span> PAYMENT METHOD</div>
                       <ul className="pi-methods-list">
-                        <li><span className="pi-method-icon">ðŸ“±</span> UPI / QR Code</li>
+                        <li><span className="pi-method-icon">📱</span> UPI / QR Code</li>
                         <li><span className="pi-method-icon">ðŸ¦</span> Bank Transfer</li>
-                        <li><span className="pi-method-icon">ðŸ’µ</span> Cash / Cheque</li>
+                        <li><span className="pi-method-icon">💵</span> Cash / Cheque</li>
                       </ul>
                     </div>
 
@@ -657,7 +554,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
 
                   {/* Bottom Dark Strip */}
                   <div className="pi-bottom-strip">
-                    <div>ðŸ“ž +91 8525858075</div>
+                    <div>📞 +91 8525858075</div>
                     <div>âœ‰ï¸ marseltraders2026@gmail.com</div>
                     <div>ðŸ“ 8P4M+GQ, Appayanaickenpatti, Sevalpatti, Tamil Nadu 626140</div>
                   </div>
