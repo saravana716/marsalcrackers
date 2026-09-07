@@ -1,4 +1,4 @@
-﻿// src/data/mockData.js
+// src/data/mockData.js
 
 export const categories = [
   { id: 'sparklers', name: 'Sparklers', iconName: 'sparklers', color: '#FFD700' },
@@ -24,7 +24,7 @@ export const products = [
     rating: 4.8,
     reviews: 142,
     image: 'sparkler', // Identifier for custom SVG/CSS drawing
-    tag: 'Popular',
+    tag: 'Trending',
     desc: 'Golden sparkling wires that emit crackling sparks, perfect for family celebrations. Safe and easy to use.',
     safetyInfo: 'Hold from the wire end. Light the tip using a candle or sparkler. Keep away from face.'
   },

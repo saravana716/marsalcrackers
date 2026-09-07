@@ -92,7 +92,7 @@ export default function Header({
           </div>
         </div>
         <div className="promo-right">
-          <span className="promo-phone">📞 +91 89400 98344, +91 89400 98342</span>
+          <span className="promo-phone">📞 +91 8525858075, +91 8525858075</span>
         </div>
       </div>
 
@@ -179,7 +179,7 @@ export default function Header({
 
           {/* Solid Gold WhatsApp Order CTA button */}
           <a
-            href="https://wa.me/918940098344?text=Hello%20Marsal%20Traders,%20I%20want%20to%20order%20some%20crackers."
+            href="https://wa.me/918525858075?text=Hello%20Marsal%20Traders,%20I%20want%20to%20order%20some%20crackers."
             target="_blank"
             rel="noopener noreferrer"
             className="whatsapp-solid-btn"
@@ -259,9 +259,9 @@ export default function Header({
           </nav>
 
           <div className="mobile-drawer-footer">
-            <span className="mobile-drawer-phone">📞+91 89400 98344</span>
+            <span className="mobile-drawer-phone">📞+91 8525858075</span>
             <a
-              href="https://wa.me/918940098344?text=Hello%20Sai%20Sparkz%20Hub,%20I%20want%20to%20order%20some%20crackers."
+              href="https://wa.me/918525858075?text=Hello%20Marsel%20Traders,%20I%20want%20to%20order%20some%20crackers."
               target="_blank"
               rel="noopener noreferrer"
               className="whatsapp-solid-btn"

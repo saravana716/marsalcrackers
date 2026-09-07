@@ -67,7 +67,7 @@ export function useStoreData() {
             rating: 4.8, 
             reviews: 120,
             image: p.image_url, 
-            tag: p.stock > 0 ? (p.stock < 10 ? 'Low Stock' : 'Popular') : 'Out of Stock',
+            tag: p.stock > 0 ? (p.stock < 10 ? 'Low Stock' : 'Trending') : 'Out of Stock',
             desc: p.description,
             safetyInfo: 'Handle with care. Follow safety instructions.',
             stock: p.stock,

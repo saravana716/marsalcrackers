@@ -1,7 +1,7 @@
 /* src/components/ProductCard.css */
 .product-card {
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: var(--border-radius-md);
   padding: 15px;
   display: flex;
@@ -24,30 +24,36 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  background: #1d1e22;
+  background: linear-gradient(180deg, #FFD244 0%, #F4AE00 50%, #C46B07 100%);
+  color: #111111;
   font-size: 0.65rem;
   font-weight: 800;
   text-transform: uppercase;
   padding: 4px 10px;
   border-radius: 20px;
   z-index: 10;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   letter-spacing: 0.06em;
 }
 
 .gold-gradient-text {
-  background-image: linear-gradient(
-    180deg,
-    #FFF49E 0%,
-    #FFD244 25%,
-    #F4AE00 50%,
-    #C46B07 75%,
-    #A65A06 100%
-  );
+  background-image: linear-gradient(180deg,
+      #FFF49E 0%,
+      #FFD244 25%,
+      #F4AE00 50%,
+      #C46B07 75%,
+      #A65A06 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+}
+
+.product-badge .gold-gradient-text,
+.product-unit-tag .gold-gradient-text {
+  background: none;
+  -webkit-text-fill-color: #111111;
+  color: #111111;
 }
 
 /* Wishlist Heart */
@@ -67,7 +73,7 @@
   cursor: pointer;
   transition: var(--transition-smooth);
   z-index: 10;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .product-wishlist-btn:hover {
@@ -98,7 +104,7 @@
 .product-svg-drawing {
   width: 100px;
   height: 100px;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
   transition: var(--transition-smooth);
 }
 
@@ -147,7 +153,8 @@
   padding: 2px 8px;
   border-radius: 6px;
   letter-spacing: 0.03em;
-  background: #1d1e22;
+  background: linear-gradient(180deg, #FFD244 0%, #F4AE00 50%, #C46B07 100%);
+  color: #111111;
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -245,8 +252,8 @@
 }
 
 .out-of-stock-btn {
-  background: rgba(255,255,255,0.08) !important;
-  color: rgba(255,255,255,0.3) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.3) !important;
   cursor: not-allowed;
   box-shadow: none !important;
   transform: none !important;
@@ -321,14 +328,17 @@
     padding: 10px;
     border-radius: var(--border-radius-sm);
   }
+
   .product-image-container {
     height: 110px;
     margin-bottom: 10px;
   }
+
   .product-svg-drawing {
     width: 70px;
     height: 70px;
   }
+
   .product-badge {
     top: 6px;
     left: 6px;
@@ -336,58 +346,72 @@
     padding: 2px 4px;
     letter-spacing: 0.02em;
   }
+
   .product-wishlist-btn {
     top: 8px;
     right: 8px;
     width: 26px;
     height: 26px;
   }
+
   .product-wishlist-btn svg {
     width: 13px;
     height: 13px;
   }
+
   .product-category-tag {
     font-size: 0.6rem;
   }
+
   .product-unit-tag {
     font-size: 0.5rem;
     padding: 1px 4px;
   }
+
   .product-rating {
     font-size: 0.7rem;
   }
+
   .product-card-name {
     font-size: 0.78rem;
     font-weight: 600;
     height: 34px;
     margin-bottom: 6px;
   }
+
   .product-price-section {
     flex-wrap: wrap;
     gap: 4px;
     margin-bottom: 10px;
   }
+
   .current-price-val {
     font-size: 0.95rem;
   }
+
   .original-price-val {
     font-size: 0.75rem;
   }
+
   .discount-pct-badge {
     font-size: 0.65rem;
   }
+
   .product-card-actions {
     gap: 6px;
   }
+
   .add-cart-btn {
     padding: 8px 10px;
     font-size: 0.72rem;
     gap: 4px;
   }
+
   .quick-view-circle-btn {
     width: 32px;
     height: 32px;
   }
+
   .quick-view-circle-btn svg {
     width: 14px;
     height: 14px;
@@ -396,17 +420,23 @@
 
 @media (max-width: 480px) {
   .add-cart-btn svg {
-    display: none !important; /* Hide shopping cart basket/bucket icon on mobile */
+    display: none !important;
+    /* Hide shopping cart basket/bucket icon on mobile */
   }
+
   .add-cart-btn span {
-    display: none; /* Hide full original text */
+    display: none;
+    /* Hide full original text */
   }
+
   .add-cart-btn::after {
-    content: '+ ADD'; /* Display plain text '+ ADD' on mobile view */
+    content: '+ ADD';
+    /* Display plain text '+ ADD' on mobile view */
     font-weight: 800;
     font-size: 0.78rem;
     letter-spacing: 0.05em;
   }
+
   .add-cart-btn {
     flex-grow: 1;
     padding: 8px;

@@ -52,7 +52,7 @@ const paymentMethods = [
     frontHint: 'Tap / Hover to View GPay Mobile No',
     backTitle: 'GOOGLE PAY UPI',
     backFields: [
-      { label: 'UPI Mobile Number', value: '8940098342' },
+      { label: 'UPI Mobile Number', value: '8525858075' },
     ],
     backNote: 'Send payment & share transfer screenshot on WhatsApp for instant confirmation.',
     backBadge: 'INSTANT TRANSFER',
@@ -72,7 +72,7 @@ const paymentMethods = [
     frontHint: 'Tap / Hover to View PhonePe No',
     backTitle: 'PHONEPE UPI',
     backFields: [
-      { label: 'UPI Mobile Number', value: '8940098342' },
+      { label: 'UPI Mobile Number', value: '8525858075' },
     ],
     backNote: 'Send payment & share transfer screenshot on WhatsApp for instant confirmation.',
     backBadge: 'INSTANT CONFIRMATION',
@@ -657,9 +657,9 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
 
                   {/* Bottom Dark Strip */}
                   <div className="pi-bottom-strip">
-                    <div>ðŸ“ž +91 89400 98344</div>
-                    <div>âœ‰ï¸ saisparkzhub@gmail.com</div>
-                    <div>ðŸ“ Sivakasi, Tamil Nadu - 626123</div>
+                    <div>ðŸ“ž +91 8525858075</div>
+                    <div>âœ‰ï¸ marseltraders2026@gmail.com</div>
+                    <div>ðŸ“ 8P4M+GQ, Appayanaickenpatti, Sevalpatti, Tamil Nadu 626140</div>
                   </div>
                 </>
               )}

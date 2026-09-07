@@ -7,7 +7,7 @@ const INFO_CARDS = [
   {
     icon: <Phone size={24} />,
     title: 'CALL US',
-    lines: ['+91 89400 98344', '+91 89400 98342'],
+    lines: ['+91 8525858075', '+91 8525858075'],
     cardClass: 'card-pink',
   },
   {
@@ -17,7 +17,7 @@ const INFO_CARDS = [
       </svg>
     ),
     title: 'WHATSAPP',
-    lines: ['Message Us Now', '+91 89400 98344'],
+    lines: ['Message Us Now', '+91 8525858075'],
     cardClass: 'card-green',
   },
   {

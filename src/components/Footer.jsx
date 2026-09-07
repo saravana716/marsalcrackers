@@ -65,15 +65,15 @@ export default function Footer({ onCategoryChange, onNavigate }) {
           <div className="footer-contact-list">
             <div className="footer-contact-item">
               <span className="footer-contact-icon"><MapPin size={18} /></span>
-              <span>Virudhunagar–Sivakasi Main Road, Near Kia Showroom, Opp. Nayara Bulk, Amathur, Virudhunagar – 626005, Tamil Nadu</span>
+              <span>8P4M+GQ, Appayanaickenpatti, Sevalpatti, Tamil Nadu 626140</span>
             </div>
             <div className="footer-contact-item">
               <span className="footer-contact-icon"><Phone size={16} /></span>
-              <span>+91 89400 98344, +91 89400 98342</span>
+              <span>+91 8525858075, +91 8525858075</span>
             </div>
             <div className="footer-contact-item">
               <span className="footer-contact-icon"><Mail size={16} /></span>
-              <span>saisparkzhub@gmail.com</span>
+              <span>marseltraders2026@gmail.com</span>
             </div>
           </div>
           <div className="footer-socials">

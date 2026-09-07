@@ -61,8 +61,8 @@ const legalContent = {
         <p>For questions regarding this Privacy Policy, please contact:</p>
         <p>
           <strong>Marsal Traders</strong><br />
-          Phone: +91 89400 98344<br />
-          Email: saisparkzhub@gmail.com<br />
+          Phone: +91 8525858075<br />
+          Email: marseltraders2026@gmail.com<br />
           Address: Virudhunagar to sivakasi main road, near kia show room, opposite to nayara bulk, amathur, 626005
         </p>
       </>
@@ -118,8 +118,8 @@ const legalContent = {
         <p>For questions regarding these Terms & Conditions:</p>
         <p>
           <strong>Marsal Traders</strong><br />
-          Phone: +91 89400 98344<br />
-          Email: saisparkzhub@gmail.com<br />
+          Phone: +91 8525858075<br />
+          Email: marseltraders2026@gmail.com<br />
           Address: Virudhunagar to sivakasi main road, near kia show room, opposite to nayara bulk, amathur, 626005
         </p>
       </>
@@ -180,8 +180,8 @@ const legalContent = {
         <p>For delivery-related enquiries:</p>
         <p>
           <strong>Marsal Traders</strong><br />
-          Phone: +91 89400 98344<br />
-          Email: saisparkzhub@gmail.com
+          Phone: +91 8525858075<br />
+          Email: marseltraders2026@gmail.com
         </p>
       </>
     )
@@ -225,8 +225,8 @@ const legalContent = {
         <p>For cancellation or refund enquiries:</p>
         <p>
           <strong>Marsal Traders</strong><br />
-          Phone: +91 89400 98344<br />
-          Email: saisparkzhub@gmail.com
+          Phone: +91 8525858075<br />
+          Email: marseltraders2026@gmail.com
         </p>
       </>
     )
@@ -267,8 +267,8 @@ const legalContent = {
         <p>For any clarification regarding products or website information:</p>
         <p>
           <strong>Marsal Traders</strong><br />
-          Phone: +91 89400 98344<br />
-          Email: saisparkzhub@gmail.com<br />
+          Phone: +91 8525858075<br />
+          Email: marseltraders2026@gmail.com<br />
           Address: Virudhunagar to sivakasi main road, near kia show room, opposite to nayara bulk, amathur, 626005
         </p>
       </>

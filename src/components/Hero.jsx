@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import banner1 from '../assets/banner1.jpeg';
-import banner2 from '../assets/banner2.jpeg';
-import banner3 from '../assets/banner3.jpeg';
+import banner1 from '../assets/banner1.png';
+import banner2 from '../assets/banner2.png';
+import banner3 from '../assets/banner3.png';
+import banner4 from '../assets/banner4.png';
 import './Hero.css';
 
-const banners = [banner1, banner2, banner3];
+const banners = [banner1, banner2, banner3, banner4];
 
 export default function Hero({ onShopNowClick }) {
   const [current, setCurrent] = useState(0);
