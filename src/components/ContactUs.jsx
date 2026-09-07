@@ -24,9 +24,9 @@ const INFO_CARDS = [
     icon: <MapPin size={24} />,
     title: 'OUR STORE',
     lines: [
-      'Virudhunagar–Sivakasi Main Road,',
-      'Near Kia Showroom, Opp. Nayara Bulk,',
-      'Amathur, Virudhunagar – 626005'
+      '8P4M+GQ, Appayanaickenpatti,',
+      'Sevalpatti,',
+      'Tamil Nadu 626140'
     ],
     cardClass: 'card-purple',
   },

@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './LegalPage.css';
 
 const legalContent = {
@@ -63,7 +63,7 @@ const legalContent = {
           <strong>Marsal Traders</strong><br />
           Phone: +91 8525858075<br />
           Email: marseltraders2026@gmail.com<br />
-          Address: Virudhunagar to sivakasi main road, near kia show room, opposite to nayara bulk, amathur, 626005
+          Address: 8P4M+GQ, Appayanaickenpatti, Sevalpatti, Tamil Nadu 626140
         </p>
       </>
     )
@@ -120,7 +120,7 @@ const legalContent = {
           <strong>Marsal Traders</strong><br />
           Phone: +91 8525858075<br />
           Email: marseltraders2026@gmail.com<br />
-          Address: Virudhunagar to sivakasi main road, near kia show room, opposite to nayara bulk, amathur, 626005
+          Address: 8P4M+GQ, Appayanaickenpatti, Sevalpatti, Tamil Nadu 626140
         </p>
       </>
     )
@@ -269,7 +269,7 @@ const legalContent = {
           <strong>Marsal Traders</strong><br />
           Phone: +91 8525858075<br />
           Email: marseltraders2026@gmail.com<br />
-          Address: Virudhunagar to sivakasi main road, near kia show room, opposite to nayara bulk, amathur, 626005
+          Address: 8P4M+GQ, Appayanaickenpatti, Sevalpatti, Tamil Nadu 626140
         </p>
       </>
     )

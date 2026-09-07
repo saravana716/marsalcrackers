@@ -102,13 +102,13 @@ export default function AboutUs() {
             </div>
 
             <div className="story-text-area">
-              <span className="eyebrow">The Heritage</span>
-              <h2 className="section-title-light">Our Legacy of Light</h2>
+              <span className="eyebrow">Our Journey</span>
+              <h2 className="section-title-light">Igniting Joy Since Inception</h2>
               <p className="story-paragraph-light story-lead">
-                Rooted in Sivakasiâ€”the fireworks capital of Indiaâ€”<strong className="text-amber">Marsal Traders</strong> began with a powerful vision: to transform every celebration into a mesmerizing spectacle of joy, while ensuring safety and affordability for every family.
+                Born in the vibrant heart of Sivakasi, <strong className="text-amber">Marsel Traders</strong> was founded on a simple yet profound promise: to make every festival unforgettable. We believe that celebrations are the soul of our culture, and our fireworks are crafted to be the heartbeat of those precious moments.
               </p>
               <p className="story-paragraph-light">
-                From a humble local distributor, we have evolved into India's most trusted premium fireworks brand. We bring the magic of Sivakasi directly to your doorstep, delivering spectacular quality without the premium price tag.
+                What started as a passionate local endeavor has blossomed into a premier destination for premium fireworks. We blend decades of traditional expertise with uncompromising safety standards, ensuring that when you choose Marsel Traders, you're not just buying fireworks—you're bringing home spectacular memories.
               </p>
 
               <div className="modern-stats-grid-wrapper">
@@ -173,7 +173,7 @@ export default function AboutUs() {
             </div>
             <div className="zigzag-content">
               <p className="mission-statement-light">
-                "To become a trusted and leading fireworks brand, bringing <span>safe</span>, <span>high-quality</span>, <span>innovative</span>, and joyful celebrations to families while creating memorable moments for every occasion."
+                "To illuminate the skies and hearts of millions by becoming India's most trusted fireworks destination. We envision a future where every celebration is marked by our <span>safe</span>, <span>innovative</span>, and <span>spectacular</span> products, creating joyous memories that last a lifetime."
               </p>
             </div>
           </div>
@@ -182,7 +182,7 @@ export default function AboutUs() {
           <div className="zigzag-row reverse">
             <div className="zigzag-content">
               <p className="mission-statement-light">
-                "To deliver <span>premium-quality</span> crackers at <span>affordable</span> prices, with a strong focus on <span>safety</span>, <span>reliability</span>, <span>customer satisfaction</span>, and <span>responsible celebrations</span>. We aim to continuously improve our products and provide every customer with a bright and happy experience through Marsal Traders."
+                "To craft unforgettable festive experiences by delivering <span>premium-quality</span> fireworks at <span>unbeatable</span> prices. We are committed to uncompromising <span>safety standards</span>, <span>timely delivery</span>, and 100% <span>customer satisfaction</span>, ensuring every family can celebrate with confidence through Marsel Traders."
               </p>
             </div>
             <div className="zigzag-visual text-right">
