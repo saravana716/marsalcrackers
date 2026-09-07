@@ -2,6 +2,9 @@
 import React from 'react';
 import { ShieldCheck, Truck, Leaf, Star, Award, Headphones, Zap, Gift } from 'lucide-react';
 import './WhyChooseUs.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
 
 const features = [
   {
@@ -85,31 +88,46 @@ export default function WhyChooseUs() {
           </p>
         </div>
 
-        {/* Features Grid */}
-        <div className="wcu-grid">
-          {features.map((feat, i) => (
-            <div className="wcu-card" key={i} style={{ '--i': i }}>
-              <div className="wcu-card-inner">
-                {/* Icon */}
-                <div className="wcu-icon-ring">
-                  {feat.icon}
+        {/* Features Slider */}
+        <div className="wcu-slider-wrapper">
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={10}
+            loop={true}
+            autoplay={{ delay: 2500, disableOnInteraction: false }}
+            modules={[Autoplay]}
+            breakpoints={{
+              768: { slidesPerView: 3, spaceBetween: 20 },
+              1024: { slidesPerView: 4, spaceBetween: 20 }
+            }}
+            className="wcu-swiper"
+          >
+            {features.map((feat, i) => (
+              <SwiperSlide key={i} style={{ paddingBottom: '20px' }}>
+                <div className="wcu-card" style={{ '--i': i, height: '100%' }}>
+                  <div className="wcu-card-inner">
+                    {/* Icon */}
+                    <div className="wcu-icon-ring">
+                      {feat.icon}
+                    </div>
+
+                    {/* Stat badge */}
+                    <div className="wcu-stat-badge">
+                      <span className="wcu-stat-value">{feat.stat}</span>
+                      <span className="wcu-stat-label">{feat.statLabel}</span>
+                    </div>
+
+                    {/* Text */}
+                    <h3 className="wcu-card-title">{feat.title}</h3>
+                    <p className="wcu-card-desc">{feat.desc}</p>
+                  </div>
+
+                  {/* Hover glow line */}
+                  <div className="wcu-card-glow" />
                 </div>
-
-                {/* Stat badge */}
-                <div className="wcu-stat-badge">
-                  <span className="wcu-stat-value">{feat.stat}</span>
-                  <span className="wcu-stat-label">{feat.statLabel}</span>
-                </div>
-
-                {/* Text */}
-                <h3 className="wcu-card-title">{feat.title}</h3>
-                <p className="wcu-card-desc">{feat.desc}</p>
-              </div>
-
-              {/* Hover glow line */}
-              <div className="wcu-card-glow" />
-            </div>
-          ))}
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
         {/* Bottom CTA Strip */}

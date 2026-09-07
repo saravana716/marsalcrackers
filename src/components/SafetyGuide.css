@@ -49,6 +49,12 @@
   letter-spacing: -0.02em;
 }
 
+@media (max-width: 768px) {
+  .safety-title {
+    font-size: 2rem;
+  }
+}
+
 .safety-desc {
   font-size: 1.1rem;
   color: #64748b;
