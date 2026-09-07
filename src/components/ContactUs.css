@@ -209,6 +209,9 @@
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
 }
 
 .contact-form-title {
@@ -275,6 +278,9 @@
   transition: all 0.2s ease;
   outline: none;
   resize: vertical;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
 }
 
 .contact-field input::placeholder,
