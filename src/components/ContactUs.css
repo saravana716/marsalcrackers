@@ -435,7 +435,7 @@
   .contact-hero img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
 
   .contact-hero-title {
@@ -448,11 +448,11 @@
     line-height: 1.4;
   }
 
-  /* Auto-slider for info cards - 1 card per view, full width */
   .contact-cards-slider {
     overflow: hidden;
     border-radius: 16px;
-    margin-bottom: 4px;
+    margin-bottom: 30px;
+    padding-bottom: 5px;
   }
 
   .contact-cards-track {
