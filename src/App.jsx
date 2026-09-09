@@ -299,7 +299,7 @@ export default function App() {
             />
 
             {/* WHY CHOOSE US — New attractive section to convert customers */}
-            <WhyChooseUs />
+            <WhyChooseUs onNavigate={setCurrentPage} />
 
             {/* 5. SAFETY GUIDE — Educational value, positions brand as responsible */}
             <SafetyGuide />

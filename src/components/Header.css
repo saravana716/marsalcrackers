@@ -11,7 +11,7 @@
 
 /* Top Contact Bar - 3 Columns Layout */
 .top-contact-bar {
-  background: #0B1120; /* Darker navy for top bar */
+  background: #0a0800; /* Darker black/gold for top bar */
   color: #E2E8F0; /* Soft white/gray */
   padding: 8px 5%;
   font-size: 0.75rem;
@@ -290,7 +290,7 @@
   transform: translateY(-50%);
   width: 100%;
   height: 100%;
-  background: #070B19; /* Covered dark navy container */
+  background: #0d0a00; /* Covered dark navy container -> now blackish */
   display: flex;
   align-items: center;
   gap: 12px;
@@ -476,8 +476,8 @@
   left: -280px;
   width: 280px;
   height: 100vh;
-  background: #070B19;
-  border-right: 1.5px solid var(--color-border);
+  background: #0d0a00;
+  border-right: 1.5px solid rgba(212, 175, 55, 0.2);
   box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
@@ -611,14 +611,16 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background: rgba(4, 8, 19, 0.5);
+  background: rgba(13, 10, 0, 0.8);
 }
 
 .mobile-drawer-phone {
   font-size: 0.85rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.9);
-  text-align: center;
+  text-align: left;
+  display: flex;
+  align-items: center;
 }
 
 /* Responsive Menu styles */
@@ -735,6 +737,9 @@
 @media (max-width: 768px) {
   :root {
     --header-height: 126px;
+  }
+  .hide-mobile {
+    display: none !important;
   }
   .top-promo-bar {
     padding: 10px 4%;

@@ -65,7 +65,7 @@ const features = [
   }
 ];
 
-export default function WhyChooseUs() {
+export default function WhyChooseUs({ onNavigate }) {
   return (
     <section className="wcu-section" id="why-us">
       {/* Background decorative elements */}
@@ -136,7 +136,7 @@ export default function WhyChooseUs() {
             <span className="wcu-cta-big">🎆 Diwali is coming — Don't wait!</span>
             <span className="wcu-cta-small">Order early and get guaranteed delivery before the festive rush.</span>
           </div>
-          <a href="#products" className="wcu-cta-btn" onClick={(e) => { e.preventDefault(); document.getElementById('categories')?.scrollIntoView({ behavior: 'smooth' }); }}>
+          <a href="#quick-purchase" className="wcu-cta-btn" onClick={(e) => { e.preventDefault(); if(onNavigate) { onNavigate('quick-purchase'); window.scrollTo(0, 0); } }}>
             Shop Now →
           </a>
         </div>

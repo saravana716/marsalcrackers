@@ -327,11 +327,11 @@ export default function AboutUs() {
         </div>
       </section>
       {/* 7. Our Values */}
-      <section className="about-values-section bg-white">
+      <section className="about-values-section dark-fireworks-bg">
         <div className="about-us-container">
           <div className="text-center mb-50">
-            <h2 className="section-title-light">Our Core Values</h2>
-            <p className="story-paragraph-light">The principles that guide our business everyday.</p>
+            <h2 className="section-title-gold">Our Core Values</h2>
+            <p className="story-paragraph-light" style={{color: '#E0E0E0'}}>The principles that guide our business everyday.</p>
           </div>
           <div className="values-grid-wrapper">
             <Swiper

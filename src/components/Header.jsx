@@ -1,6 +1,6 @@
 // src/components/Header.jsx
 import React, { useState, useEffect } from 'react';
-import { ShoppingCart, Search, ChevronDown, Sparkles, X, Menu, Home, Grid, Download } from 'lucide-react';
+import { ShoppingCart, Search, ChevronDown, Sparkles, X, Menu, Home, Grid, Download, Mail, MapPin, Phone, MessageCircle } from 'lucide-react';
 import logoImg from '../assets/lo.png';
 import './Header.css';
 
@@ -84,13 +84,19 @@ export default function Header({
       {/* Top Contact Bar - 3 Columns */}
       <div className="top-contact-bar hide-mobile">
         <div className="contact-left">
-          <span>✉️ marseltraders2026@gmail.com</span>
+          <Mail size={14} style={{ marginRight: '6px' }} />
+          <span>marseltraders2026@gmail.com</span>
         </div>
         <div className="contact-center">
-          <span>📍 8P4M+GQ, Sevalpatti, Tamil Nadu 626140</span>
+          <MapPin size={14} style={{ marginRight: '6px' }} />
+          <span>8P4M+GQ, Sevalpatti, Tamil Nadu 626140</span>
         </div>
         <div className="contact-right">
-          <span className="contact-phone">📞 WhatsApp: +91 8525858075 | Support: +91 8903033626</span>
+          <MessageCircle size={14} style={{ marginRight: '6px', color: '#38BDF8' }} />
+          <span className="contact-phone">WhatsApp: +91 8525858075</span>
+          <span style={{ margin: '0 8px', color: '#475569' }}>|</span>
+          <Phone size={14} style={{ marginRight: '6px', color: '#38BDF8' }} />
+          <span className="contact-phone">Support: +91 8903033626</span>
         </div>
       </div>
 
@@ -195,7 +201,7 @@ export default function Header({
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12.012 2C6.48 2 2 6.48 2 12.012c0 1.767.46 3.427 1.267 4.904L2 22l5.244-1.22c1.427.777 3.05 1.232 4.768 1.232C17.52 22.012 22 17.532 22 12.012 22 6.48 17.52 2 12.012 2zm0 18.012c-1.57 0-3.037-.417-4.32-1.144l-.31-.184-3.21.748.766-3.125-.2-.32C3.93 14.73 3.51 13.4 3.51 12.01 3.51 7.33 7.33 3.51 12.01 3.51c4.68 0 8.5 3.82 8.5 8.5 0 4.68-3.82 8.502-8.5 8.502zM16.5 13.5c-.244-.12-1.442-.71-1.666-.79-.224-.084-.388-.12-.55.124-.165.244-.64.79-.785.952-.145.163-.29.183-.537.062-.244-.12-1.034-.38-1.97-1.215-.728-.65-1.22-1.45-1.362-1.696-.145-.244-.015-.376.107-.497.11-.11.244-.286.366-.43.122-.14.163-.242.244-.405.082-.163.04-.306-.02-.43-.06-.12-.55-1.32-.754-1.815-.2-.48-.4-.41-.55-.418h-.47c-.162 0-.427.06-.65.306-.225.245-.858.837-.858 2.04 0 1.2 1.058 2.37 1.2 2.57.143.204 2.083 3.18 5.047 4.46.705.305 1.256.487 1.684.623.708.225 1.353.193 1.863.117.57-.085 1.442-.59 1.644-1.162.2-.57.2-1.06.142-1.162-.058-.1-.223-.16-.467-.28z" />
             </svg>
-            <span>WhatsApp Order</span>
+            <span>WhatsApp Enqiry</span>
           </a>
         </div>
       </div>
@@ -258,10 +264,10 @@ export default function Header({
                 rel="noopener noreferrer"
                 className="header-download-btn"
                 title="Download Price List"
-                onClick={(e) => { 
-                  if (!priceListUrl) { 
-                    e.preventDefault(); 
-                    alert('Price list is currently unavailable.'); 
+                onClick={(e) => {
+                  if (!priceListUrl) {
+                    e.preventDefault();
+                    alert('Price list is currently unavailable.');
                   } else {
                     setIsMobileMenuOpen(false);
                   }
@@ -274,8 +280,22 @@ export default function Header({
           </nav>
 
           <div className="mobile-drawer-footer">
-            <span className="mobile-drawer-phone">📞 Support: +91 8903033626</span>
-            <span className="mobile-drawer-phone">💬 WhatsApp: +91 8525858075</span>
+            <span className="mobile-drawer-phone">
+              <Mail size={16} style={{ marginRight: '8px', color: '#38BDF8' }} />
+              marseltraders2026@gmail.com
+            </span>
+            <span className="mobile-drawer-phone" style={{lineHeight: '1.4'}}>
+              <MapPin size={16} style={{ marginRight: '8px', color: '#38BDF8', flexShrink: 0 }} />
+              8P4M+GQ, Sevalpatti, Tamil Nadu 626140
+            </span>
+            <span className="mobile-drawer-phone">
+              <Phone size={16} style={{ marginRight: '8px', color: '#38BDF8' }} />
+              Support: +91 8903033626
+            </span>
+            <span className="mobile-drawer-phone">
+              <MessageCircle size={16} style={{ marginRight: '8px', color: '#38BDF8' }} />
+              WhatsApp: +91 8525858075
+            </span>
             <a
               href="https://wa.me/918525858075?text=Hello%20Marsel%20Traders,%20I%20want%20to%20order%20some%20crackers."
               target="_blank"

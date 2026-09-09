@@ -187,7 +187,7 @@
 }
 
 .modern-stat-card {
-  background: linear-gradient(145deg, #001A3A, #070B19);
+  background: linear-gradient(145deg, #1a1400, #0d0a00);
   padding: 45px 15px 30px;
   border-radius: 12px;
   text-align: center;
@@ -214,7 +214,7 @@
   transform: translateX(-50%);
   width: 50px;
   height: 50px;
-  background: #001A3A;
+  background: #1a1400;
   border: 3px solid #C8860A;
   border-radius: 50%;
   display: flex;
@@ -426,7 +426,7 @@
 /* 3. Mission & Vision Section (Dark Theme Zigzag) */
 .dark-fireworks-bg {
   padding: 50px 5%;
-  background: var(--night, #0B1026);
+  background: linear-gradient(180deg, #0d0a00 0%, #1a1400 100%);
   position: relative;
   overflow: hidden;
 }
@@ -787,36 +787,38 @@
 }
 
 .value-card {
-  background: #FFFAF0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 40px 30px;
   border-radius: 12px;
   text-align: center;
   border-bottom: 3px solid transparent;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .value-card:hover {
   transform: translateY(-8px);
-  background: #FFFFFF;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-  border-bottom-color: var(--color-primary, #FF5A1F);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  border-bottom-color: var(--color-primary, #FFD166);
 }
 
 .value-icon {
   width: 40px;
   height: 40px;
-  color: var(--color-primary, #FF5A1F);
+  color: var(--color-primary, #FFD166);
   margin-bottom: 15px;
 }
 
 .value-card h3 {
   font-size: 1.4rem;
-  color: #1A1A1A;
+  color: #FFFFFF;
   margin-bottom: 15px;
 }
 
 .value-card p {
-  color: #666666;
+  color: #E0E0E0;
   line-height: 1.6;
 }
 

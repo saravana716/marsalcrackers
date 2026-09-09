@@ -3,84 +3,7 @@ import React from 'react';
 import { X, ShoppingCart, Plus, Minus, Trash, Send } from 'lucide-react';
 import './CartDrawer.css';
 
-// Reusable micro icon matching the ProductCard SVGs for item thumbnails
-const CartItemIcon = ({ type }) => {
-  switch (type) {
-    case 'sparkler':
-      return (
-        <svg viewBox="0 0 100 100">
-          <line x1="30" y1="70" x2="70" y2="30" stroke="#7F8C8D" strokeWidth="4" />
-          <circle cx="70" cy="30" r="7" fill="var(--color-primary)" />
-        </svg>
-      );
-    case 'flowerpot':
-      return (
-        <svg viewBox="0 0 100 100">
-          <path d="M38 75H62L56 50H44L38 75Z" fill="#2C3E50" stroke="var(--color-primary)" strokeWidth="2" />
-        </svg>
-      );
-    case 'rocket':
-      return (
-        <svg viewBox="0 0 100 100">
-          <rect x="44" y="30" width="12" height="35" fill="var(--color-secondary)" />
-          <polygon points="40,30 50,12 60,30" fill="var(--color-primary)" />
-        </svg>
-      );
-    case 'chakkar':
-      return (
-        <svg viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="30" fill="none" stroke="var(--color-primary)" strokeWidth="4" strokeDasharray="10 5" />
-        </svg>
-      );
-    case 'fountain':
-      return (
-        <svg viewBox="0 0 100 100">
-          <rect x="40" y="40" width="20" height="40" rx="3" fill="#16A085" stroke="var(--color-primary)" strokeWidth="2" />
-        </svg>
-      );
-    case 'giftbox':
-      return (
-        <svg viewBox="0 0 100 100">
-          <rect x="25" y="35" width="50" height="45" fill="#E74C3C" rx="3" />
-          <rect x="25" y="52" width="50" height="8" fill="var(--color-primary)" />
-        </svg>
-      );
-    case 'bomb':
-      return (
-        <svg viewBox="0 0 100 100">
-          <circle cx="45" cy="55" r="28" fill="#2C3E50" />
-          <path d="M45 22 C45 15, 60 20, 65 10" stroke="#FFF" strokeWidth="2" fill="none" />
-        </svg>
-      );
-    case 'fancyshot':
-      return (
-        <svg viewBox="0 0 100 100">
-          <rect x="20" y="40" width="60" height="40" rx="2" fill="#8E44AD" />
-          <rect x="40" y="25" width="8" height="15" fill="#34495E" />
-        </svg>
-      );
-    case 'combopack':
-      return (
-        <svg viewBox="0 0 100 100">
-          <rect x="25" y="35" width="45" height="45" rx="2" fill="#D35400" />
-          <rect x="40" y="45" width="40" height="40" rx="2" fill="#2980B9" />
-        </svg>
-      );
-    case 'kidscollection':
-      return (
-        <svg viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="15" fill="var(--color-secondary)" />
-          <rect x="47" y="50" width="6" height="30" rx="1" fill="#F39C12" />
-        </svg>
-      );
-    default:
-      return (
-        <svg viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="20" fill="var(--color-primary)" />
-        </svg>
-      );
-  }
-};
+
 
 export default function CartDrawer({ 
   isOpen, 
@@ -125,8 +48,12 @@ export default function CartDrawer({
             cartItems.map((item) => (
               <div key={item.product.id} className="cart-drawer-item">
                 {/* Visual Thumbnail */}
-                <div className="cart-item-img-box">
-                  <CartItemIcon type={item.product.image} />
+                <div className="cart-item-img-box" style={{ background: '#fff', overflow: 'hidden' }}>
+                  <img 
+                    src={item.product.image || 'https://via.placeholder.com/60'} 
+                    alt={item.product.name} 
+                    style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
+                  />
                 </div>
 
                 {/* Details */}
