@@ -61,9 +61,9 @@ const legalContent = {
         <p>For questions regarding this Privacy Policy, please contact:</p>
         <p>
           <strong>Marsal Traders</strong><br />
-          Phone: +91 8525858075<br />
+          Phone: +91 8903033626, +91 8525858075<br />
           Email: marseltraders2026@gmail.com<br />
-          Address: 8P4M+GQ, Appayanaickenpatti, Sevalpatti, Tamil Nadu 626140
+          Address: 8P4M+GQ, Sevalpatti, Tamil Nadu 626140
         </p>
       </>
     )
@@ -118,9 +118,9 @@ const legalContent = {
         <p>For questions regarding these Terms & Conditions:</p>
         <p>
           <strong>Marsal Traders</strong><br />
-          Phone: +91 8525858075<br />
+          Phone: +91 8903033626, +91 8525858075<br />
           Email: marseltraders2026@gmail.com<br />
-          Address: 8P4M+GQ, Appayanaickenpatti, Sevalpatti, Tamil Nadu 626140
+          Address: 8P4M+GQ, Sevalpatti, Tamil Nadu 626140
         </p>
       </>
     )
@@ -180,7 +180,7 @@ const legalContent = {
         <p>For delivery-related enquiries:</p>
         <p>
           <strong>Marsal Traders</strong><br />
-          Phone: +91 8525858075<br />
+          Phone: +91 8903033626, +91 8525858075<br />
           Email: marseltraders2026@gmail.com
         </p>
       </>
@@ -225,7 +225,7 @@ const legalContent = {
         <p>For cancellation or refund enquiries:</p>
         <p>
           <strong>Marsal Traders</strong><br />
-          Phone: +91 8525858075<br />
+          Phone: +91 8903033626, +91 8525858075<br />
           Email: marseltraders2026@gmail.com
         </p>
       </>
@@ -267,9 +267,9 @@ const legalContent = {
         <p>For any clarification regarding products or website information:</p>
         <p>
           <strong>Marsal Traders</strong><br />
-          Phone: +91 8525858075<br />
+          Phone: +91 8903033626, +91 8525858075<br />
           Email: marseltraders2026@gmail.com<br />
-          Address: 8P4M+GQ, Appayanaickenpatti, Sevalpatti, Tamil Nadu 626140
+          Address: 8P4M+GQ, Sevalpatti, Tamil Nadu 626140
         </p>
       </>
     )

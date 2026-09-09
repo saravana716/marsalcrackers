@@ -18,10 +18,10 @@ export default function VideoGallery({ videos }) {
           <div className="video-header-text">
             <span className="video-section-sublabel">
               <Sparkles size={14} className="sparkle-gold" />
-              Watch Crackers Burn
+              See The Magic
             </span>
             <h2 className="video-section-title">
-              Crackers In Action
+              Product Showcase
             </h2>
           </div>
 

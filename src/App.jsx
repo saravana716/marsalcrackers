@@ -31,7 +31,7 @@ import { useStoreData } from './hooks/useSupabase';
 import './App.css';
 
 export default function App() {
-  const { categories, products, galleryVideos, loading, error, marqueeText, minOrderAmount } = useStoreData();
+  const { categories, products, galleryVideos, loading, error, marqueeText, minOrderAmount, priceListUrl } = useStoreData();
 
   // Splash screen state
   const [showSplash, setShowSplash] = useState(true);
@@ -237,6 +237,7 @@ export default function App() {
         onResetFilters={handleResetFilters}
         marqueeText={marqueeText}
         minOrderAmount={minOrderAmount}
+        priceListUrl={priceListUrl}
       />
 
       <main className="main-content">

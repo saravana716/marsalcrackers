@@ -15,7 +15,8 @@ export default function Header({
   setCurrentPage,
   onResetFilters,
   marqueeText,
-  minOrderAmount
+  minOrderAmount,
+  priceListUrl
 }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [showSearch, setShowSearch] = useState(false);
@@ -80,19 +81,25 @@ export default function Header({
 
   return (
     <header className="header-container">
-      {/* Top Split Promo Bar - 3 Columns with Social Icons */}
-      <div className="top-promo-bar">
-        <div className="promo-left">
-          <span>🚚 Delivery in 2-3 Days Pan India</span>
+      {/* Top Contact Bar - 3 Columns */}
+      <div className="top-contact-bar hide-mobile">
+        <div className="contact-left">
+          <span>✉️ marseltraders2026@gmail.com</span>
         </div>
-        <div className="promo-center marquee-container">
-          <div className="marquee-content">
-            <span>{marqueeText || ''}</span>
-            <span>{marqueeText || ''}</span>
-          </div>
+        <div className="contact-center">
+          <span>📍 8P4M+GQ, Sevalpatti, Tamil Nadu 626140</span>
         </div>
-        <div className="promo-right">
-          <span className="promo-phone">📞 +91 8525858075, +91 8525858075</span>
+        <div className="contact-right">
+          <span className="contact-phone">📞 WhatsApp: +91 8525858075 | Support: +91 8903033626</span>
+        </div>
+      </div>
+
+      {/* Marquee Bar */}
+      <div className="top-marquee-bar">
+        <div className="marquee-content">
+          {Array(8).fill(null).map((_, i) => (
+            <span key={i}>{marqueeText || ' '}</span>
+          ))}
         </div>
       </div>
 
@@ -167,11 +174,12 @@ export default function Header({
 
           {/* Flickering Price List Download Button */}
           <a
-            href="/pricelist.pdf"
+            href={priceListUrl || "#"}
             target="_blank"
             rel="noopener noreferrer"
             className="header-download-btn"
             title="Download Price List"
+            onClick={(e) => { if (!priceListUrl) { e.preventDefault(); alert('Price list is currently unavailable.'); } }}
           >
             <Download size={16} />
             <span className="hide-mobile">Price List</span>
@@ -245,12 +253,19 @@ export default function Header({
 
             <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'flex-start', paddingLeft: '10px' }}>
               <a
-                href="/pricelist.pdf"
+                href={priceListUrl || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="header-download-btn"
                 title="Download Price List"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => { 
+                  if (!priceListUrl) { 
+                    e.preventDefault(); 
+                    alert('Price list is currently unavailable.'); 
+                  } else {
+                    setIsMobileMenuOpen(false);
+                  }
+                }}
               >
                 <Download size={16} />
                 <span>Price List</span>
@@ -259,7 +274,8 @@ export default function Header({
           </nav>
 
           <div className="mobile-drawer-footer">
-            <span className="mobile-drawer-phone">📞+91 8525858075</span>
+            <span className="mobile-drawer-phone">📞 Support: +91 8903033626</span>
+            <span className="mobile-drawer-phone">💬 WhatsApp: +91 8525858075</span>
             <a
               href="https://wa.me/918525858075?text=Hello%20Marsel%20Traders,%20I%20want%20to%20order%20some%20crackers."
               target="_blank"

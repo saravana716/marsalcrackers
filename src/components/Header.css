@@ -9,58 +9,61 @@
   box-shadow: var(--shadow-dark);
 }
 
-/* Top Promo Bar - Split 3 Columns Layout */
-.top-promo-bar {
-  background: #feda6a; /* Vibrant Yellow background to grab attention first */
-  color: #000000; /* Pure black text for high contrast readability */
-  padding: 12px 5%; /* Standardized side margins */
-  font-size: 0.8rem; /* Highly legible */
-  font-weight: 800;
-  border-bottom: 2px solid #FFCC00;
+/* Top Contact Bar - 3 Columns Layout */
+.top-contact-bar {
+  background: #0B1120; /* Darker navy for top bar */
+  color: #E2E8F0; /* Soft white/gray */
+  padding: 8px 5%;
+  font-size: 0.75rem;
+  font-weight: 500;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.promo-left, .promo-center, .promo-right {
+.contact-left, .contact-center, .contact-right {
   display: flex;
   align-items: center;
-  color: #000000;
 }
 
-.marquee-container {
-  flex-grow: 1;
+.contact-center {
+  color: #94A3B8;
+}
+
+.contact-phone {
+  font-weight: 600;
+  color: #38BDF8; /* Sky blue for phone */
+}
+
+/* Marquee Bar */
+.top-marquee-bar {
+  background: #DC2626; /* Strong red for urgent marquee */
+  color: #FFFFFF;
+  padding: 8px 0;
+  font-size: 0.8rem;
+  font-weight: 700;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-  margin: 0 20px;
-  max-width: 50%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .marquee-content {
   display: inline-block;
-  animation: scrollMarquee 20s linear infinite;
+  animation: scrollMarquee 25s linear infinite;
 }
 
 .marquee-content span {
   display: inline-block;
   padding-right: 50px;
-  color: #CC0000; /* Strong red text inside yellow marquee for mega sale feel */
-  font-weight: 900;
 }
 
 @keyframes scrollMarquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
-}
-
-.promo-right {
-  gap: 15px;
-}
-
-.promo-phone {
-  font-weight: 700;
 }
 
 /* Social links in top promo */
@@ -371,70 +374,59 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* Flickering Download Button */
+/* Completely New Price List Button - Modern Glass pill */
 .header-download-btn {
-  background: transparent;
-  color: #d4af37;
-  border: 1px solid #d4af37;
-  font-weight: 800;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #F8FAFC;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 600;
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 8px 12px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-  animation: btnPulse 1.2s infinite alternate;
-}
-
-.header-download-btn:hover {
-  background: linear-gradient(135deg, #f5a623 0%, #d4af37 50%, #f5c518 100%);
-  color: #0d0a00;
-  border-color: transparent;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-  animation: none;
-}
-
-@keyframes btnPulse {
-  0% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.2); opacity: 0.8; border-color: #d4af37; color: #d4af37; }
-  100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.8), inset 0 0 8px rgba(212, 175, 55, 0.5); opacity: 1; border-color: #fff8e7; color: #fff8e7; }
-}
-
-/* Premium Solid Gold Block CTA Button */
-.whatsapp-solid-btn {
-  background: linear-gradient(
-  180deg,
-  #FFF49E 0%,
-  #FFD244 25%,
-  #F4AE00 50%,
-  #C46B07 75%,
-  #A65A06 100%
-);
-
-  color: #070B19; /* Navy text */
-  font-weight: 800;
-  font-size: 0.8rem; /* Matching neat button text */
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 11px 18px;
-  border-radius: 6px; /* Box outline block style */
+  letter-spacing: 0.08em;
+  padding: 10px 18px;
+  border-radius: 30px; /* Pill shape */
   display: flex;
   align-items: center;
   gap: 8px;
   text-decoration: none;
-  transition: var(--transition-smooth);
-  box-shadow: 0 4px 12px rgba(255, 159, 67, 0.15);
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-download-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Completely New Premium Solid Green WhatsApp Button */
+.whatsapp-solid-btn {
+  background: #25D366; /* Official WhatsApp Green */
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 10px 20px;
+  border-radius: 30px; /* Pill shape */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .whatsapp-solid-btn:hover {
-  background: #B8860B;
-  color: #070B19;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.2);
+  background: #128C7E;
+  color: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
 /* Mobile menu controls */

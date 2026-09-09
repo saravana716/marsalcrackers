@@ -17,8 +17,8 @@ export default function Categories({ categories = [], activeCategory, onCategory
         {/* Header */}
         <div className="categories-card-header">
           <div className="categories-header-text">
-            <span className="categories-card-sublabel">Explore Collections</span>
-            <h3 className="categories-card-title">Shop By Category</h3>
+            <span className="categories-card-sublabel">Browse Assortment</span>
+            <h3 className="categories-card-title">Crackers Directory</h3>
           </div>
           <div className="categories-header-nav">
             <button

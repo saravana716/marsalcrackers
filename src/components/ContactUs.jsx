@@ -7,7 +7,7 @@ const INFO_CARDS = [
   {
     icon: <Phone size={24} />,
     title: 'CALL US',
-    lines: ['+91 8525858075', '+91 8525858075'],
+    lines: ['+91 8903033626', '+91 8525858075'],
     cardClass: 'card-pink',
   },
   {
@@ -24,8 +24,7 @@ const INFO_CARDS = [
     icon: <MapPin size={24} />,
     title: 'OUR STORE',
     lines: [
-      '8P4M+GQ, Appayanaickenpatti,',
-      'Sevalpatti,',
+      '8P4M+GQ, Sevalpatti,',
       'Tamil Nadu 626140'
     ],
     cardClass: 'card-purple',

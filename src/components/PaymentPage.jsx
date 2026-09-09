@@ -500,7 +500,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                   <div className="pi-ribbon-wrapper">
                     <div className="pi-contact-info-top">
                       <div className="pi-contact-item">
-                        <span className="pi-contact-icon">📞</span>+91 8525858075
+                        <span className="pi-contact-icon">📞</span>+91 8903033626, +91 8525858075
                       </div>
                       <div className="pi-contact-item">
                         <span className="pi-contact-icon">✉️</span>marseltraders2026@gmail.com

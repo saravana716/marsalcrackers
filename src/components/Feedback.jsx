@@ -13,48 +13,48 @@ export default function Feedback() {
   const testimonials = [
     {
       id: 1,
-      name: 'Ramanathan K.',
-      location: 'Chennai, Tamil Nadu',
+      name: 'Sneha Reddy',
+      location: 'Hyderabad, Telangana',
       rating: 5,
       date: 'Oct 2025',
-      purchase: 'Gift Boxes & Rockets',
-      text: 'The Gift Box Deluxe was a massive hit! 25+ varieties of high quality crackers directly from Sivakasi. Excellent packaging and prompt delivery. Highly recommended for families.'
+      purchase: 'Assorted Mega Pack',
+      text: 'Our Diwali was truly spectacular thanks to Marsel Traders. The fireworks arrived earlier than expected and were incredibly vibrant. The kids especially loved the multi-color fountains.'
     },
     {
       id: 2,
-      name: 'Priyanka Sharma',
-      location: 'Bangalore, Karnataka',
+      name: 'Rohan Gupta',
+      location: 'Delhi',
       rating: 5,
       date: 'Nov 2025',
-      purchase: 'Sparklers & Flower Pots',
-      text: 'Absolutely safe crackers with minimal smoke. The color fountains transitioned beautifully from red to green. My children loved the long-lasting gold sparklers!'
+      purchase: 'Night Sky Shots',
+      text: 'I ordered the premium aerial shots for a wedding and they did not disappoint! The massive golden willow effects lit up the entire sky. Superb quality and very safe to handle.'
     },
     {
       id: 3,
-      name: 'Amit Patel',
-      location: 'Mumbai, Maharashtra',
+      name: 'Kavitha M.',
+      location: 'Coimbatore, TN',
       rating: 5,
       date: 'Nov 2025',
-      purchase: 'Sky Shots & Bombs',
-      text: 'The Sky Shot Rockets are outstanding! They soar incredibly high and explode into bright green and gold palms. Marsal Traders is my new go-to crackers website.'
+      purchase: 'Kids Safe Sparklers',
+      text: 'Safety is my priority as a mother, and these crackers were perfectly suited for family fun. Minimal smoke, bright colors, and the customer service was phenomenal.'
     },
     {
       id: 4,
-      name: 'Suresh Kumar',
-      location: 'Hyderabad, Telangana',
+      name: 'Vikas Sharma',
+      location: 'Jaipur, Rajasthan',
       rating: 5,
       date: 'Dec 2025',
-      purchase: 'Chakkars & Ground Wheels',
-      text: 'The Ground Chakkars spun rapidly without any duds. Safe, high quality Sivakasi craftmanship. The customer support on WhatsApp was extremely helpful in choosing items.'
+      purchase: 'Wholesale Celebration Kit',
+      text: 'Bought in bulk for our society celebration. Every single piece worked perfectly, and we saved a ton of money with the factory rates. Will definitely order again next year.'
     },
     {
       id: 5,
-      name: 'Anjali Desai',
-      location: 'Pune, Maharashtra',
+      name: 'Meera Iyer',
+      location: 'Chennai, TN',
       rating: 5,
       date: 'Jan 2026',
-      purchase: 'Combo Premium Pack',
-      text: 'Ordered the wholesale combo pack for our family wedding. Every single item burnt beautifully. The discount pricing saved us a lot compared to local shops.'
+      purchase: 'Traditional Chakkars',
+      text: 'Authentic Sivakasi fireworks delivered right to our door. The spinning wheels and flower pots lasted so long and were beautiful. Thank you for the wonderful experience!'
     }
   ];
 
@@ -67,13 +67,13 @@ export default function Feedback() {
           <img src={logoImg} alt="Marsal Traders Logo" className="feedback-logo" />
           <span className="feedback-sublabel">
             <Sparkles size={14} className="sparkle-gold" />
-            Customer Reviews
+            Client Testimonials
           </span>
           <h2 className="feedback-title">
-            Loved By Families Across India
+            Trusted by Thousands of Happy Customers
           </h2>
           <p className="feedback-desc">
-            Discover real stories and glowing feedback from our happy clients. We bring Sivakasi\'s finest, safest, and most colorful celebrations straight to your doorstep.
+            Hear directly from the people who have experienced the magic of our premium fireworks. We pride ourselves on delivering spectacular, safe, and vibrant celebrations directly to you.
           </p>
 
           {/* Stats Badges */}

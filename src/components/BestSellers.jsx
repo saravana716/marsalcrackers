@@ -30,7 +30,7 @@ export default function BestSellers({
   });
 
   const getSectionTitle = () => {
-    if (activeCategory === 'all') return 'Best Sellers';
+    if (activeCategory === 'all') return 'Top Picks for You';
     if (activeCategory === 'offers') return 'Diwali Special Offers';
     if (activeCategory === 'combo-packs') return 'Premium Combo Packs';
     
@@ -47,7 +47,7 @@ export default function BestSellers({
         <div className="bestsellers-title-wrap">
           <h3 className="bestsellers-title">{getSectionTitle()}</h3>
           <p className="bestsellers-subtitle">
-            Showing {filteredProducts.length} cracker{filteredProducts.length !== 1 ? 's' : ''} with wholesale prices
+            Discover {filteredProducts.length} item{filteredProducts.length !== 1 ? 's' : ''} at factory rates
           </p>
         </div>
         

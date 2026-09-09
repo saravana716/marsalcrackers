@@ -396,7 +396,7 @@ export default function AboutUs() {
             <div className="contact-item">
               <Phone className="contact-icon" />
               <h4>Call Us</h4>
-              <p>+91 8525858075<br />Mon-Sun: 9:00 AM - 9:00 PM</p>
+              <p>+91 8903033626<br />+91 8525858075<br />Mon-Sun: 9:00 AM - 9:00 PM</p>
             </div>
             <div className="contact-item">
               <Clock className="contact-icon" />

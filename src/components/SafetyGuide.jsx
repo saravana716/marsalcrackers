@@ -106,11 +106,11 @@ export default function SafetyGuide() {
         <div className="safety-header">
           <div className="safety-badge">
             <ShieldCheck size={14} />
-            <span>Celebration Safety</span>
+            <span>Diwali Guidelines</span>
           </div>
-          <h2 className="safety-title">Crackers safety tips</h2>
+          <h2 className="safety-title">Essential Safety Rules</h2>
           <p className="safety-desc">
-            There are certain dos and don'ts to follow while purchasing, bursting and storing crackers. A little negligence, ignorance or carelessness can cause a fatal injury. Please follow these precautions for a safe and happy celebration.
+            Ensure a joyful and incident-free celebration by adhering to these crucial safety protocols. Your well-being and the safety of those around you should always be the top priority when handling fireworks.
           </p>
         </div>
 

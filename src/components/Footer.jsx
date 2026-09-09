@@ -65,11 +65,11 @@ export default function Footer({ onCategoryChange, onNavigate }) {
           <div className="footer-contact-list">
             <div className="footer-contact-item">
               <span className="footer-contact-icon"><MapPin size={18} /></span>
-              <span>8P4M+GQ, Appayanaickenpatti, Sevalpatti, Tamil Nadu 626140</span>
+              <span>8P4M+GQ, Sevalpatti, Tamil Nadu 626140</span>
             </div>
             <div className="footer-contact-item">
               <span className="footer-contact-icon"><Phone size={16} /></span>
-              <span>+91 8525858075, +91 8525858075</span>
+              <span>+91 8903033626, +91 8525858075</span>
             </div>
             <div className="footer-contact-item">
               <span className="footer-contact-icon"><Mail size={16} /></span>

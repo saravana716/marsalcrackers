@@ -29,6 +29,7 @@ export function useStoreData() {
   const [error, setError] = useState(null);
   const [marqueeText, setMarqueeText] = useState('');
   const [minOrderAmount, setMinOrderAmount] = useState(2000);
+  const [priceListUrl, setPriceListUrl] = useState('');
 
   useEffect(() => {
     async function fetchData() {
@@ -118,6 +119,16 @@ export function useStoreData() {
           setMinOrderAmount(Number(settingsData[0].value));
         }
 
+        const { data: priceListData, error: priceListErr } = await supabase
+          .from('price_list')
+          .select('file_url')
+          .limit(1);
+          
+        if (priceListErr) console.error('Error fetching price list:', priceListErr);
+        if (priceListData && priceListData.length > 0) {
+          setPriceListUrl(priceListData[0].file_url);
+        }
+
         setCategories(formattedCategories);
         setProducts(formattedProducts);
         setGalleryVideos(formattedGallery);
@@ -132,5 +143,5 @@ export function useStoreData() {
     fetchData();
   }, []);
 
-  return { categories, products, galleryVideos, loading, error, marqueeText, minOrderAmount };
+  return { categories, products, galleryVideos, loading, error, marqueeText, minOrderAmount, priceListUrl };
 }
