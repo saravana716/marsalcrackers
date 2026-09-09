@@ -39,6 +39,16 @@ export default function SplashScreen({ onComplete }) {
 
   return (
     <div className={`splash-screen ${isFading ? 'fade-out' : ''}`}>
+      {/* Fireworks Background */}
+      <div className="fireworks-container">
+        <div className="firework fw-1"></div>
+        <div className="firework fw-2"></div>
+        <div className="firework fw-3"></div>
+        <div className="firework fw-4"></div>
+        <div className="firework fw-5"></div>
+        <div className="firework fw-6"></div>
+      </div>
+      
       <div className="splash-content">
         <img src={logoImg} alt="Marsal Traders" className="splash-logo" />
         <h2 className="splash-quote">{quote}</h2>

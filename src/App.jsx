@@ -242,8 +242,13 @@ export default function App() {
 
       <main className="main-content">
         {loading ? (
-          <div className="loading-spinner" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh'}}>
-            <div className="spinner" style={{width: '50px', height: '50px', border: '5px solid rgba(255,255,255,0.1)', borderTopColor: '#f1c40f', borderRadius: '50%', animation: 'spin 1s linear infinite'}}></div>
+          <div className="loading-spinner" style={{display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh', position: 'relative', overflow: 'hidden'}}>
+            <div className="fireworks-container" style={{ position: 'absolute' }}>
+              <div className="firework fw-5" style={{ top: '50%', left: '50%' }}></div>
+              <div className="firework fw-1" style={{ top: '35%', left: '45%' }}></div>
+              <div className="firework fw-2" style={{ top: '65%', left: '55%' }}></div>
+            </div>
+            <h3 style={{ zIndex: 1, color: '#C8860A', fontFamily: 'Playfair Display, serif', marginTop: '80px', letterSpacing: '1px' }}>Loading...</h3>
           </div>
         ) : error ? (
           <div className="error-message" style={{textAlign: 'center', color: '#ff3333', padding: '2rem'}}>

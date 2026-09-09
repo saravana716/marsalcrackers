@@ -98,3 +98,70 @@
     letter-spacing: 1px;
   }
 }
+
+/* Fireworks Animation */
+.fireworks-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.firework {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.firework::before, .firework::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: firework-burst 2.5s infinite ease-out;
+}
+
+.firework::before {
+  box-shadow: 
+    0 -120px 0 #FFD700, 0 120px 0 #FFD700, 
+    120px 0 0 #FFD700, -120px 0 0 #FFD700, 
+    85px -85px 0 #FFA500, -85px 85px 0 #FFA500, 
+    85px 85px 0 #FFA500, -85px -85px 0 #FFA500;
+}
+
+.firework::after {
+  animation-delay: 0.2s;
+  box-shadow: 
+    0 -80px 0 #FF4500, 0 80px 0 #FF4500, 
+    80px 0 0 #FF4500, -80px 0 0 #FF4500, 
+    55px -55px 0 #FF69B4, -55px 55px 0 #FF69B4, 
+    55px 55px 0 #FF69B4, -55px -55px 0 #FF69B4;
+}
+
+@keyframes firework-burst {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.fw-1 { top: 30%; left: 20%; animation-delay: 0.2s; transform: scale(0.8); }
+.fw-2 { top: 70%; left: 15%; animation-delay: 1.4s; transform: scale(0.6); }
+.fw-3 { top: 25%; left: 80%; animation-delay: 0.8s; transform: scale(1.1); }
+.fw-4 { top: 80%; left: 85%; animation-delay: 2.1s; transform: scale(0.9); }
+.fw-5 { top: 40%; left: 50%; animation-delay: 0.5s; transform: scale(1.5); }
+.fw-6 { top: 15%; left: 60%; animation-delay: 1.8s; transform: scale(0.7); }
+
+.splash-content {
+  z-index: 10;
+}
