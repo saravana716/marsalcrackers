@@ -105,7 +105,7 @@ export default function Footer({ onCategoryChange, onNavigate }) {
             © {new Date().getFullYear()} Marsal Traders. All Rights Reserved.
           </p>
           <p className="footer-developer-text">
-            Designed & Developed by Nexsun Technologies
+            Designed & Developed by Zenspark
           </p>
         </div>
       </div>
