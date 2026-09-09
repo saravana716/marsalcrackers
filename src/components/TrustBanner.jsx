@@ -30,7 +30,12 @@ export default function TrustBanner() {
   return (
     <section className="trust-banner-container">
       {items.map((item, index) => (
-        <div key={index} className="trust-item-card">
+        <div 
+          key={index} 
+          className="trust-item-card"
+          data-aos="flip-up"
+          data-aos-delay={index * 100}
+        >
           <div className="trust-icon-box">
             {item.icon}
           </div>

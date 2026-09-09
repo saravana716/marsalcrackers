@@ -40,7 +40,7 @@ export default function FAQAccordion() {
     <section className="faq-section" id="faq">
       <div className="faq-container">
         
-        <div className="faq-header">
+        <div className="faq-header" data-aos="fade-up">
           <div className="faq-badge">
             <HelpCircle size={14} />
             <span>Support & FAQs</span>
@@ -58,6 +58,8 @@ export default function FAQAccordion() {
               <div 
                 className={`faq-item ${isOpen ? 'open' : ''}`} 
                 key={index}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
               >
                 <button 
                   className="faq-question-btn" 

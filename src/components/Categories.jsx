@@ -12,10 +12,10 @@ export default function Categories({ categories = [], activeCategory, onCategory
   const sliderItems = [...categories];
 
   return (
-    <section className="categories-section" id="categories">
+    <section className="categories-section" id="categories" data-aos="fade-up" data-aos-duration="1000">
       <div className="categories-capsule-card">
         {/* Header */}
-        <div className="categories-card-header">
+        <div className="categories-card-header" data-aos="fade-right" data-aos-delay="200">
           <div className="categories-header-text">
             <span className="categories-card-sublabel">Browse Assortment</span>
             <h3 className="categories-card-title">Crackers Directory</h3>
@@ -59,11 +59,13 @@ export default function Categories({ categories = [], activeCategory, onCategory
               1024: { slidesPerView: 5,   spaceBetween: 20 },
             }}
           >
-            {sliderItems.map((category) => (
+            {sliderItems.map((category, index) => (
               <SwiperSlide key={category.id}>
                 <div
                   className={`cat-card ${activeCategory === category.id ? 'active' : ''}`}
                   onClick={() => onCategoryChange(category.id)}
+                  data-aos="zoom-in"
+                  data-aos-delay={300 + (index * 50)}
                 >
                   {/* Image Area */}
                   <div className="cat-card-img-wrap">

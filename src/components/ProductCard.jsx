@@ -14,7 +14,7 @@ export const ProductIcon = ({ type, alt }) => {
   );
 };
 
-export default function ProductCard({ product, onAddToCart, cartItems = [], onUpdateQuantity, onWishlistToggle, isWished, onQuickView }) {
+export default function ProductCard({ product, onAddToCart, cartItems = [], onUpdateQuantity, onWishlistToggle, isWished, onQuickView, aosDelay = 0 }) {
   const discount = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
 
   const cartItem = cartItems.find((item) => item.product.id === product.id);
@@ -42,7 +42,12 @@ export default function ProductCard({ product, onAddToCart, cartItems = [], onUp
   };
 
   return (
-    <div className="product-card" onClick={handleQuickView}>
+    <div 
+      className="product-card" 
+      onClick={handleQuickView}
+      data-aos="fade-up"
+      data-aos-delay={aosDelay}
+    >
       {/* Product Tag/Badge */}
       {product.tag && (
         <span className={`product-badge ${product.tag === 'Premium Pack' || product.tag === 'Mega Deal' ? 'gold' : ''}`}>

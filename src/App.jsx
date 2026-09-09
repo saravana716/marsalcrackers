@@ -28,10 +28,21 @@ import PaymentModal from './components/PaymentPage'; // Reusing the file but ren
 import SplashScreen from './components/SplashScreen';
 import LegalPage from './components/LegalPage';
 import { useStoreData } from './hooks/useSupabase';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './App.css';
 
 export default function App() {
   const { categories, products, galleryVideos, loading, error, marqueeText, minOrderAmount, priceListUrl } = useStoreData();
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 50,
+      easing: 'ease-out-cubic'
+    });
+  }, []);
 
   // Splash screen state
   const [showSplash, setShowSplash] = useState(true);

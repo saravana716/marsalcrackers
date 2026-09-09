@@ -103,7 +103,7 @@ export default function SafetyGuide() {
     <section className="safety-section" id="safety">
       <div className="safety-container">
         
-        <div className="safety-header">
+        <div className="safety-header" data-aos="fade-up">
           <div className="safety-badge">
             <ShieldCheck size={14} />
             <span>Diwali Guidelines</span>
@@ -116,7 +116,7 @@ export default function SafetyGuide() {
 
         <div className="safety-split-panels">
           {/* Dos Section */}
-          <div className="safety-block dos-panel">
+          <div className="safety-block dos-panel" data-aos="fade-right" data-aos-delay="200">
             <div className="safety-block-header dos-theme">
               <CheckCircle size={24} className="header-icon" />
               <h3>Do's</h3>
@@ -135,7 +135,7 @@ export default function SafetyGuide() {
           </div>
 
           {/* Donts Section */}
-          <div className="safety-block donts-panel">
+          <div className="safety-block donts-panel" data-aos="fade-left" data-aos-delay="400">
             <div className="safety-block-header donts-theme">
               <XCircle size={24} className="header-icon" />
               <h3>Don'ts</h3>
@@ -155,7 +155,7 @@ export default function SafetyGuide() {
         </div>
 
         {/* Emergency Callout Box */}
-        <div className="safety-emergency-callout">
+        <div className="safety-emergency-callout" data-aos="zoom-in" data-aos-delay="200">
           <div className="callout-header">
             <AlertTriangle className="callout-icon" size={24} />
             <div>

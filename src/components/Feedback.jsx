@@ -63,7 +63,7 @@ export default function Feedback() {
       <div className="feedback-container">
         
         {/* Left Side: Summary & Static info */}
-        <div className="feedback-text-side">
+        <div className="feedback-text-side" data-aos="fade-right">
           <img src={logoImg} alt="Marsal Traders Logo" className="feedback-logo" />
           <span className="feedback-sublabel">
             <Sparkles size={14} className="sparkle-gold" />
@@ -93,7 +93,7 @@ export default function Feedback() {
         </div>
 
         {/* Right Side: Swiper Cards Animation */}
-        <div className="feedback-slider-side">
+        <div className="feedback-slider-side" data-aos="fade-left">
           <div className="feedback-swiper-wrapper">
             <Swiper
               effect={'cube'}

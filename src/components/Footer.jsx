@@ -15,7 +15,7 @@ export default function Footer({ onCategoryChange, onNavigate }) {
     <footer className="footer-container" id="footer">
       <div className="footer-grid">
         {/* Col 1: About */}
-        <div className="footer-brand-section">
+        <div className="footer-brand-section" data-aos="fade-up" data-aos-delay="100">
           <a href="#home" className="footer-logo" onClick={handleLogoClick}>
             <img src={logoImg} alt="Marsal Traders Logo" className="footer-logo-image" />
           </a>
@@ -26,7 +26,7 @@ export default function Footer({ onCategoryChange, onNavigate }) {
         </div>
 
         {/* Col 2: Quick Links */}
-        <div>
+        <div data-aos="fade-up" data-aos-delay="200">
           <h4 className="footer-heading">Quick Links</h4>
           <ul className="footer-links-list">
             <li className="footer-link-item">
@@ -48,7 +48,7 @@ export default function Footer({ onCategoryChange, onNavigate }) {
         </div>
 
         {/* Col 3: Legal */}
-        <div>
+        <div data-aos="fade-up" data-aos-delay="300">
           <h4 className="footer-heading">Legal Info</h4>
           <ul className="footer-links-list">
             <li className="footer-link-item"><a href="#privacy" onClick={(e) => { e.preventDefault(); onNavigate && onNavigate('legal-privacy'); }}>Privacy Policy</a></li>
@@ -60,7 +60,7 @@ export default function Footer({ onCategoryChange, onNavigate }) {
         </div>
 
         {/* Col 4: Contact Info */}
-        <div>
+        <div data-aos="fade-up" data-aos-delay="400">
           <h4 className="footer-heading">Contact Us</h4>
           <div className="footer-contact-list">
             <div className="footer-contact-item">
@@ -99,7 +99,7 @@ export default function Footer({ onCategoryChange, onNavigate }) {
         </div>
       </div>
 
-      <div className="footer-bottom-bar">
+      <div className="footer-bottom-bar" data-aos="fade-up" data-aos-offset="0">
         <div className="footer-bottom-content">
           <p className="footer-copyright-text">
             © {new Date().getFullYear()} Marsal Traders. All Rights Reserved.

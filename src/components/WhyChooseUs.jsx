@@ -74,7 +74,7 @@ export default function WhyChooseUs({ onNavigate }) {
 
       <div className="wcu-container">
         {/* Header */}
-        <div className="wcu-header">
+        <div className="wcu-header" data-aos="fade-up">
           <div className="wcu-badge">
             <Award size={14} />
             <span>Why Choose Us</span>
@@ -104,7 +104,12 @@ export default function WhyChooseUs({ onNavigate }) {
           >
             {features.map((feat, i) => (
               <SwiperSlide key={i} style={{ paddingBottom: '20px' }}>
-                <div className="wcu-card" style={{ '--i': i, height: '100%' }}>
+                <div 
+                  className="wcu-card" 
+                  style={{ '--i': i, height: '100%' }}
+                  data-aos="zoom-in"
+                  data-aos-delay={(i % 4) * 100}
+                >
                   <div className="wcu-card-inner">
                     {/* Icon */}
                     <div className="wcu-icon-ring">
@@ -131,7 +136,7 @@ export default function WhyChooseUs({ onNavigate }) {
         </div>
 
         {/* Bottom CTA Strip */}
-        <div className="wcu-cta-strip">
+        <div className="wcu-cta-strip" data-aos="flip-up" data-aos-offset="50">
           <div className="wcu-cta-text">
             <span className="wcu-cta-big">🎆 Diwali is coming — Don't wait!</span>
             <span className="wcu-cta-small">Order early and get guaranteed delivery before the festive rush.</span>

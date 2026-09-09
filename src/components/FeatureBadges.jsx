@@ -90,7 +90,12 @@ export default function FeatureBadges() {
       ) : (
         <div className="features-row">
           {features.map((item, index) => (
-            <div key={index} className={`feature-badge-card ${item.themeClass}`}>
+            <div 
+              key={index} 
+              className={`feature-badge-card ${item.themeClass}`}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
               <div className="feature-icon-container">
                 {item.icon}
               </div>

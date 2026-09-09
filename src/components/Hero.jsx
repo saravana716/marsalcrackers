@@ -32,7 +32,7 @@ export default function Hero({ onShopNowClick }) {
   const handleNext = () => goTo((current + 1) % banners.length);
 
   return (
-    <section className="hero-banner-section" id="hero">
+    <section className="hero-banner-section" id="hero" data-aos="fade-in" data-aos-duration="1200">
       {/* Banner Images */}
       <div className={`hero-banner-wrapper ${animating ? 'hero-fade-out' : 'hero-fade-in'}`}>
         <img

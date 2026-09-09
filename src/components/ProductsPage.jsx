@@ -141,14 +141,14 @@ export default function ProductsPage({
 
         <div className="products-layout-grid">
           {/* Desktop Left Sidebar */}
-          <aside className="products-sidebar desktop-only">
+          <aside className="products-sidebar desktop-only" data-aos="fade-right">
             <h3 className="sidebar-main-title">Filters</h3>
             <SidebarContent />
           </aside>
 
           {/* Right Product Grid Area */}
           <div className="products-main-content">
-            <div className="products-header-row desktop-only">
+            <div className="products-header-row desktop-only" data-aos="fade-down">
               <div className="products-title-wrap">
                 <h3 className="products-title">{getSectionTitle()}</h3>
                 <p className="products-subtitle">
@@ -169,7 +169,7 @@ export default function ProductsPage({
 
             <div className="products-grid">
               {filteredProducts.length > 0 ? (
-                filteredProducts.map((product) => (
+                filteredProducts.map((product, index) => (
                   <ProductCard
                     key={product.id}
                     product={product}
@@ -179,6 +179,7 @@ export default function ProductsPage({
                     onWishlistToggle={onWishlistToggle}
                     isWished={wishlist.includes(product.id)}
                     onQuickView={onQuickView}
+                    aosDelay={(index % 4) * 100}
                   />
                 ))
               ) : (

@@ -43,7 +43,7 @@ export default function BestSellers({
 
   return (
     <section className="bestsellers-section" id="bestsellers">
-      <div className="bestsellers-header-row">
+      <div className="bestsellers-header-row" data-aos="fade-down">
         <div className="bestsellers-title-wrap">
           <h3 className="bestsellers-title">{getSectionTitle()}</h3>
           <p className="bestsellers-subtitle">
@@ -64,7 +64,7 @@ export default function BestSellers({
 
       <div className="products-grid-layout">
         {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
+          filteredProducts.map((product, index) => (
             <ProductCard
               key={product.id}
               product={product}
@@ -74,6 +74,7 @@ export default function BestSellers({
               onWishlistToggle={onWishlistToggle}
               isWished={wishlist.includes(product.id)}
               onQuickView={onQuickView}
+              aosDelay={(index % 4) * 100}
             />
           ))
         ) : (

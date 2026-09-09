@@ -14,7 +14,7 @@ export default function VideoGallery({ videos }) {
       <div className="video-gallery-container">
         
         {/* Section Header */}
-        <div className="video-header-row">
+        <div className="video-header-row" data-aos="fade-down">
           <div className="video-header-text">
             <span className="video-section-sublabel">
               <Sparkles size={14} className="sparkle-gold" />
@@ -69,11 +69,13 @@ export default function VideoGallery({ videos }) {
               }
             }}
           >
-            {videos.map((vid) => (
+            {videos.map((vid, index) => (
               <SwiperSlide key={vid.id}>
                 <div 
                   className="video-item-card"
                   onClick={() => setActiveVideo(vid)}
+                  data-aos="zoom-in"
+                  data-aos-delay={(index % 4) * 100}
                 >
                   {/* Card Video section (used as live thumbnail) */}
                   <div className="video-card-thumb" style={{ padding: 0 }}>

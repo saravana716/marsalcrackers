@@ -46,7 +46,7 @@ export default function FamilyCombos({ onCategorySelect, categories = [] }) {
     <section className="family-combos-section" id="combos">
       <div className="combos-container">
         
-        <div className="combos-header">
+        <div className="combos-header" data-aos="fade-up">
           <span className="combos-subtitle">Curated For You</span>
           <h2 className="combos-title">Exclusive <span className="text-gold-gradient">Diwali Combos</span></h2>
           <p className="combos-desc">Save time and money with our pre-packed celebration boxes. Direct from Sivakasi.</p>
@@ -54,7 +54,12 @@ export default function FamilyCombos({ onCategorySelect, categories = [] }) {
 
         <div className="combos-grid">
           {combos.map((combo, idx) => (
-            <div className={`combo-card ${combo.isPopular ? 'combo-popular' : ''}`} key={idx}>
+            <div 
+              className={`combo-card ${combo.isPopular ? 'combo-popular' : ''}`} 
+              key={idx}
+              data-aos="zoom-in-up"
+              data-aos-delay={idx * 150}
+            >
               {combo.isPopular && <div className="combo-badge">Most Popular</div>}
               
               <div className="combo-icon-wrap">
