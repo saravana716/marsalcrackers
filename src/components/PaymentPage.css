@@ -327,11 +327,13 @@
   .qr-split-container {
     flex-direction: column;
   }
+
   .pay-left-panel {
     border-right: none;
     border-bottom: 1px solid #E2E8F0;
     padding: 30px 20px;
   }
+
   .pay-right-panel {
     padding: 30px 20px;
   }
@@ -704,35 +706,53 @@
   print-color-adjust: exact !important;
 }
 
-/* Ribbon */
+/* Top Right Contact Box */
 .pi-ribbon-wrapper {
   position: absolute;
-  top: -20px;
-  right: 0;
-  width: 40%;
-  height: 160px;
-  overflow: hidden;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #001A3A !important;
+  color: #FFFFFF !important;
+  padding: 18px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-bottom: 3px solid #C8860A !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  z-index: 10;
 }
 
-.pi-ribbon-bg {
-  background: #001A3A !important;
-  width: 150%;
-  height: 100%;
-  transform: skewX(-35deg) translateX(40px);
-  border-left: 8px solid #C8860A !important;
-  border-bottom: 8px solid #C8860A !important;
+.pi-contact-info-top {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px; /* Increased font size */
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+}
+
+.pi-contact-item {
+  display: flex;
+  align-items: flex-start;
+  color: #FFFFFF !important;
   -webkit-print-color-adjust: exact !important;
   print-color-adjust: exact !important;
 }
 
-.pi-ribbon-text {
-  position: absolute;
-  top: 50px;
-  right: 40px;
-  text-align: center;
+.pi-contact-icon {
   color: #C8860A !important;
+  margin-right: 8px;
+  font-size: 14px; /* Larger icon */
+  margin-top: 1px;
   -webkit-print-color-adjust: exact !important;
   print-color-adjust: exact !important;
+}
+
+.pi-address-text {
+  display: inline-block;
 }
 
 .pi-title {

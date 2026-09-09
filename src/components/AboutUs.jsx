@@ -295,7 +295,7 @@ export default function AboutUs() {
       */}
 
       {/* 6. Our Shop Gallery */}
-      <section className="about-shop-gallery-section bg-white" style={{ padding: '60px 0' }}>
+      <section className="about-shop-gallery-section bg-white">
         <div className="about-us-container">
           <div className="text-center mb-50">
             <h2 className="section-title-light">Our Shop Gallery</h2>
@@ -317,8 +317,8 @@ export default function AboutUs() {
             >
               {shopImages.map((imgSrc, idx) => (
                 <SwiperSlide key={idx} style={{ paddingBottom: '40px' }}>
-                  <div className="shop-gallery-card" style={{ height: '300px', borderRadius: '15px', overflow: 'hidden', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
-                    <img src={imgSrc} alt={`Shop Gallery ${idx + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <div className="shop-gallery-card">
+                    <img src={imgSrc} alt={`Shop Gallery ${idx + 1}`} className="shop-gallery-img" />
                   </div>
                 </SwiperSlide>
               ))}

@@ -70,145 +70,68 @@
 }
 
 .contact-info-card {
-  background: #fff;
-  border: 1px solid #e2e8f0;
+  background: #fff !important;
+  border: 1px solid #e2e8f0 !important;
   border-radius: 16px;
   padding: 28px 20px;
   text-align: center;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
   transition: all 0.3s ease;
 }
 
 .contact-info-card:hover {
-  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(200, 134, 10, 0.15) !important;
   transform: translateY(-4px);
+  border-color: #C8860A !important;
 }
 
 .contact-card-icon {
   width: 55px;
   height: 55px;
-  background: --color-accent;
+  background: rgba(200, 134, 10, 0.1) !important;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0f172a;
+  color: #C8860A !important;
   margin: 0 auto 15px;
 }
 
 .contact-info-card h3 {
-  color: #1e293b;
-  font-size: 1rem;
-  font-weight: 700;
+  background: linear-gradient(135deg, #F5B51B 0%, #C8860A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.2rem !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
   margin-bottom: 8px;
 }
 
-.contact-info-card p {
-  color: #64748b;
-  font-size: 0.875rem;
+.contact-info-card p,
+.contact-info-card .wa-message-text {
+  color: #1e293b !important;
+  font-size: 0.95rem !important;
   line-height: 1.6;
   margin: 0;
-}
-
-/* Colored Cards Design */
-.contact-info-card.card-pink {
-  background: #fdfafb;
-  border: 1px solid rgba(0,0,0,0.02);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-}
-.contact-info-card.card-pink:hover {
-  box-shadow: 0 8px 25px rgba(201, 42, 42, 0.1);
-  transform: translateY(-4px);
-}
-.contact-info-card.card-pink .contact-card-icon {
-  background: #fce8e8;
-  color: #c92a2a;
-}
-.contact-info-card.card-pink h3 {
-  color: #3b286b;
-  font-size: 1.1rem;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-.contact-info-card.card-pink p {
-  color: #343a40;
-  font-weight: 800;
-  font-size: 0.95rem;
-}
-
-.contact-info-card.card-green {
-  background: #f0fdf4;
-  border: 1px solid rgba(0,0,0,0.02);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-}
-.contact-info-card.card-green:hover {
-  box-shadow: 0 8px 25px rgba(43, 138, 62, 0.1);
-  transform: translateY(-4px);
-}
-.contact-info-card.card-green .contact-card-icon {
-  background: #dcfce7;
-  color: #16a34a;
-}
-.contact-info-card.card-green h3 {
-  color: #3b286b;
-  font-size: 1.1rem;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-.contact-info-card.card-green p {
-  color: #16a34a;
-  font-weight: 800;
-  font-size: 1.1rem;
-  margin-top: 4px;
-}
-.contact-info-card.card-green .wa-message-text {
-  color: #16a34a;
-  font-weight: 700;
-  font-size: 0.85rem;
-  margin-bottom: 2px;
-}
-
-.contact-info-card.card-purple {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-}
-.contact-info-card.card-purple:hover {
-  box-shadow: 0 8px 25px rgba(59, 40, 107, 0.15);
-  transform: translateY(-4px);
-  border-color: #cbd5e1;
-}
-.contact-info-card.card-purple .contact-card-icon {
-  background: #3b286b;
-  color: #ffffff;
-}
-.contact-info-card.card-purple h3 {
-  color: #3b286b;
-  font-size: 1.1rem;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-.contact-info-card.card-purple p {
-  color: #475569;
-  font-weight: 700;
-  font-size: 0.85rem;
+  font-weight: 600 !important;
 }
 
 /* Main Grid */
 .contact-main-grid {
   display: grid;
-  grid-template-columns: 1fr 420px;
+  grid-template-columns: 1fr;
   gap: 30px;
   align-items: stretch;
 }
 
 /* Form Card */
 .contact-form-card {
-  background: #fff;
-  border: 1px solid #e2e8f0;
+  background: #fff !important;
+  border: 1px solid #e2e8f0 !important;
   border-radius: 20px;
   padding: 40px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
@@ -218,12 +141,15 @@
   font-family: var(--font-display, 'Baloo 2', sans-serif);
   font-size: 1.8rem;
   font-weight: 800;
-  color: #1e293b;
+  background: linear-gradient(135deg, #F5B51B 0%, #C8860A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 8px;
 }
 
 .contact-form-sub {
-  color: #64748b;
+  color: #64748b !important;
   font-size: 0.9rem;
   margin-bottom: 30px;
 }
@@ -258,7 +184,7 @@
 }
 
 .contact-field label {
-  color: #475569;
+  color: #475569 !important;
   font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -268,11 +194,11 @@
 .contact-field input,
 .contact-field textarea,
 .contact-field select {
-  background: #f8fafc;
-  border: 1.5px solid #e2e8f0;
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
   border-radius: 10px;
   padding: 13px 16px;
-  color: #1e293b;
+  color: #1e293b !important;
   font-size: 0.95rem;
   font-family: var(--font-primary, 'Inter', sans-serif);
   transition: all 0.2s ease;
@@ -286,20 +212,20 @@
 .contact-field input::placeholder,
 .contact-field textarea::placeholder,
 .contact-field select::placeholder {
-  color: #94a3b8;
+  color: #94a3b8 !important;
 }
 
 .contact-field input:focus,
 .contact-field textarea:focus,
 .contact-field select:focus {
-  border-color: #FFD700;
-  background: #fffbeb;
-  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.15);
+  border-color: #C8860A !important;
+  background: #fffbeb !important;
+  box-shadow: 0 0 0 3px rgba(200, 134, 10, 0.15) !important;
 }
 
 .contact-submit-btn {
-  background: --color-accent;
-  color: #0f172a;
+  background: #C8860A !important;
+  color: #001A3A !important;
   border: none;
   border-radius: 10px;
   padding: 15px 30px;

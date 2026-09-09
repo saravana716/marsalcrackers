@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ShieldCheck, Download, CheckCircle, ArrowLeft, Copy, CheckCheck } from 'lucide-react';
+import { ShieldCheck, Download, CheckCircle, ArrowLeft, Copy, CheckCheck, Upload, Image as ImageIcon, X } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
-import logoImg from '../assets/mylogo.png';
+import logoImg from '../assets/lo.png';
 import { supabase } from '../lib/supabase';
 import './PaymentPage.css';
 import payment from "../assets/payment.jpeg";
@@ -13,25 +13,62 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
   const [paymentStatus, setPaymentStatus] = useState('pending'); // pending, verifying, success
   const [downloadUrl, setDownloadUrl] = useState(null);
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
+  const [paymentScreenshot, setPaymentScreenshot] = useState(null);
+  const [screenshotPreview, setScreenshotPreview] = useState(null);
   const invoiceRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Test mode active if no orderData is passed
   if (!orderData) {
-    return (
-      <div className="payment-page-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div className="pay-success-card" style={{ marginTop: '0' }}>
-          <h3 style={{ color: '#001A3A', marginBottom: '12px', fontSize: '1.5rem', fontWeight: '800' }}>No Order Found</h3>
-          <p style={{ color: '#555', marginBottom: '24px' }}>Please go back and complete your checkout to view the invoice.</p>
-          <button className="pay-verify-btn" onClick={() => onNavigate('products')}>
-            Back to Shop
-          </button>
-        </div>
-      </div>
-    );
-  } const handlePlaceOrder = async () => {
+    orderData = {
+      isTest: true,
+      orderId: 'TEST-12345',
+      customer: {
+        fullName: 'Test Customer',
+        address: '123 Test Street',
+        city: 'Test City',
+        pincode: '123456',
+        phone: '9876543210',
+        email: 'test@example.com'
+      },
+      items: [
+        { product: { id: 1, name: 'Premium Chakkar', price: 100, originalPrice: 150, quantity: 1, type: 'Box' }, quantity: 2 },
+        { product: { id: 2, name: 'Flower Pots Special', price: 200, originalPrice: 250, quantity: 1, type: 'Box' }, quantity: 1 },
+        { product: { id: 3, name: 'Sparklers 15cm', price: 50, originalPrice: 75, quantity: 1, type: 'Box' }, quantity: 5 }
+      ],
+      originalTotal: 925,
+      savings: 275,
+      subTotal: 650,
+      netTotal: 650
+    };
+  } 
+  
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.size > 5 * 1024 * 1024) { // 5MB limit
+        alert("File is too large. Please upload an image smaller than 5MB.");
+        return;
+      }
+      setPaymentScreenshot(file);
+      setScreenshotPreview(URL.createObjectURL(file));
+    }
+  };
+
+  const handleRemoveScreenshot = () => {
+    setPaymentScreenshot(null);
+    setScreenshotPreview(null);
+  };
+  
+  const handlePlaceOrder = async () => {
+    if (!paymentScreenshot) {
+      alert("Please upload the payment screenshot before proceeding.");
+      return;
+    }
+
     setPaymentStatus('verifying');
     setIsGeneratingPdf(true);
 
@@ -80,17 +117,17 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
       // 4. Upload PDF to Supabase Storage
       const fileName = `invoice_${orderData.orderId}_${Date.now()}.pdf`;
       const { error: uploadError } = await supabase.storage
-        .from('invoices')
+        .from('order-receipts')
         .upload(fileName, pdfBlob, {
           contentType: 'application/pdf',
           upsert: true
         });
 
-      if (uploadError) throw new Error(`Upload Failed: ${uploadError.message}`);
+      if (uploadError) throw new Error(`Invoice Upload Failed: ${uploadError.message}`);
 
       // 5. Get Public URL
       const { data: urlData } = supabase.storage
-        .from('invoices')
+        .from('order-receipts')
         .getPublicUrl(fileName);
 
       const publicUrl = urlData.publicUrl;
@@ -121,12 +158,33 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
         customerId = newCustomer.id;
       }
 
-      // 7. Insert Order (including invoice_url)
+      // 6.5. Upload Payment Screenshot
+      let uploadedScreenshotUrl = null;
+      if (paymentScreenshot) {
+        const screenshotName = `screenshot_${orderData.orderId}_${Date.now()}_${paymentScreenshot.name}`;
+        const { error: screenshotUploadError } = await supabase.storage
+          .from('order-receipts')
+          .upload(screenshotName, paymentScreenshot);
+
+        if (screenshotUploadError) {
+           console.error("Screenshot upload error:", screenshotUploadError);
+           throw new Error(`Screenshot Upload Failed: ${screenshotUploadError.message}`);
+        }
+
+        const { data: screenshotUrlData } = supabase.storage
+          .from('order-receipts')
+          .getPublicUrl(screenshotName);
+          
+        uploadedScreenshotUrl = screenshotUrlData.publicUrl;
+      }
+
+      // 7. Insert Order (including invoice_url and payment_screenshot_url)
       const { data: order, error: orderError } = await supabase.from('orders').insert({
         customer_id: customerId,
         total_amount: orderData.netTotal,
         status: 'Pending',
         invoice_url: publicUrl,
+        payment_screenshot_url: uploadedScreenshotUrl,
         notes: `App Order ID: ${orderData.orderId}`
       }).select('id').single();
 
@@ -180,7 +238,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
 
     } catch (error) {
       console.error("Error processing order:", error);
-      alert(`Order processing failed: ${error.message}\n\nPlease check that the 'invoices' storage bucket exists and allows public uploads.`);
+      alert(`Order processing failed: ${error.message}\n\nPlease check that the 'order-receipts' storage bucket has an INSERT policy.`);
       setPaymentStatus('pending');
     } finally {
       setIsGeneratingPdf(false);
@@ -309,7 +367,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                     <div className="qr-box">
                       <svg viewBox="0 0 100 100" width="180" height="180">
                         {/* A simple placeholder QR pattern */}
-                        <rect width="100" height="100" fill="#FFFFFF" rx="8"/>
+                        <rect width="100" height="100" fill="#FFFFFF" rx="8" />
                         <path d="M10,10 h25 v25 h-25 z M15,15 h15 v15 h-15 z M10,65 h25 v25 h-25 z M15,70 h15 v15 h-15 z M65,10 h25 v25 h-25 z M70,15 h15 v15 h-15 z M45,45 h10 v10 h-10 z M30,40 h10 v10 h-10 z M60,60 h10 v10 h-10 z M40,75 h20 v5 h-20 z M75,40 h15 v20 h-15 z M75,75 h15 v15 h-15 z M80,80 h5 v5 h-5 z M20,20 h5 v5 h-5 z M20,75 h5 v5 h-5 z M75,20 h5 v5 h-5 z M35,20 h5 v10 h-5 z M45,15 h10 v5 h-10 z M55,30 h10 v5 h-10 z M15,45 h10 v5 h-10 z M30,55 h15 v5 h-15 z" fill="#0a0e17" />
                         <rect x="42" y="20" width="15" height="5" fill="#0a0e17" />
                         <rect x="42" y="30" width="5" height="10" fill="#0a0e17" />
@@ -322,7 +380,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                         <strong className="upi-value">8525858075@ybl</strong>
                       </div>
                       <button className="qr-copy-btn" onClick={(e) => {
-                         navigator.clipboard.writeText('8525858075@ybl');
+                        navigator.clipboard.writeText('8525858075@ybl');
                       }}>
                         <Copy size={16} />
                       </button>
@@ -343,10 +401,78 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                 </div>
               </div>
 
-              {/* Verify Button */}
-              <div className="pay-action-bottom">
-                <button className="pay-verify-btn new-theme-btn" onClick={handlePlaceOrder} disabled={paymentStatus === 'verifying'}>
-                  <ShieldCheck size={20} /> I have made the payment
+              {/* Verify Button & File Upload */}
+              <div className="pay-action-bottom" style={{ flexDirection: 'column', alignItems: 'center', marginTop: '40px', gap: '24px', width: '100%', borderTop: '1px solid #E2E8F0', paddingTop: '40px' }}>
+                <div className="screenshot-upload-container" style={{ width: '100%', maxWidth: '400px', textAlign: 'center' }}>
+                  <label style={{ display: 'block', marginBottom: '16px', fontSize: '1.1rem', fontWeight: '800', color: '#0a0e17', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    Upload Payment Screenshot <span style={{color: '#ef4444'}}>*</span>
+                  </label>
+                  
+                  {!screenshotPreview ? (
+                    <div className="upload-box" style={{ 
+                      border: '2px dashed #cbd5e1', borderRadius: '16px', padding: '35px 20px', 
+                      cursor: 'pointer', background: '#F8FAFC', display: 'flex', 
+                      flexDirection: 'column', alignItems: 'center', gap: '12px',
+                      transition: 'all 0.2s ease',
+                      boxShadow: '0 4px 6px rgba(0,0,0,0.02)'
+                    }} 
+                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#ffc107'; e.currentTarget.style.background = '#fffbeb'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#cbd5e1'; e.currentTarget.style.background = '#F8FAFC'; }}
+                    onClick={() => document.getElementById('screenshot-upload').click()}>
+                      <div style={{ background: '#e2e8f0', padding: '14px', borderRadius: '50%' }}>
+                        <Upload size={32} color="#475569" />
+                      </div>
+                      <span style={{ fontSize: '1rem', color: '#334155', fontWeight: '700' }}>Click to browse images</span>
+                      <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Supports JPG, PNG (Max 5MB)</span>
+                      <input 
+                        id="screenshot-upload" 
+                        type="file" 
+                        accept="image/*" 
+                        onChange={handleFileChange} 
+                        style={{ display: 'none' }} 
+                      />
+                    </div>
+                  ) : (
+                    <div className="screenshot-preview-box" style={{ position: 'relative', display: 'inline-block', width: '100%', maxWidth: '320px' }}>
+                      <img 
+                        src={screenshotPreview} 
+                        alt="Payment Screenshot" 
+                        style={{ width: '100%', height: 'auto', maxHeight: '300px', objectFit: 'contain', borderRadius: '12px', border: '2px solid #e2e8f0', boxShadow: '0 10px 25px rgba(0,0,0,0.08)' }} 
+                      />
+                      <button 
+                        type="button"
+                        onClick={handleRemoveScreenshot}
+                        style={{
+                          position: 'absolute', top: '-14px', right: '-14px', 
+                          background: '#ef4444', color: 'white', border: '2px solid white', 
+                          borderRadius: '50%', width: '36px', height: '36px', 
+                          display: 'flex', alignItems: 'center', justifyContent: 'center', 
+                          cursor: 'pointer', boxShadow: '0 4px 10px rgba(239, 68, 68, 0.3)',
+                          transition: 'transform 0.2s',
+                          padding: 0
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                        onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                      >
+                        <X size={20} strokeWidth={3} />
+                      </button>
+                    </div>
+                  )}
+                </div>
+
+                <button 
+                  className="pay-verify-btn new-theme-btn" 
+                  onClick={handlePlaceOrder} 
+                  disabled={paymentStatus === 'verifying' || !paymentScreenshot}
+                  style={{ 
+                    width: '100%', maxWidth: '400px', marginTop: '10px',
+                    opacity: (!paymentScreenshot || paymentStatus === 'verifying') ? 0.6 : 1, 
+                    cursor: (!paymentScreenshot || paymentStatus === 'verifying') ? 'not-allowed' : 'pointer',
+                    transform: (!paymentScreenshot || paymentStatus === 'verifying') ? 'none' : '',
+                    boxShadow: (!paymentScreenshot || paymentStatus === 'verifying') ? 'none' : ''
+                  }}
+                >
+                  <ShieldCheck size={24} /> I have made the payment
                 </button>
               </div>
             </div>
@@ -357,7 +483,8 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
       {/* Premium Print Invoice (Multi-page DOM Chunks) */}
       <div
         ref={invoiceRef}
-        className={`premium-invoice-wrapper ${isGeneratingPdf ? 'generating-pdf' : 'hidden-invoice'}`}
+        className={`premium-invoice-wrapper`}
+        style={{ position: 'absolute', top: '-9999px', left: '-9999px', opacity: 0, pointerEvents: 'none' }}
       >
         {orderData && invoicePages.map((page, pageIndex) => (
           <div key={pageIndex} className="premium-invoice-page">
@@ -371,10 +498,19 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                     <div className="pi-tagline">LIGHTING HAPPINESS, IGNITING CELEBRATIONS</div>
                   </div>
                   <div className="pi-ribbon-wrapper">
-                    <div className="pi-ribbon-bg"></div>
-                    <div className="pi-ribbon-text">
-                      <h1 className="pi-title">INVOICE</h1>
-                      <p className="pi-thankyou">Thank you for your business!</p>
+                    <div className="pi-contact-info-top">
+                      <div className="pi-contact-item">
+                        <span className="pi-contact-icon">📞</span>+91 8525858075
+                      </div>
+                      <div className="pi-contact-item">
+                        <span className="pi-contact-icon">✉️</span>marseltraders2026@gmail.com
+                      </div>
+                      <div className="pi-contact-item">
+                        <span className="pi-contact-icon">📍</span>
+                        <div className="pi-address-text">
+                          8P4M+GQ, Appayanaickenpatti,<br />Sevalpatti, Tamil Nadu 626140
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -412,17 +548,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                     </table>
                   </div>
 
-                  <div className="pi-discount-badge">
-                    <div className="pi-discount-title">FLAT</div>
-                    <div className="pi-discount-value">
-                      <div>90%</div>
-                      <div>OFF</div>
-                    </div>
-                    <div className="pi-discount-subtitle">
-                      <div>ON ALL</div>
-                      <div>PRODUCTS</div>
-                    </div>
-                  </div>
+
                 </div>
               </>
             )}
@@ -513,54 +639,6 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
             )}
 
             {/* Footer Wrapper - no longer pushed to absolute bottom, stacks naturally */}
-            <div>
-              {/* Footer Section & Bottom Strip (Only show on last page) */}
-              {page.isLast && (
-                <>
-                  <div className="pi-footer-area">
-                    <div className="pi-bank-details">
-                      <div className="pi-section-title"><span className="pi-icon">ðŸ›ï¸</span> BANK DETAILS</div>
-                      <table className="pi-bank-table">
-                        <tbody>
-                          <tr><td>Bank Name</td><td>:</td><td>State Bank of India</td></tr>
-                          <tr><td>A/C Name</td><td>:</td><td>DHINESHKANNAN.T</td></tr>
-                          <tr><td>A/C Number</td><td>:</td><td>33946548414</td></tr>
-                          <tr><td>IFSC Code</td><td>:</td><td>SBINOO12767</td></tr>
-                          <tr><td>Branch</td><td>:</td><td>thiruthangal</td></tr>
-                        </tbody>
-                      </table>
-                    </div>
-
-                    <div className="pi-payment-methods">
-                      <div className="pi-section-title"><span className="pi-icon">⚡</span> PAYMENT METHOD</div>
-                      <ul className="pi-methods-list">
-                        <li><span className="pi-method-icon">📱</span> UPI / QR Code</li>
-                        <li><span className="pi-method-icon">ðŸ¦</span> Bank Transfer</li>
-                        <li><span className="pi-method-icon">💵</span> Cash / Cheque</li>
-                      </ul>
-                    </div>
-
-                    <div className="pi-notes-footer">
-                      <div className="pi-section-title"><span className="pi-icon">ðŸ“</span> NOTES</div>
-                      <ul className="pi-notes-list-footer">
-                        <li>Goods once sold will not be taken back.</li>
-                        <li>Please check the items before purchase.</li>
-                        <li>Keep fireworks away from children and flammable materials.</li>
-                        <li>Use fireworks safely and follow safety instructions.</li>
-                        <li>Subject to Sivakasi jurisdiction.</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  {/* Bottom Dark Strip */}
-                  <div className="pi-bottom-strip">
-                    <div>📞 +91 8525858075</div>
-                    <div>âœ‰ï¸ marseltraders2026@gmail.com</div>
-                    <div>ðŸ“ 8P4M+GQ, Appayanaickenpatti, Sevalpatti, Tamil Nadu 626140</div>
-                  </div>
-                </>
-              )}
-            </div>
 
             {/* Page Number (Repeats on every page, absolutely positioned at the bottom) */}
             <div style={{ position: 'absolute', bottom: '10px', left: '0', width: '100%', textAlign: 'center', fontSize: '10px', color: '#888' }}>
