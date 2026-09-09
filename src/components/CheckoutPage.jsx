@@ -4,24 +4,18 @@ import { ProductIcon } from './ProductCard';
 import './CheckoutPage.css';
 
 const generateOrderId = () => {
-  const today = new Date();
-  const yyyy = today.getFullYear();
-  const mm = String(today.getMonth() + 1).padStart(2, '0');
-  const dd = String(today.getDate()).padStart(2, '0');
+  const now = new Date();
+  const yyyy = now.getFullYear();
+  const mm = String(now.getMonth() + 1).padStart(2, '0');
+  const dd = String(now.getDate()).padStart(2, '0');
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+  
   const dateString = `${yyyy}${mm}${dd}`;
-
-  let lastOrderData = JSON.parse(localStorage.getItem('saiSparksLastOrder') || '{"date": "", "counter": 0}');
+  const timeString = `${hours}${minutes}${seconds}`;
   
-  if (lastOrderData.date !== dateString) {
-    lastOrderData = { date: dateString, counter: 1 };
-  } else {
-    lastOrderData.counter += 1;
-  }
-  
-  localStorage.setItem('saiSparksLastOrder', JSON.stringify(lastOrderData));
-  
-  const formattedCounter = String(lastOrderData.counter).padStart(4, '0');
-  return `SSH-${dateString}-${formattedCounter}`;
+  return `MT-${dateString}-${timeString}`;
 };
 
 export default function CheckoutPage({ cartItems, onNavigate, clearCart, onUpdateQuantity, onRemoveItem, onCheckoutSubmit }) {
