@@ -1,6 +1,6 @@
 // src/components/Header.jsx
 import React, { useState, useEffect } from 'react';
-import { ShoppingCart, Search, ChevronDown, Sparkles, X, Menu, Home, Grid, Download, Mail, MapPin, Phone, MessageCircle } from 'lucide-react';
+import { ShoppingCart, Search, ChevronDown, Sparkles, X, Menu, Home, Grid, Download, Mail, MapPin, Phone, MessageCircle, Info, PhoneCall } from 'lucide-react';
 import logoImg from '../assets/lo.png';
 import './Header.css';
 
@@ -226,35 +226,35 @@ export default function Header({
               className={`mobile-nav-link ${currentPage === 'home' && activeCategory === 'all' ? 'active' : ''}`}
               onClick={(e) => { e.preventDefault(); handleNavClick('home'); if (onResetFilters) onResetFilters(); }}
             >
-              Home
+              <Home size={18} /> <span>Home</span>
             </a>
             <a
               href="#about"
               className={`mobile-nav-link ${currentPage === 'about' ? 'active' : ''}`}
               onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}
             >
-              About Us
+              <Info size={18} /> <span>About Us</span>
             </a>
             <a
               href="#products"
               className={`mobile-nav-link ${currentPage === 'products' ? 'active' : ''}`}
               onClick={(e) => { e.preventDefault(); handleNavClick('products'); }}
             >
-              Products
+              <Grid size={18} /> <span>Products</span>
             </a>
             <a
               href="#quickpurchase"
               className={`mobile-nav-link ${currentPage === 'quick-purchase' ? 'active' : ''}`}
               onClick={(e) => { e.preventDefault(); handleNavClick('quick-purchase'); }}
             >
-              Quick Purchase
+              <ShoppingCart size={18} /> <span>Quick Purchase</span>
             </a>
             <a
               href="#contact"
               className={`mobile-nav-link ${currentPage === 'contact' ? 'active' : ''}`}
               onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}
             >
-              Contact Us
+              <PhoneCall size={18} /> <span>Contact Us</span>
             </a>
 
             <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'flex-start', paddingLeft: '10px' }}>
