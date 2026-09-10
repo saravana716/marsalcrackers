@@ -122,7 +122,7 @@ export default function Header({
 
         {/* Left: Serif Logo Group */}
         <a href="/" className="header-logo-section" onClick={(e) => { e.preventDefault(); handleNavClick('home'); if (onResetFilters) onResetFilters(); }}>
-          <img src={logoImg} alt="Marsal Traders Logo" className="header-logo-image" />
+          <img src={logoImg} alt="Marsel Traders Logo" className="header-logo-image" />
         </a>
 
         {/* Center: Navigation Menu Links */}
@@ -193,7 +193,7 @@ export default function Header({
 
           {/* Solid Gold WhatsApp Order CTA button */}
           <a
-            href="https://wa.me/918525858075?text=Hello%20Marsal%20Traders,%20I%20want%20to%20order%20some%20crackers."
+            href="https://wa.me/918525858075?text=Hello%20Marsel%20Traders,%20I%20want%20to%20order%20some%20crackers."
             target="_blank"
             rel="noopener noreferrer"
             className="whatsapp-solid-btn"
@@ -211,7 +211,7 @@ export default function Header({
         <div className="mobile-drawer-sidebar" onClick={(e) => e.stopPropagation()}>
           <div className="mobile-drawer-header">
             <a href="/" className="header-logo-section" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); if (onResetFilters) onResetFilters(); }}>
-              <img src={logoImg} alt="Marsal Traders Logo" className="header-logo-image mobile-drawer-logo" />
+              <img src={logoImg} alt="Marsel Traders Logo" className="header-logo-image mobile-drawer-logo" />
             </a>
             <button className="close-drawer-btn" onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
               <X size={24} />
@@ -284,7 +284,7 @@ export default function Header({
               <Mail size={16} style={{ marginRight: '8px', color: '#38BDF8' }} />
               marseltraders2026@gmail.com
             </span>
-            <span className="mobile-drawer-phone" style={{lineHeight: '1.4'}}>
+            <span className="mobile-drawer-phone" style={{ lineHeight: '1.4' }}>
               <MapPin size={16} style={{ marginRight: '8px', color: '#38BDF8', flexShrink: 0 }} />
               8P4M+GQ, Sevalpatti, Tamil Nadu 626140
             </span>

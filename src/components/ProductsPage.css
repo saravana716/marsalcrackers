@@ -1,8 +1,10 @@
 /* src/components/ProductsPage.css */
 
 .products-page-section {
-  padding: 40px 5% 60px; /* Reduced top padding */
-  background-color: #FFFAF0; /* Light theme background */
+  padding: 40px 5% 60px;
+  /* Reduced top padding */
+  background-color: white;
+  /* Light theme background */
   min-height: 80vh;
 }
 
@@ -21,9 +23,12 @@
 
 /* Sidebar Styles - Premium UI */
 .products-sidebar {
-  background: #0a0e17; /* Dark theme card */
-  border: 1px solid rgba(255, 193, 7, 0.15); /* Subtle yellow border */
-  border-top: 4px solid var(--color-primary, #ffc107); /* Yellow top border */
+  background: #0a0e17;
+  /* Dark theme card */
+  border: 1px solid rgba(255, 193, 7, 0.15);
+  /* Subtle yellow border */
+  border-top: 4px solid var(--color-primary, #ffc107);
+  /* Yellow top border */
   border-radius: 12px;
   padding: 30px 25px;
   position: sticky;
@@ -96,7 +101,8 @@
 }
 
 .category-filter-item button:hover {
-  background: rgba(255, 193, 7, 0.1); /* Dark yellow hover */
+  background: rgba(255, 193, 7, 0.1);
+  /* Dark yellow hover */
   color: #FFFFFF;
 }
 
@@ -106,8 +112,10 @@
 }
 
 .category-filter-item.active button {
-  background: rgba(255, 193, 7, 0.15); /* Yellow active background */
-  color: var(--color-primary, #ffc107); /* Yellow active text */
+  background: rgba(255, 193, 7, 0.15);
+  /* Yellow active background */
+  color: var(--color-primary, #ffc107);
+  /* Yellow active text */
   border-left: 4px solid var(--color-primary, #ffc107);
   font-weight: 700;
   box-shadow: none;
@@ -130,12 +138,14 @@
 .products-title {
   font-family: var(--font-display, 'Baloo 2', sans-serif);
   font-size: 2.2rem;
-  color: #1A1A1A; /* Dark text for light background */
+  color: #1A1A1A;
+  /* Dark text for light background */
   margin-bottom: 5px;
 }
 
 .products-subtitle {
-  color: #666666; /* Darker gray for light background */
+  color: #666666;
+  /* Darker gray for light background */
   font-size: 1rem;
 }
 
@@ -210,8 +220,10 @@
 
 .mobile-page-title {
   font-family: var(--font-display, 'Baloo 2', sans-serif);
-  font-size: 1.4rem; /* Decreased font size to prevent wrapping */
-  color: #1A1A1A; /* Dark text for light background */
+  font-size: 1.4rem;
+  /* Decreased font size to prevent wrapping */
+  color: #1A1A1A;
+  /* Dark text for light background */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -224,13 +236,14 @@
   gap: 6px;
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #1A1A1A; /* Dark text */
+  color: #1A1A1A;
+  /* Dark text */
   padding: 6px 12px;
   border-radius: 6px;
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   flex-shrink: 0;
 }
 
@@ -245,7 +258,7 @@
   transition: left 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   display: flex;
   flex-direction: column;
-  box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
 }
 
 .mobile-filter-drawer.open {
@@ -286,7 +299,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 999;
   opacity: 0;
   pointer-events: none;
@@ -304,11 +317,11 @@
   .products-layout-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .desktop-only {
     display: none !important;
   }
-  
+
   .mobile-filter-header {
     display: flex;
   }
@@ -316,7 +329,8 @@
 
 @media (max-width: 576px) {
   .products-grid {
-    grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
+    grid-template-columns: 1fr 1fr;
+    /* 2 columns on mobile */
     gap: 15px;
   }
 }

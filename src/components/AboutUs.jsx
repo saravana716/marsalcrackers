@@ -18,17 +18,17 @@ import ctaBgImg from '../assets/b1.png';
 import FireworkBurst from './FireworkBurst';
 
 // Shop Images
-import s1 from '../assets/s1.jpeg';
-import s2 from '../assets/s2.jpeg';
-import s3 from '../assets/s3.jpeg';
-import s4 from '../assets/s4.jpeg';
-import s5 from '../assets/s5.jpeg';
-import s6 from '../assets/s6.jpeg';
-import s7 from '../assets/s7.jpeg';
-import s8 from '../assets/s8.jpeg';
-import s9 from '../assets/s9.jpeg';
-import s10 from '../assets/s10.jpeg';
-import shobImg from '../assets/shob img.jpeg';
+import s1 from '../assets/ga1.png';
+import s2 from '../assets/ga2.png';
+import s3 from '../assets/ga3.png';
+import s4 from '../assets/ga4.png';
+import s5 from '../assets/ga1.png';
+import s6 from '../assets/ga2.png';
+import s7 from '../assets/ga3.png';
+import s8 from '../assets/ga4.png';
+import s9 from '../assets/ga1.png';
+import s10 from '../assets/ga2.png';
+import shobImg from '../assets/ga1.png';
 
 export default function AboutUs() {
   const whyChooseUs = [
@@ -97,7 +97,7 @@ export default function AboutUs() {
 
             <div className="story-visual-area">
               <div className="modern-logo-display">
-                <img src={shobImg} alt="Marsal Traders Shop" className="modern-shop-img" />
+                <img src={shobImg} alt="Marsel Traders Shop" className="modern-shop-img" />
               </div>
             </div>
 
@@ -202,7 +202,7 @@ export default function AboutUs() {
         <div className="about-us-container">
           <div className="text-center mb-50">
             <h2 className="section-title-light">Why Choose Us</h2>
-            <p className="story-paragraph-light">What makes Marsal Traders the preferred choice for thousands of families.</p>
+            <p className="story-paragraph-light">What makes Marsel Traders the preferred choice for thousands of families.</p>
           </div>
           <div className="features-light-grid-wrapper">
             <Swiper
@@ -299,7 +299,7 @@ export default function AboutUs() {
         <div className="about-us-container">
           <div className="text-center mb-50">
             <h2 className="section-title-light">Our Shop Gallery</h2>
-            <p className="story-paragraph-light">Take a virtual tour of Marsal Traders.</p>
+            <p className="story-paragraph-light">Take a virtual tour of Marsel Traders.</p>
           </div>
           <div className="shop-gallery-wrapper">
             <Swiper
@@ -331,7 +331,7 @@ export default function AboutUs() {
         <div className="about-us-container">
           <div className="text-center mb-50">
             <h2 className="section-title-gold">Our Core Values</h2>
-            <p className="story-paragraph-light" style={{color: '#E0E0E0'}}>The principles that guide our business everyday.</p>
+            <p className="story-paragraph-light" style={{ color: '#E0E0E0' }}>The principles that guide our business everyday.</p>
           </div>
           <div className="values-grid-wrapper">
             <Swiper

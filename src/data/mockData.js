@@ -121,7 +121,7 @@ export const products = [
   },
   {
     id: 9,
-    name: 'Marsal Traders Ultimate Festival Pack',
+    name: 'Marsel Traders Ultimate Festival Pack',
     category: 'combo-packs',
     price: 1999.00,
     originalPrice: 2999.00,

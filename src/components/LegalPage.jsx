@@ -7,9 +7,9 @@ const legalContent = {
     lastUpdated: 'August 29, 2026',
     content: (
       <>
-        <p>Marsal Traders (â€œweâ€, â€œusâ€, or â€œourâ€) respects your privacy and is committed to protecting the information you share with us.</p>
+        <p>Marsel Traders (â€œweâ€, â€œusâ€, or â€œourâ€) respects your privacy and is committed to protecting the information you share with us.</p>
         <p>This Privacy Policy explains how we collect, use, and protect your information when you visit or interact with our website.</p>
-        
+
         <h3>1. Information We Collect</h3>
         <p>We may collect the following information when you contact us or submit an enquiry:</p>
         <ul>
@@ -22,7 +22,7 @@ const legalContent = {
           <li>Other information voluntarily provided by you</li>
         </ul>
         <p>We may also collect basic technical information such as browser type, device information, IP address, and website usage data for security and website improvement.</p>
-        
+
         <h3>2. How We Use Your Information</h3>
         <p>Your information may be used to:</p>
         <ul>
@@ -34,33 +34,33 @@ const legalContent = {
           <li>Provide customer support</li>
           <li>Comply with applicable laws and regulations</li>
         </ul>
-        
+
         <h3>3. WhatsApp and Third-Party Services</h3>
         <p>If you choose to contact us through WhatsApp, your communication may be processed through WhatsApp and is also subject to WhatsApp's own privacy policies and terms.</p>
         <p>We may use third-party services such as hosting, analytics, maps, payment or communication services where required for operating our website.</p>
-        
+
         <h3>4. Information Security</h3>
         <p>We take reasonable measures to protect the information provided to us against unauthorized access, misuse, alteration or disclosure.</p>
         <p>However, no internet-based transmission or storage system can be guaranteed to be completely secure.</p>
-        
+
         <h3>5. Sharing of Information</h3>
         <p>We do not sell or rent your personal information.</p>
         <p>We may share information with service providers, business partners or authorities where reasonably necessary to provide services, comply with legal requirements, prevent fraud, or protect our rights.</p>
-        
+
         <h3>6. Cookies</h3>
         <p>Our website may use cookies or similar technologies to improve functionality, understand website usage and enhance your browsing experience.</p>
         <p>You can control cookies through your browser settings.</p>
-        
+
         <h3>7. Children's Privacy</h3>
         <p>Our website is not intended to knowingly collect personal information from children without appropriate parental or legal consent.</p>
-        
+
         <h3>8. Changes to This Policy</h3>
         <p>We may update this Privacy Policy from time to time. Any changes will be published on this page with the updated date.</p>
-        
+
         <h3>9. Contact Us</h3>
         <p>For questions regarding this Privacy Policy, please contact:</p>
         <p>
-          <strong>Marsal Traders</strong><br />
+          <strong>Marsel Traders</strong><br />
           Phone: +91 8903033626, +91 8525858075<br />
           Email: marseltraders2026@gmail.com<br />
           Address: 8P4M+GQ, Sevalpatti, Tamil Nadu 626140
@@ -73,12 +73,12 @@ const legalContent = {
     lastUpdated: 'August 29, 2026',
     content: (
       <>
-        <p>Welcome to Marsal Traders. By accessing or using this website, you agree to the following Terms & Conditions.</p>
-        
+        <p>Welcome to Marsel Traders. By accessing or using this website, you agree to the following Terms & Conditions.</p>
+
         <h3>1. Website Purpose</h3>
-        <p>This website is intended to provide information about fireworks, crackers, product varieties, brands, prices and related services offered by Marsal Traders.</p>
+        <p>This website is intended to provide information about fireworks, crackers, product varieties, brands, prices and related services offered by Marsel Traders.</p>
         <p>Product information displayed on the website may be subject to availability and applicable laws and regulations.</p>
-        
+
         <h3>2. Product Information</h3>
         <p>We make reasonable efforts to ensure that product names, images, descriptions and other information are accurate. However:</p>
         <ul>
@@ -86,38 +86,38 @@ const legalContent = {
           <li>Packaging may change depending on the manufacturer.</li>
           <li>Product availability may change without prior notice.</li>
           <li>Prices may change due to market conditions, taxes, transportation or other factors.</li>
-          <li>Displayed prices should be confirmed with Marsal Traders before placing an order.</li>
+          <li>Displayed prices should be confirmed with Marsel Traders before placing an order.</li>
         </ul>
-        
+
         <h3>3. Enquiries and Orders</h3>
         <p>Submitting an enquiry through the website, phone or WhatsApp does not automatically constitute confirmation of an order.</p>
-        <p>Orders, availability, pricing, payment, delivery and other conditions must be confirmed by Marsal Traders.</p>
+        <p>Orders, availability, pricing, payment, delivery and other conditions must be confirmed by Marsel Traders.</p>
         <p>We reserve the right to accept or decline an enquiry or order where required by law or business requirements.</p>
-        
+
         <h3>4. Legal Compliance</h3>
         <p>All transactions and activities involving fireworks are subject to applicable laws, government regulations, licensing requirements and local restrictions.</p>
         <p>Customers are responsible for complying with applicable laws in their location.</p>
-        
+
         <h3>5. Pricing</h3>
         <p>Prices displayed on the website are subject to change without prior notice.</p>
-        <p>The final applicable price will be communicated and confirmed by Marsal Traders before an order is finalized.</p>
-        
+        <p>The final applicable price will be communicated and confirmed by Marsel Traders before an order is finalized.</p>
+
         <h3>6. Intellectual Property</h3>
-        <p>All website content, including logos, images, graphics, text, designs and other materials, belongs to Marsal Traders or its respective owners and may not be copied, reproduced or used without permission.</p>
-        
+        <p>All website content, including logos, images, graphics, text, designs and other materials, belongs to Marsel Traders or its respective owners and may not be copied, reproduced or used without permission.</p>
+
         <h3>7. Website Availability</h3>
         <p>We make reasonable efforts to keep the website available and updated. However, we do not guarantee that the website will always be available, error-free or uninterrupted.</p>
-        
+
         <h3>8. Limitation of Liability</h3>
-        <p>Marsal Traders shall not be responsible for losses arising from inaccurate third-party information, website interruptions, unauthorized access, events beyond our reasonable control, or misuse of products.</p>
-        
+        <p>Marsel Traders shall not be responsible for losses arising from inaccurate third-party information, website interruptions, unauthorized access, events beyond our reasonable control, or misuse of products.</p>
+
         <h3>9. Changes to Terms</h3>
         <p>We reserve the right to modify these Terms & Conditions at any time. Updated terms will be published on this page.</p>
-        
+
         <h3>10. Contact</h3>
         <p>For questions regarding these Terms & Conditions:</p>
         <p>
-          <strong>Marsal Traders</strong><br />
+          <strong>Marsel Traders</strong><br />
           Phone: +91 8903033626, +91 8525858075<br />
           Email: marseltraders2026@gmail.com<br />
           Address: 8P4M+GQ, Sevalpatti, Tamil Nadu 626140
@@ -130,8 +130,8 @@ const legalContent = {
     lastUpdated: 'August 29, 2026',
     content: (
       <>
-        <p>Marsal Traders follows all applicable laws and regulations relating to the transportation, handling and delivery of fireworks.</p>
-        
+        <p>Marsel Traders follows all applicable laws and regulations relating to the transportation, handling and delivery of fireworks.</p>
+
         <h3>1. Delivery Availability</h3>
         <p>Delivery availability depends on:</p>
         <ul>
@@ -143,20 +143,20 @@ const legalContent = {
           <li>Local laws and safety requirements</li>
         </ul>
         <p>We reserve the right to refuse delivery to locations where delivery is prohibited or cannot be safely and legally completed.</p>
-        
+
         <h3>2. Delivery Confirmation</h3>
         <p>Delivery arrangements, if legally permitted, will be confirmed separately with the customer.</p>
         <p>The estimated delivery time may vary depending on location, transportation availability, weather, regulatory restrictions and other circumstances.</p>
-        
+
         <h3>3. Delivery Charges</h3>
         <p>Applicable delivery or transportation charges, if any, will be communicated before confirmation of the order.</p>
-        
+
         <h3>4. Customer Responsibility</h3>
         <p>Customers must provide accurate contact and delivery information.</p>
         <p>The customer may be required to provide identification, address or other information where legally required.</p>
-        
+
         <h3>5. Delays</h3>
-        <p>Marsal Traders shall not be responsible for delays caused by circumstances beyond our reasonable control, including:</p>
+        <p>Marsel Traders shall not be responsible for delays caused by circumstances beyond our reasonable control, including:</p>
         <ul>
           <li>Government restrictions</li>
           <li>Transportation restrictions</li>
@@ -167,19 +167,19 @@ const legalContent = {
           <li>Supplier delays</li>
           <li>Other unforeseen circumstances</li>
         </ul>
-        
+
         <h3>6. Damaged or Missing Products</h3>
-        <p>If a legally permitted delivery is received with visible damage or missing items, the customer should contact Marsal Traders as soon as possible with relevant details and photographs where applicable.</p>
+        <p>If a legally permitted delivery is received with visible damage or missing items, the customer should contact Marsel Traders as soon as possible with relevant details and photographs where applicable.</p>
         <p>Any resolution will be subject to verification and applicable laws.</p>
-        
+
         <h3>7. Important Fireworks Restriction</h3>
         <p>Fireworks cannot be transported or delivered through methods that are prohibited by applicable laws or safety regulations.</p>
-        <p>Marsal Traders will not arrange or facilitate any delivery that violates applicable laws.</p>
-        
+        <p>Marsel Traders will not arrange or facilitate any delivery that violates applicable laws.</p>
+
         <h3>8. Contact Us</h3>
         <p>For delivery-related enquiries:</p>
         <p>
-          <strong>Marsal Traders</strong><br />
+          <strong>Marsel Traders</strong><br />
           Phone: +91 8903033626, +91 8525858075<br />
           Email: marseltraders2026@gmail.com
         </p>
@@ -191,19 +191,19 @@ const legalContent = {
     lastUpdated: 'August 29, 2026',
     content: (
       <>
-        <p>Marsal Traders aims to provide a clear and transparent enquiry and order process.</p>
-        
+        <p>Marsel Traders aims to provide a clear and transparent enquiry and order process.</p>
+
         <h3>1. Cancellation of Enquiry</h3>
         <p>Product enquiries submitted through the website, phone or WhatsApp may be cancelled at any time before an order is confirmed.</p>
-        
+
         <h3>2. Cancellation of Confirmed Orders</h3>
         <p>Cancellation of a confirmed order is subject to the order status, product availability, applicable laws and the terms communicated at the time of confirmation.</p>
-        <p>Customers should contact Marsal Traders as soon as possible if they wish to request cancellation.</p>
-        
+        <p>Customers should contact Marsel Traders as soon as possible if they wish to request cancellation.</p>
+
         <h3>3. Refunds</h3>
         <p>Where a refund is legally applicable and approved, the refund amount and method will be communicated to the customer.</p>
         <p>Refund processing time may vary depending on the payment method and financial institution.</p>
-        
+
         <h3>4. Non-Refundable Situations</h3>
         <p>Refunds may not be available in situations where:</p>
         <ul>
@@ -213,18 +213,18 @@ const legalContent = {
           <li>The customer has provided incorrect information.</li>
           <li>The request does not meet the agreed cancellation conditions.</li>
         </ul>
-        
+
         <h3>5. Damaged Products</h3>
-        <p>If a product is received damaged, the customer should contact Marsal Traders promptly with photographs and order details.</p>
+        <p>If a product is received damaged, the customer should contact Marsel Traders promptly with photographs and order details.</p>
         <p>The issue will be reviewed and handled according to applicable law and the circumstances of the case.</p>
-        
+
         <h3>6. Regulatory Restrictions</h3>
         <p>Because fireworks are regulated products, cancellation, return, refund and transportation arrangements may be subject to applicable government regulations.</p>
-        
+
         <h3>7. Contact Us</h3>
         <p>For cancellation or refund enquiries:</p>
         <p>
-          <strong>Marsal Traders</strong><br />
+          <strong>Marsel Traders</strong><br />
           Phone: +91 8903033626, +91 8525858075<br />
           Email: marseltraders2026@gmail.com
         </p>
@@ -236,37 +236,37 @@ const legalContent = {
     lastUpdated: 'August 29, 2026',
     content: (
       <>
-        <p>The information provided on the Marsal Traders website is intended for general informational and product enquiry purposes.</p>
-        
+        <p>The information provided on the Marsel Traders website is intended for general informational and product enquiry purposes.</p>
+
         <h3>1. Product Information</h3>
         <p>We make reasonable efforts to keep product names, descriptions, images and prices accurate. However, product packaging, appearance, specifications, availability and pricing may change without prior notice.</p>
         <p>Actual products may differ slightly from images displayed on the website.</p>
-        
+
         <h3>2. Prices</h3>
         <p>Prices displayed on the website are indicative unless specifically stated otherwise.</p>
-        <p>Customers should confirm the latest price, availability and applicable charges with Marsal Traders before placing an order.</p>
-        
+        <p>Customers should confirm the latest price, availability and applicable charges with Marsel Traders before placing an order.</p>
+
         <h3>3. Fireworks Safety</h3>
         <p>Fireworks must always be handled and used responsibly and in accordance with the manufacturer's instructions and applicable laws.</p>
         <p>Users should follow all safety instructions, age restrictions, usage restrictions, local regulations and government guidelines.</p>
-        
+
         <h3>4. Legal Restrictions</h3>
         <p>The availability, sale, purchase, transportation, storage and use of fireworks may be subject to restrictions under applicable laws and regulations.</p>
-        <p>Marsal Traders does not encourage or facilitate any activity that violates applicable law.</p>
-        
+        <p>Marsel Traders does not encourage or facilitate any activity that violates applicable law.</p>
+
         <h3>5. Website Links</h3>
-        <p>Our website may contain links to third-party websites or services. Marsal Traders is not responsible for the content, availability, privacy practices or policies of third-party websites.</p>
-        
+        <p>Our website may contain links to third-party websites or services. Marsel Traders is not responsible for the content, availability, privacy practices or policies of third-party websites.</p>
+
         <h3>6. No Guarantee</h3>
-        <p>Although we make reasonable efforts to maintain accurate information, Marsal Traders does not guarantee that all website content will always be complete, accurate, current or free from errors.</p>
-        
+        <p>Although we make reasonable efforts to maintain accurate information, Marsel Traders does not guarantee that all website content will always be complete, accurate, current or free from errors.</p>
+
         <h3>7. Customer Responsibility</h3>
         <p>Customers are responsible for verifying applicable laws and regulations in their location before purchasing, transporting, storing or using fireworks.</p>
-        
+
         <h3>8. Contact</h3>
         <p>For any clarification regarding products or website information:</p>
         <p>
-          <strong>Marsal Traders</strong><br />
+          <strong>Marsel Traders</strong><br />
           Phone: +91 8903033626, +91 8525858075<br />
           Email: marseltraders2026@gmail.com<br />
           Address: 8P4M+GQ, Sevalpatti, Tamil Nadu 626140

@@ -44,8 +44,8 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
       subTotal: 650,
       netTotal: 650
     };
-  } 
-  
+  }
+
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -62,7 +62,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
     setPaymentScreenshot(null);
     setScreenshotPreview(null);
   };
-  
+
   const handlePlaceOrder = async () => {
     if (!paymentScreenshot) {
       alert("Please upload the payment screenshot before proceeding.");
@@ -167,14 +167,14 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
           .upload(screenshotName, paymentScreenshot);
 
         if (screenshotUploadError) {
-           console.error("Screenshot upload error:", screenshotUploadError);
-           throw new Error(`Screenshot Upload Failed: ${screenshotUploadError.message}`);
+          console.error("Screenshot upload error:", screenshotUploadError);
+          throw new Error(`Screenshot Upload Failed: ${screenshotUploadError.message}`);
         }
 
         const { data: screenshotUrlData } = supabase.storage
           .from('order-receipts')
           .getPublicUrl(screenshotName);
-          
+
         uploadedScreenshotUrl = screenshotUrlData.publicUrl;
       }
 
@@ -405,48 +405,48 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
               <div className="pay-action-bottom" style={{ flexDirection: 'column', alignItems: 'center', marginTop: '40px', gap: '24px', width: '100%', borderTop: '1px solid #E2E8F0', paddingTop: '40px' }}>
                 <div className="screenshot-upload-container" style={{ width: '100%', maxWidth: '400px', textAlign: 'center' }}>
                   <label style={{ display: 'block', marginBottom: '16px', fontSize: '1.1rem', fontWeight: '800', color: '#0a0e17', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    Upload Payment Screenshot <span style={{color: '#ef4444'}}>*</span>
+                    Upload Payment Screenshot <span style={{ color: '#ef4444' }}>*</span>
                   </label>
-                  
+
                   {!screenshotPreview ? (
-                    <div className="upload-box" style={{ 
-                      border: '2px dashed #cbd5e1', borderRadius: '16px', padding: '35px 20px', 
-                      cursor: 'pointer', background: '#F8FAFC', display: 'flex', 
+                    <div className="upload-box" style={{
+                      border: '2px dashed #cbd5e1', borderRadius: '16px', padding: '35px 20px',
+                      cursor: 'pointer', background: '#F8FAFC', display: 'flex',
                       flexDirection: 'column', alignItems: 'center', gap: '12px',
                       transition: 'all 0.2s ease',
                       boxShadow: '0 4px 6px rgba(0,0,0,0.02)'
-                    }} 
-                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#ffc107'; e.currentTarget.style.background = '#fffbeb'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#cbd5e1'; e.currentTarget.style.background = '#F8FAFC'; }}
-                    onClick={() => document.getElementById('screenshot-upload').click()}>
+                    }}
+                      onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#ffc107'; e.currentTarget.style.background = '#fffbeb'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#cbd5e1'; e.currentTarget.style.background = '#F8FAFC'; }}
+                      onClick={() => document.getElementById('screenshot-upload').click()}>
                       <div style={{ background: '#e2e8f0', padding: '14px', borderRadius: '50%' }}>
                         <Upload size={32} color="#475569" />
                       </div>
                       <span style={{ fontSize: '1rem', color: '#334155', fontWeight: '700' }}>Click to browse images</span>
                       <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Supports JPG, PNG (Max 5MB)</span>
-                      <input 
-                        id="screenshot-upload" 
-                        type="file" 
-                        accept="image/*" 
-                        onChange={handleFileChange} 
-                        style={{ display: 'none' }} 
+                      <input
+                        id="screenshot-upload"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                        style={{ display: 'none' }}
                       />
                     </div>
                   ) : (
                     <div className="screenshot-preview-box" style={{ position: 'relative', display: 'inline-block', width: '100%', maxWidth: '320px' }}>
-                      <img 
-                        src={screenshotPreview} 
-                        alt="Payment Screenshot" 
-                        style={{ width: '100%', height: 'auto', maxHeight: '300px', objectFit: 'contain', borderRadius: '12px', border: '2px solid #e2e8f0', boxShadow: '0 10px 25px rgba(0,0,0,0.08)' }} 
+                      <img
+                        src={screenshotPreview}
+                        alt="Payment Screenshot"
+                        style={{ width: '100%', height: 'auto', maxHeight: '300px', objectFit: 'contain', borderRadius: '12px', border: '2px solid #e2e8f0', boxShadow: '0 10px 25px rgba(0,0,0,0.08)' }}
                       />
-                      <button 
+                      <button
                         type="button"
                         onClick={handleRemoveScreenshot}
                         style={{
-                          position: 'absolute', top: '-14px', right: '-14px', 
-                          background: '#ef4444', color: 'white', border: '2px solid white', 
-                          borderRadius: '50%', width: '36px', height: '36px', 
-                          display: 'flex', alignItems: 'center', justifyContent: 'center', 
+                          position: 'absolute', top: '-14px', right: '-14px',
+                          background: '#ef4444', color: 'white', border: '2px solid white',
+                          borderRadius: '50%', width: '36px', height: '36px',
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
                           cursor: 'pointer', boxShadow: '0 4px 10px rgba(239, 68, 68, 0.3)',
                           transition: 'transform 0.2s',
                           padding: 0
@@ -460,13 +460,13 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                   )}
                 </div>
 
-                <button 
-                  className="pay-verify-btn new-theme-btn" 
-                  onClick={handlePlaceOrder} 
+                <button
+                  className="pay-verify-btn new-theme-btn"
+                  onClick={handlePlaceOrder}
                   disabled={paymentStatus === 'verifying' || !paymentScreenshot}
-                  style={{ 
+                  style={{
                     width: '100%', maxWidth: '400px', marginTop: '10px',
-                    opacity: (!paymentScreenshot || paymentStatus === 'verifying') ? 0.6 : 1, 
+                    opacity: (!paymentScreenshot || paymentStatus === 'verifying') ? 0.6 : 1,
                     cursor: (!paymentScreenshot || paymentStatus === 'verifying') ? 'not-allowed' : 'pointer',
                     transform: (!paymentScreenshot || paymentStatus === 'verifying') ? 'none' : '',
                     boxShadow: (!paymentScreenshot || paymentStatus === 'verifying') ? 'none' : ''
@@ -494,7 +494,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                 {/* Header Strip with Angled Ribbon (Always show on first page) */}
                 <div className="pi-header">
                   <div className="pi-logo-section">
-                    <img src={logoImg} alt="Marsal Traders Logo" className="pi-logo-img" />
+                    <img src={logoImg} alt="Marsel Traders Logo" className="pi-logo-img" />
                     <div className="pi-tagline">LIGHTING HAPPINESS, IGNITING CELEBRATIONS</div>
                   </div>
                   <div className="pi-ribbon-wrapper">
@@ -605,7 +605,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                       </svg>
                       <span className="pi-ty-line"></span>
                     </div>
-                    <div className="pi-ty-text">Thank you for shopping with<br /><strong>Marsal Traders!</strong></div>
+                    <div className="pi-ty-text">Thank you for shopping with<br /><strong>Marsel Traders!</strong></div>
                     <div className="pi-ty-subtext">This is a computer generated invoice<br />and does not require a physical signature.</div>
                   </div>
                 </div>

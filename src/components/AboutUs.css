@@ -28,11 +28,11 @@
 
 /* Background Colors */
 .bg-white {
-  background-color: #FFFAF0;
+  background-color: white;
 }
 
 .bg-light-gray {
-  background-color: #FFFAF0;
+  background-color: white;
 }
 
 .bg-dark {
@@ -145,7 +145,7 @@
 }
 
 .story-visual-area {
-  flex: 0 0 400px;
+  flex: 0 0 550px;
   display: flex;
   justify-content: center;
 }
@@ -250,8 +250,7 @@
 .modern-logo-display {
   position: relative;
   width: 100%;
-  max-width: 400px;
-  aspect-ratio: 1;
+  max-width: 550px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -970,7 +969,7 @@
   height: 300px;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .shop-gallery-img {
@@ -1027,6 +1026,7 @@
 }
 
 @media (max-width: 576px) {
+
   .mission-vision-grid,
   .features-light-grid,
   .values-grid,
@@ -1094,6 +1094,7 @@
   }
 
   .shop-gallery-card {
-    height: 200px; /* Make it fit nicely on mobile screens */
+    height: 200px;
+    /* Make it fit nicely on mobile screens */
   }
 }

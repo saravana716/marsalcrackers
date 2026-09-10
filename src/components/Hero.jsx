@@ -37,7 +37,7 @@ export default function Hero({ onShopNowClick }) {
       <div className={`hero-banner-wrapper ${animating ? 'hero-fade-out' : 'hero-fade-in'}`}>
         <img
           src={banners[current]}
-          alt={`Marsal Traders Banner ${current + 1}`}
+          alt={`Marsel Traders Banner ${current + 1}`}
           className="hero-banner-img"
         />
         {/* Dark overlay for readability */}

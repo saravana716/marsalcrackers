@@ -1,6 +1,6 @@
 import os
 
-directory = r"c:\Users\vsara\Desktop\marsalcrackers\marsalcrackers"
+directory = r"c:\Users\vsara\Desktop\Marselcrackers\Marselcrackers"
 extensions = (".jsx", ".js", ".css", ".html")
 
 for root, dirs, files in os.walk(directory):
@@ -13,9 +13,9 @@ for root, dirs, files in os.walk(directory):
                 content = f.read()
                 
             if "Sai Sparkz Hub" in content or "Sai Sparkz" in content or "saisparks" in content:
-                content = content.replace("Sai Sparkz Hub", "Marsal Traders")
-                content = content.replace("Sai Sparkz", "Marsal Traders")
-                content = content.replace("saisparks", "marsalcrackers")
+                content = content.replace("Sai Sparkz Hub", "Marsel Traders")
+                content = content.replace("Sai Sparkz", "Marsel Traders")
+                content = content.replace("saisparks", "Marselcrackers")
                 with open(path, "w", encoding="utf-8") as f:
                     f.write(content)
                 print(f"Updated: {path}")

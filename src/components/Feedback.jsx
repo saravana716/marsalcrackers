@@ -61,10 +61,10 @@ export default function Feedback() {
   return (
     <section className="feedback-section" id="reviews">
       <div className="feedback-container">
-        
+
         {/* Left Side: Summary & Static info */}
         <div className="feedback-text-side" data-aos="fade-right">
-          <img src={logoImg} alt="Marsal Traders Logo" className="feedback-logo" />
+          <img src={logoImg} alt="Marsel Traders Logo" className="feedback-logo" />
           <span className="feedback-sublabel">
             <Sparkles size={14} className="sparkle-gold" />
             Client Testimonials
@@ -80,7 +80,7 @@ export default function Feedback() {
           <div className="feedback-stats-row">
             <div className="stat-card">
               <div className="stat-value">
-                4.9 
+                4.9
                 <Star size={18} fill="var(--color-primary)" color="var(--color-primary)" className="inline-star" />
               </div>
               <div className="stat-label">Average Rating</div>

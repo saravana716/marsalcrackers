@@ -28,7 +28,7 @@ export default function SplashScreen({ onComplete }) {
   }, [onComplete]);
 
   const quotes = [
-    "Welcome to Marsal Traders",
+    "Welcome to Marsel Traders",
     "Direct from Sivakasi to Your Doorstep",
     "Experience the Golden Sparkle",
     "The Premium Cracker Destination",
@@ -48,9 +48,9 @@ export default function SplashScreen({ onComplete }) {
         <div className="firework fw-5"></div>
         <div className="firework fw-6"></div>
       </div>
-      
+
       <div className="splash-content">
-        <img src={logoImg} alt="Marsal Traders" className="splash-logo" />
+        <img src={logoImg} alt="Marsel Traders" className="splash-logo" />
         <h2 className="splash-quote">{quote}</h2>
         <div className="splash-loader"></div>
       </div>

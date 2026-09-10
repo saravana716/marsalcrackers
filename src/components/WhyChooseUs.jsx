@@ -80,7 +80,7 @@ export default function WhyChooseUs({ onNavigate }) {
             <span>Why Choose Us</span>
           </div>
           <h2 className="wcu-title">
-            The Marsal Traders
+            The Marsel Traders
             <span className="wcu-title-highlight"> Difference</span>
           </h2>
           <p className="wcu-desc">
@@ -104,8 +104,8 @@ export default function WhyChooseUs({ onNavigate }) {
           >
             {features.map((feat, i) => (
               <SwiperSlide key={i} style={{ paddingBottom: '20px' }}>
-                <div 
-                  className="wcu-card" 
+                <div
+                  className="wcu-card"
                   style={{ '--i': i, height: '100%' }}
                   data-aos="zoom-in"
                   data-aos-delay={(i % 4) * 100}
@@ -141,7 +141,7 @@ export default function WhyChooseUs({ onNavigate }) {
             <span className="wcu-cta-big">🎆 Diwali is coming — Don't wait!</span>
             <span className="wcu-cta-small">Order early and get guaranteed delivery before the festive rush.</span>
           </div>
-          <a href="#quick-purchase" className="wcu-cta-btn" onClick={(e) => { e.preventDefault(); if(onNavigate) { onNavigate('quick-purchase'); window.scrollTo(0, 0); } }}>
+          <a href="#quick-purchase" className="wcu-cta-btn" onClick={(e) => { e.preventDefault(); if (onNavigate) { onNavigate('quick-purchase'); window.scrollTo(0, 0); } }}>
             Shop Now →
           </a>
         </div>
