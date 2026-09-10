@@ -52,11 +52,11 @@ export default function VideoGallery({ videos }) {
             className="video-swiper"
             breakpoints={{
               320: {
-                slidesPerView: 1.25,
-                spaceBetween: 12,
+                slidesPerView: 2,
+                spaceBetween: 10,
               },
               480: {
-                slidesPerView: 1.6,
+                slidesPerView: 2.2,
                 spaceBetween: 15,
               },
               768: {

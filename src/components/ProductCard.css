@@ -36,6 +36,18 @@
   letter-spacing: 0.06em;
 }
 
+.out-of-stock-badge {
+  background: linear-gradient(180deg, #ff5252 0%, #d32f2f 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3) !important;
+}
+
+.low-stock-badge {
+  background: linear-gradient(180deg, #ffb142 0%, #f57c00 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 10px rgba(245, 124, 0, 0.3) !important;
+}
+
 .gold-gradient-text {
   background-image: linear-gradient(180deg,
       #FFF49E 0%,

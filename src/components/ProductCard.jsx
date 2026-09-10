@@ -49,11 +49,19 @@ export default function ProductCard({ product, onAddToCart, cartItems = [], onUp
       data-aos-delay={aosDelay}
     >
       {/* Product Tag/Badge */}
-      {product.tag && (
+      {product.stock <= 0 ? (
+        <span className="product-badge out-of-stock-badge">
+          OUT OF STOCK
+        </span>
+      ) : product.stock <= 10 ? (
+        <span className="product-badge low-stock-badge">
+          ONLY {product.stock} LEFT
+        </span>
+      ) : product.tag ? (
         <span className={`product-badge ${product.tag === 'Premium Pack' || product.tag === 'Mega Deal' ? 'gold' : ''}`}>
           <span className="gold-gradient-text">{product.tag}</span>
         </span>
-      )}
+      ) : null}
 
       <div className="product-image-container">
         <ProductIcon type={product.image} alt={product.name} />
