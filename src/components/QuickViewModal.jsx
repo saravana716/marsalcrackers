@@ -57,18 +57,17 @@ export default function QuickViewModal({ isOpen, product, onClose, onAddToCart }
 
         {/* Right Column Details */}
         <div className="qv-details-section">
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', gap: '20px' }}>
-            <div style={{ display: 'flex', justifyContent: 'center', width: '50%', height: '100%', borderRadius: '12px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
+          <div className="qv-product-info-row">
+            <div className="qv-product-small-image">
               <img
                 src={product.image || 'https://via.placeholder.com/150'}
                 alt={product.name}
-                style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '8px', border: '2px solid rgba(255,193,7,0.5)', backgroundColor: '#1a1a1a', padding: '4px' }}
               />
             </div>
-            <div style={{ width: '100%' }}>
+            <div className="qv-product-text-details">
               <span className="qv-category">{product.categoryName}</span>
               {product.quantity && product.type && (
-                <span className="qv-unit-tag" style={{ marginLeft: '10px', fontSize: '0.85rem', color: '#666', background: '#F0F0F0', padding: '3px 8px', borderRadius: '4px', fontWeight: '500' }}>
+                <span className="qv-unit-tag">
                   {product.quantity} {product.type}
                 </span>
               )}
