@@ -27,7 +27,7 @@
   background: #0a0e17;
   border: 1px solid rgba(255, 193, 7, 0.2);
   border-radius: var(--border-radius-lg);
-  width: 900px;
+  width: 80%;
   max-width: 95%;
   max-height: 90vh;
   overflow-y: auto;
@@ -97,6 +97,7 @@
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
+  gap: 20px;
 }
 
 .qv-category {
@@ -118,6 +119,7 @@
   margin-bottom: 12px;
   text-transform: uppercase;
   letter-spacing: 0.02em;
+  margin-top: 10px;
 }
 
 .qv-rating-row {
@@ -203,7 +205,8 @@
 .qv-feature-icon {
   width: 24px;
   height: 24px;
-  color: var(--color-primary, #ffc107); /* Yellow accent */
+  color: var(--color-primary, #ffc107);
+  /* Yellow accent */
 }
 
 .qv-feature-text {

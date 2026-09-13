@@ -73,7 +73,8 @@ export function useStoreData() {
             safetyInfo: 'Handle with care. Follow safety instructions.',
             stock: p.stock,
             type: p.type || '',
-            quantity: p.quantity || ''
+            quantity: p.quantity || '',
+            videoUrl: p.video_url || null
           };
         });
         

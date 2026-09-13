@@ -6,10 +6,10 @@ import './QuickViewModal.css';
 // Component to render large product image
 const LargeProductIcon = ({ type, alt }) => {
   return (
-    <img 
-      src={type || 'https://via.placeholder.com/300'} 
-      alt={alt || "Product"} 
-      style={{ objectFit: 'contain', width: '100%', height: '100%', maxHeight: '400px', color: '#333', textAlign: 'center' }} 
+    <img
+      src={type || 'https://via.placeholder.com/300'}
+      alt={alt || "Product"}
+      style={{ objectFit: 'contain', width: '100%', height: '100%', maxHeight: '400px', color: '#333', textAlign: 'center' }}
     />
   );
 };
@@ -35,39 +35,65 @@ export default function QuickViewModal({ isOpen, product, onClose, onAddToCart }
         </button>
 
         {/* Left Column Graphic */}
-        <div className="qv-graphics-section">
-          <LargeProductIcon type={product.image} alt={product.name} />
+        <div className="qv-graphics-section" style={{ flexDirection: 'column', gap: '15px' }}>
+          {product.videoUrl ? (
+            <>
+              <video
+                src={product.videoUrl}
+                controls
+                autoPlay
+                loop
+                muted
+                style={{ width: '100%', height: 'auto', maxHeight: '300px', objectFit: 'contain', backgroundColor: '#000', borderRadius: '12px' }}
+              >
+                Your browser does not support the video tag.
+              </video>
+
+            </>
+          ) : (
+            <LargeProductIcon type={product.image} alt={product.name} />
+          )}
         </div>
 
         {/* Right Column Details */}
         <div className="qv-details-section">
-          <div>
-            <span className="qv-category">{product.categoryName}</span>
-            {product.quantity && product.type && (
-              <span className="qv-unit-tag" style={{ marginLeft: '10px', fontSize: '0.85rem', color: '#666', background: '#F0F0F0', padding: '3px 8px', borderRadius: '4px', fontWeight: '500' }}>
-                {product.quantity} {product.type}
-              </span>
-            )}
-            <h3 className="qv-title">{product.name}</h3>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', gap: '20px' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', width: '50%', height: '100%', borderRadius: '12px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
+              <img
+                src={product.image || 'https://via.placeholder.com/150'}
+                alt={product.name}
+                style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '8px', border: '2px solid rgba(255,193,7,0.5)', backgroundColor: '#1a1a1a', padding: '4px' }}
+              />
+            </div>
+            <div style={{ width: '100%' }}>
+              <span className="qv-category">{product.categoryName}</span>
+              {product.quantity && product.type && (
+                <span className="qv-unit-tag" style={{ marginLeft: '10px', fontSize: '0.85rem', color: '#666', background: '#F0F0F0', padding: '3px 8px', borderRadius: '4px', fontWeight: '500' }}>
+                  {product.quantity} {product.type}
+                </span>
+              )}
+              <h3 className="qv-title">{product.name}</h3>
 
-            {/* Ratings row */}
-            <div className="qv-rating-row">
-              <span className="qv-rating">
-                <Star size={16} fill="currentColor" style={{ marginRight: '4px' }} />
-                {product.rating}
-              </span>
-              <span className="qv-reviews">({product.reviews} customer reviews)</span>
+              {/* Ratings row */}
+              <div className="qv-rating-row">
+                <span className="qv-rating">
+                  <Star size={16} fill="currentColor" style={{ marginRight: '4px' }} />
+                  {product.rating}
+                </span>
+                <span className="qv-reviews">({product.reviews} customer reviews)</span>
+              </div>
+
+              {/* Price Detail */}
+              <div className="qv-price-row">
+                <span className="qv-current-price">₹{product.price.toFixed(2)}</span>
+                <span className="qv-original-price">₹{product.originalPrice.toFixed(2)}</span>
+                <span className="qv-discount-label">{discount}% OFF</span>
+              </div>
+
+              {/* Description */}
+              <p className="qv-desc">{product.desc}</p>
             </div>
 
-            {/* Price Detail */}
-            <div className="qv-price-row">
-              <span className="qv-current-price">₹{product.price.toFixed(2)}</span>
-              <span className="qv-original-price">₹{product.originalPrice.toFixed(2)}</span>
-              <span className="qv-discount-label">{discount}% OFF</span>
-            </div>
-
-            {/* Description */}
-            <p className="qv-desc">{product.desc}</p>
           </div>
 
           {/* Features Box (Replacing Safety Instructions) */}
