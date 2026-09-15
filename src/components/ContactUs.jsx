@@ -201,12 +201,13 @@ export default function ContactUs() {
               <div className="contact-map-embed contact-map-embed--stretch">
                 <iframe
                   title="Marsel Traders Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3938.2!2d77.8!3d9.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSivakasi%2C+Tamil+Nadu!5e0!3m2!1sen!2sin!4v1"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3937.3039562441177!2d77.73186257545021!3d9.30631249076646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06b83de107861b%3A0xebd332aa32b44b7b!2s8P4M%2BGQ%2C%20Sevalpatti%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1789373526786!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0, borderRadius: '12px', display: 'block' }}
                   allowFullScreen=""
                   loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
                 />
               </div>
             </div>

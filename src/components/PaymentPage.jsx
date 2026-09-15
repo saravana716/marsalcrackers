@@ -5,7 +5,8 @@ import { jsPDF } from 'jspdf';
 import logoImg from '../assets/lo.png';
 import { supabase } from '../lib/supabase';
 import './PaymentPage.css';
-import payment from "../assets/payment.jpeg";
+import payment from "../assets/bay.png";
+import qrCodeImg from "../assets/qr.jpeg";
 // Replaced flip cards with direct QR code layout
 
 // --- Main PaymentPage Component ---
@@ -332,6 +333,37 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                 <ArrowLeft size={18} /> Continue Shopping
               </button>
             </div>
+
+            <div style={{ marginTop: '24px', padding: '16px', background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+              <h4 style={{ margin: '0 0 8px 0', color: '#0f172a', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                Enjoying Marsel Traders?
+              </h4>
+              <p style={{ margin: '0 0 12px 0', color: '#475569', fontSize: '0.85rem' }}>
+                Your feedback helps us grow! Please take a moment to review us on Google.
+              </p>
+              <a
+                href="https://g.page/r/CbZUIUWn2dYDEBM/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  background: '#1a73e8',
+                  color: 'white',
+                  textDecoration: 'none',
+                  padding: '10px 20px',
+                  borderRadius: '8px',
+                  fontWeight: '600',
+                  fontSize: '0.9rem',
+                  transition: 'background 0.2s'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.background = '#1557b0'}
+                onMouseLeave={(e) => e.currentTarget.style.background = '#1a73e8'}
+              >
+                Write a Review
+              </a>
+            </div>
           </div>
         ) : (
           <>
@@ -365,22 +397,15 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                   <div className="qr-container">
                     <h3 className="qr-title">Scan to Pay</h3>
                     <div className="qr-box">
-                      <svg viewBox="0 0 100 100" width="180" height="180">
-                        {/* A simple placeholder QR pattern */}
-                        <rect width="100" height="100" fill="#FFFFFF" rx="8" />
-                        <path d="M10,10 h25 v25 h-25 z M15,15 h15 v15 h-15 z M10,65 h25 v25 h-25 z M15,70 h15 v15 h-15 z M65,10 h25 v25 h-25 z M70,15 h15 v15 h-15 z M45,45 h10 v10 h-10 z M30,40 h10 v10 h-10 z M60,60 h10 v10 h-10 z M40,75 h20 v5 h-20 z M75,40 h15 v20 h-15 z M75,75 h15 v15 h-15 z M80,80 h5 v5 h-5 z M20,20 h5 v5 h-5 z M20,75 h5 v5 h-5 z M75,20 h5 v5 h-5 z M35,20 h5 v10 h-5 z M45,15 h10 v5 h-10 z M55,30 h10 v5 h-10 z M15,45 h10 v5 h-10 z M30,55 h15 v5 h-15 z" fill="#0a0e17" />
-                        <rect x="42" y="20" width="15" height="5" fill="#0a0e17" />
-                        <rect x="42" y="30" width="5" height="10" fill="#0a0e17" />
-                        <rect x="20" y="45" width="5" height="15" fill="#0a0e17" />
-                      </svg>
+                      <img src={qrCodeImg} alt="UPI QR Code" style={{ width: '240px', height: '240px', objectFit: 'contain' }} />
                     </div>
                     <div className="upi-id-box">
                       <div className="upi-id-text">
                         <span className="upi-label">UPI ID:</span>
-                        <strong className="upi-value">8525858075@ybl</strong>
+                        <strong className="upi-value">vigneshelangovansk-3@oksbi</strong>
                       </div>
                       <button className="qr-copy-btn" onClick={(e) => {
-                        navigator.clipboard.writeText('8525858075@ybl');
+                        navigator.clipboard.writeText('vigneshelangovansk-3@oksbi');
                       }}>
                         <Copy size={16} />
                       </button>
@@ -391,10 +416,11 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                     <details className="bank-details-accordion">
                       <summary>Alternatively, pay via Bank Transfer</summary>
                       <div className="bank-details-content">
-                        <div className="bank-row"><strong>Bank:</strong> State Bank of India</div>
-                        <div className="bank-row"><strong>A/C Name:</strong> DHINESHKANNAN.T</div>
-                        <div className="bank-row"><strong>A/C No:</strong> 33946548414</div>
-                        <div className="bank-row"><strong>IFSC:</strong> SBINOO12767</div>
+                        <div className="bank-row"><strong>Bank:</strong> STATE BANK OF INDIA</div>
+                        <div className="bank-row"><strong>A/C Name:</strong> vignesh E</div>
+                        <div className="bank-row"><strong>A/C No:</strong> 45274222733</div>
+                        <div className="bank-row"><strong>IFSC:</strong> SBIN0012767</div>
+                        <div className="bank-row"><strong>Branch:</strong> Thiruthangal</div>
                       </div>
                     </details>
                   </div>
@@ -607,6 +633,11 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
                     </div>
                     <div className="pi-ty-text">Thank you for shopping with<br /><strong>Marsel Traders!</strong></div>
                     <div className="pi-ty-subtext">This is a computer generated invoice<br />and does not require a physical signature.</div>
+
+                    <div style={{ marginTop: '15px', padding: '10px', border: '1px dashed #ccc', borderRadius: '8px', textAlign: 'center' }}>
+                      <strong style={{ fontSize: '12px', color: '#333' }}>⭐ Please Review Us on Google ⭐</strong><br />
+                      <span style={{ fontSize: '10px', color: '#666' }}>https://g.page/r/CbZUIUWn2dYDEBM/review</span>
+                    </div>
                   </div>
                 </div>
 
