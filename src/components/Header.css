@@ -165,7 +165,7 @@
 .header-nav-menu {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 20px; /* Reduced gap slightly to fit more items */
 }
 
 .nav-link-item {
@@ -181,6 +181,8 @@
   gap: 4px;
   position: relative;
   padding: 6px 0;
+  white-space: nowrap;
+  font-family: inherit;
 }
 
 .nav-quick-img-link {

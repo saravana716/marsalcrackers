@@ -27,6 +27,7 @@ import ContactUs from './components/ContactUs';
 import PaymentModal from './components/PaymentPage'; // Reusing the file but renaming import
 import SplashScreen from './components/SplashScreen';
 import LegalPage from './components/LegalPage';
+import HowToOrderModal from './components/HowToOrderModal';
 import { useStoreData } from './hooks/useSupabase';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -49,6 +50,25 @@ export default function App() {
 
   // Page routing state
   const [currentPage, setCurrentPage] = useState('home');
+
+  // How to Order Modal state
+  const [isHowToOrderOpen, setIsHowToOrderOpen] = useState(false);
+
+  // Check for first visit to show How To Order
+  useEffect(() => {
+    // Only show after splash screen is done
+    if (!showSplash) {
+      const hasSeenHowToOrder = localStorage.getItem('hasSeenHowToOrder');
+      if (!hasSeenHowToOrder) {
+        // Add a small delay so it doesn't jarringly appear exactly when splash ends
+        const timer = setTimeout(() => {
+          setIsHowToOrderOpen(true);
+          localStorage.setItem('hasSeenHowToOrder', 'true');
+        }, 1000);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [showSplash]);
 
   // Cart state
   const [cartItems, setCartItems] = useState(() => {
@@ -249,6 +269,7 @@ export default function App() {
         marqueeText={marqueeText}
         minOrderAmount={minOrderAmount}
         priceListUrl={priceListUrl}
+        onHowToOrderClick={() => setIsHowToOrderOpen(true)}
       />
 
       <main className="main-content">
@@ -429,6 +450,24 @@ export default function App() {
         setCurrentPage('quick-purchase');
         window.scrollTo(0, 0);
       }} />
+
+      {/* How to Order Floating Button */}
+      <button 
+        className="hto-float-btn" 
+        onClick={() => setIsHowToOrderOpen(true)}
+        aria-label="How to Order"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>How to Order</span>
+      </button>
+
+      {/* How to Order Modal */}
+      <HowToOrderModal 
+        isOpen={isHowToOrderOpen} 
+        onClose={() => setIsHowToOrderOpen(false)} 
+      />
     </div>
     </>
   );
