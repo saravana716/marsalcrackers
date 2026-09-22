@@ -51,8 +51,7 @@ export function useStoreData() {
 
         const { data: prodData, error: prodError } = await supabase
           .from('products')
-          .select('*')
-          .order('created_at', { ascending: true });
+          .select('*');
           
         if (prodError) throw prodError;
 
@@ -60,6 +59,7 @@ export function useStoreData() {
           const cat = formattedCategories.find(c => c.id === p.category_id);
           return {
             id: p.id,
+            serial_no: (p.serial_no && !isNaN(parseInt(p.serial_no, 10))) ? parseInt(p.serial_no, 10) : 999999,
             name: p.name,
             category: p.category_id,
             categoryName: cat ? cat.name : 'Unknown',
@@ -76,6 +76,17 @@ export function useStoreData() {
             quantity: p.quantity || '',
             videoUrl: p.video_url || null
           };
+        });
+
+        formattedProducts.sort((a, b) => a.serial_no - b.serial_no);
+
+        // Sort categories based on the lowest serial_no of their products
+        formattedCategories.sort((a, b) => {
+          const aProducts = formattedProducts.filter(p => p.category === a.id);
+          const bProducts = formattedProducts.filter(p => p.category === b.id);
+          const aMin = aProducts.length > 0 ? aProducts[0].serial_no : 999999;
+          const bMin = bProducts.length > 0 ? bProducts[0].serial_no : 999999;
+          return aMin - bMin;
         });
         
         const { data: galleryData, error: galleryError } = await supabase

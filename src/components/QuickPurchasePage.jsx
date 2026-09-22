@@ -96,6 +96,7 @@ export default function QuickPurchasePage({ products = [], categories = [], cart
           <table className="qp-wholesale-table">
             <thead>
               <tr>
+                <th className="qp-col-sno" style={{width: '60px', textAlign: 'center'}}>S.No</th>
                 <th className="qp-col-img">Image</th>
                 <th className="qp-col-name">Product Name</th>
                 <th className="qp-col-actual">Actual Price</th>
@@ -105,64 +106,55 @@ export default function QuickPurchasePage({ products = [], categories = [], cart
               </tr>
             </thead>
             <tbody>
-              {productsByCategory.map((category) => (
-                <React.Fragment key={category.id}>
-                  {/* Category Header Row */}
-                  <tr className="qp-category-header-row">
-                    <td colSpan="6" className="qp-category-header-cell">
-                      {category.name.toUpperCase()} (SPECIAL DISCOUNT)
+              {products.map((product) => {
+                const qty = getQuantity(product.id);
+                const rowTotal = qty ? (product.price * qty) : 0;
+                
+                return (
+                  <tr key={product.id} className="qp-product-row">
+                    <td className="qp-col-sno" style={{textAlign: 'center', fontWeight: 'bold', color: '#555'}}>
+                      {product.serial_no === 999999 ? '-' : product.serial_no}
+                    </td>
+                    <td className="qp-col-img">
+                      <div className="qp-img-box">
+                        <ProductIcon type={product.image} />
+                      </div>
+                    </td>
+                    <td className="qp-col-name">
+                      <div className="qp-product-name">{product.name}</div>
+                      <div className="qp-product-desc-mobile-only">
+                        <span className="qp-mob-actual">₹{product.originalPrice}</span>
+                        <span className="qp-mob-price">₹{product.price}</span>
+                      </div>
+                    </td>
+                    <td className="qp-col-actual">
+                      <div className="qp-actual-price-wrap">
+                        <span className="qp-strike-price">₹{product.originalPrice}</span>
+                        <span className="qp-unit-text">{product.quantity && product.type ? `${product.quantity} ${product.type}` : '1 pkt'}</span>
+                      </div>
+                    </td>
+                    <td className="qp-col-price">
+                      <span className="qp-discounted-price">₹{product.price}</span>
+                    </td>
+                    <td className="qp-col-qty">
+                      {qty > 0 ? (
+                        <div className="qp-qty-control-wrapper">
+                          <button className="qp-qty-ctrl-btn" onClick={() => onUpdateQuantity(product.id, qty - 1)}>-</button>
+                          <span className="qp-qty-ctrl-val">{qty}</span>
+                          <button className="qp-qty-ctrl-btn" onClick={() => onUpdateQuantity(product.id, qty + 1)}>+</button>
+                        </div>
+                      ) : (
+                        <button className="qp-add-btn" onClick={() => onUpdateQuantity(product.id, 1)}>
+                          + ADD
+                        </button>
+                      )}
+                    </td>
+                    <td className="qp-col-total">
+                      <span className="qp-row-total">₹{rowTotal.toFixed(2)}</span>
                     </td>
                   </tr>
-                  
-                  {/* Product Rows */}
-                  {category.items.map((product) => {
-                    const qty = getQuantity(product.id);
-                    const rowTotal = qty ? (product.price * qty) : 0;
-                    
-                    return (
-                      <tr key={product.id} className="qp-product-row">
-                        <td className="qp-col-img">
-                          <div className="qp-img-box">
-                            <ProductIcon type={product.image} />
-                          </div>
-                        </td>
-                        <td className="qp-col-name">
-                          <div className="qp-product-name">{product.name}</div>
-                          <div className="qp-product-desc-mobile-only">
-                            <span className="qp-mob-actual">₹{product.originalPrice}</span>
-                            <span className="qp-mob-price">₹{product.price}</span>
-                          </div>
-                        </td>
-                        <td className="qp-col-actual">
-                          <div className="qp-actual-price-wrap">
-                            <span className="qp-strike-price">₹{product.originalPrice}</span>
-                            <span className="qp-unit-text">{product.quantity && product.type ? `${product.quantity} ${product.type}` : '1 pkt'}</span>
-                          </div>
-                        </td>
-                        <td className="qp-col-price">
-                          <span className="qp-discounted-price">₹{product.price}</span>
-                        </td>
-                        <td className="qp-col-qty">
-                          {qty > 0 ? (
-                            <div className="qp-qty-control-wrapper">
-                              <button className="qp-qty-ctrl-btn" onClick={() => onUpdateQuantity(product.id, qty - 1)}>-</button>
-                              <span className="qp-qty-ctrl-val">{qty}</span>
-                              <button className="qp-qty-ctrl-btn" onClick={() => onUpdateQuantity(product.id, qty + 1)}>+</button>
-                            </div>
-                          ) : (
-                            <button className="qp-add-btn" onClick={() => onUpdateQuantity(product.id, 1)}>
-                              + ADD
-                            </button>
-                          )}
-                        </td>
-                        <td className="qp-col-total">
-                          <span className="qp-row-total">₹{rowTotal.toFixed(2)}</span>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </React.Fragment>
-              ))}
+                );
+              })}
             </tbody>
           </table>
         </div>
