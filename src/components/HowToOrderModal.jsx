@@ -1,6 +1,6 @@
 import React from 'react';
 import './HowToOrderModal.css';
-import howToOrderVideo from '../assets/Marsel Traders _ Premium Sivakasi Fireworks & Crackers Wholesale - Brave 2026-09-16 14-01-45.mp4';
+import howToOrderVideo from '../assets/vidssave.com Color changing sky shot _ 15th August _ vfx _ sivakasi crackers testing video _ 2024 240P.mp4';
 
 export default function HowToOrderModal({ isOpen, onClose }) {
   if (!isOpen) return null;
