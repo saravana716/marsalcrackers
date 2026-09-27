@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
+import { firebase } from '../lib/firebase';
 
 // Map colors and icons for categories to keep existing UI styling
 const categoryStyles = {
@@ -35,7 +35,7 @@ export function useStoreData() {
     async function fetchData() {
       setLoading(true);
       try {
-        const { data: catData, error: catError } = await supabase
+        const { data: catData, error: catError } = await firebase
           .from('categories')
           .select('*')
           .order('created_at', { ascending: true });
@@ -49,7 +49,7 @@ export function useStoreData() {
           image_url: c.image_url
         }));
 
-        const { data: prodData, error: prodError } = await supabase
+        const { data: prodData, error: prodError } = await firebase
           .from('products')
           .select('*');
           
@@ -89,7 +89,7 @@ export function useStoreData() {
           return aMin - bMin;
         });
         
-        const { data: galleryData, error: galleryError } = await supabase
+        const { data: galleryData, error: galleryError } = await firebase
           .from('gallery')
           .select('*')
           .order('created_at', { ascending: false });
@@ -109,7 +109,7 @@ export function useStoreData() {
 
 
 
-        const { data: marqueeData, error: marqueeErr } = await supabase
+        const { data: marqueeData, error: marqueeErr } = await firebase
           .from('marquee')
           .select('*')
           .eq('active', true)
@@ -120,7 +120,7 @@ export function useStoreData() {
           setMarqueeText(marqueeData[0].text);
         }
 
-        const { data: settingsData, error: settingsErr } = await supabase
+        const { data: settingsData, error: settingsErr } = await firebase
           .from('settings')
           .select('*')
           .eq('key', 'min_order_amount')
@@ -131,7 +131,7 @@ export function useStoreData() {
           setMinOrderAmount(Number(settingsData[0].value));
         }
 
-        const { data: priceListData, error: priceListErr } = await supabase
+        const { data: priceListData, error: priceListErr } = await firebase
           .from('price_list')
           .select('file_url')
           .limit(1);
@@ -145,7 +145,7 @@ export function useStoreData() {
         setProducts(formattedProducts);
         setGalleryVideos(formattedGallery);
       } catch (err) {
-        console.error('Error fetching data from Supabase:', err);
+        console.error('Error fetching data from firebase:', err);
         setError(err.message);
       } finally {
         setLoading(false);

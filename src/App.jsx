@@ -28,7 +28,7 @@ import PaymentModal from './components/PaymentPage'; // Reusing the file but ren
 import SplashScreen from './components/SplashScreen';
 import LegalPage from './components/LegalPage';
 import HowToOrderModal from './components/HowToOrderModal';
-import { useStoreData } from './hooks/useSupabase';
+import { useStoreData } from './hooks/useFirebase';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './App.css';

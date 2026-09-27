@@ -3,7 +3,7 @@ import bannerImg from '../assets/marsel-banner-with-logo.jpg';
 import './PackageCards.css';
 
 export default function PackageCards({ onCategorySelect, categories = [] }) {
-  // Try to find the actual category IDs from the Supabase categories data
+  // Try to find the actual category IDs from the firebase categories data
   const getCategoryId = (keywords) => {
     const found = categories.find(c => 
       keywords.some(keyword => c.name.toLowerCase().includes(keyword.toLowerCase()))

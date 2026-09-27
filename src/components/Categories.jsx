@@ -73,6 +73,7 @@ export default function Categories({ categories = [], activeCategory, onCategory
                       <img
                         src={category.image_url}
                         alt={category.name}
+                        loading="lazy"
                         className="cat-card-img"
                       />
                     ) : (

@@ -83,16 +83,18 @@ export default function VideoGallery({ videos }) {
                       <img 
                         src={vid.thumbnail_url} 
                         alt={vid.title}
+                        loading="lazy"
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
                     ) : (
-                      vid.embedUrl?.includes('supabase.co/storage') || vid.embedUrl?.endsWith('.mp4') ? (
+                      vid.embedUrl?.includes('firebasestorage') || vid.embedUrl?.endsWith('.mp4') ? (
                         <video
                           src={vid.embedUrl}
                           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                           muted
                           loop
                           playsInline
+                          preload="none"
                         />
                       ) : (
                         <iframe 
@@ -139,7 +141,7 @@ export default function VideoGallery({ videos }) {
 
               {/* Responsive Video Wrapper */}
               <div className="lightbox-video-frame">
-                {activeVideo.embedUrl?.includes('supabase.co/storage') || activeVideo.embedUrl?.endsWith('.mp4') ? (
+                {activeVideo.embedUrl?.includes('firebasestorage') || activeVideo.embedUrl?.endsWith('.mp4') ? (
                   <video
                     src={activeVideo.embedUrl}
                     controls

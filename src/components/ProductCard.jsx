@@ -8,6 +8,7 @@ export const ProductIcon = ({ type, alt }) => {
     <img 
       src={type || 'https://via.placeholder.com/150'} 
       alt={alt || "Product"} 
+      loading="lazy"
       className="product-svg-drawing" 
       style={{ objectFit: 'contain', width: '100%', height: '100%', color: '#333', textAlign: 'center' }}
     />

@@ -3,7 +3,8 @@ import { ShieldCheck, Download, CheckCircle, ArrowLeft, Copy, CheckCheck, Upload
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 import logoImg from '../assets/lo.png';
-import { supabase } from '../lib/supabase';
+import { firebase, uploadImage } from '../lib/firebase';
+import imageCompression from 'browser-image-compression';
 import './PaymentPage.css';
 import payment from "../assets/bay.png";
 import qrCodeImg from "../assets/qr.jpeg";
@@ -47,15 +48,29 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
     };
   }
 
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
       if (file.size > 5 * 1024 * 1024) { // 5MB limit
         alert("File is too large. Please upload an image smaller than 5MB.");
         return;
       }
-      setPaymentScreenshot(file);
-      setScreenshotPreview(URL.createObjectURL(file));
+
+      try {
+        const options = {
+          maxSizeMB: 0.2, // Max size 200KB
+          maxWidthOrHeight: 1024,
+          useWebWorker: true
+        };
+        const compressedFile = await imageCompression(file, options);
+        setPaymentScreenshot(compressedFile);
+        setScreenshotPreview(URL.createObjectURL(compressedFile));
+      } catch (error) {
+        console.error("Error compressing image:", error);
+        // Fallback to original file if compression fails
+        setPaymentScreenshot(file);
+        setScreenshotPreview(URL.createObjectURL(file));
+      }
     }
   };
 
@@ -115,46 +130,32 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
 
       const pdfBlob = pdf.output('blob');
 
-      // 4. Upload PDF to Supabase Storage
-      const fileName = `invoice_${orderData.orderId}_${Date.now()}.pdf`;
-      const { error: uploadError } = await supabase.storage
-        .from('order-receipts')
-        .upload(fileName, pdfBlob, {
-          contentType: 'application/pdf',
-          upsert: true
-        });
-
-      if (uploadError) throw new Error(`Invoice Upload Failed: ${uploadError.message}`);
-
-      // 5. Get Public URL
-      const { data: urlData } = supabase.storage
-        .from('order-receipts')
-        .getPublicUrl(fileName);
-
-      const publicUrl = urlData.publicUrl;
+      // 4. Upload PDF to Firebase Storage
+      const pdfFile = new File([pdfBlob], `invoice_${orderData.orderId}_${Date.now()}.pdf`, { type: 'application/pdf' });
+      const publicUrl = await uploadImage(pdfFile, 'order-receipts');
 
       // 6. Find or insert customer
       let customerId;
       let existingCustomer = null;
 
       if (orderData.customer.email) {
-        const { data } = await supabase.from('customers').select('id').eq('email', orderData.customer.email).maybeSingle();
+        const { data } = await firebase.from('customers').select('id').eq('email', orderData.customer.email).single();
         existingCustomer = data;
       }
       if (!existingCustomer && orderData.customer.phone) {
-        const { data } = await supabase.from('customers').select('id').eq('phone', orderData.customer.phone).maybeSingle();
+        const { data } = await firebase.from('customers').select('id').eq('phone', orderData.customer.phone).single();
         existingCustomer = data;
       }
 
       if (existingCustomer) {
         customerId = existingCustomer.id;
       } else {
-        const { data: newCustomer, error: customerError } = await supabase.from('customers').insert({
+        const { data: newCustomer, error: customerError } = await firebase.from('customers').insert({
           name: orderData.customer.fullName,
           email: orderData.customer.email || null,
           phone: orderData.customer.phone,
           address: `${orderData.customer.address}, ${orderData.customer.city} - ${orderData.customer.pincode}`
-        }).select('id').single();
+        });
         if (customerError) throw customerError;
         customerId = newCustomer.id;
       }
@@ -162,32 +163,19 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
       // 6.5. Upload Payment Screenshot
       let uploadedScreenshotUrl = null;
       if (paymentScreenshot) {
-        const screenshotName = `screenshot_${orderData.orderId}_${Date.now()}_${paymentScreenshot.name}`;
-        const { error: screenshotUploadError } = await supabase.storage
-          .from('order-receipts')
-          .upload(screenshotName, paymentScreenshot);
-
-        if (screenshotUploadError) {
-          console.error("Screenshot upload error:", screenshotUploadError);
-          throw new Error(`Screenshot Upload Failed: ${screenshotUploadError.message}`);
-        }
-
-        const { data: screenshotUrlData } = supabase.storage
-          .from('order-receipts')
-          .getPublicUrl(screenshotName);
-
-        uploadedScreenshotUrl = screenshotUrlData.publicUrl;
+        const screenshotFile = new File([paymentScreenshot], `screenshot_${orderData.orderId}_${Date.now()}_${paymentScreenshot.name}`, { type: paymentScreenshot.type });
+        uploadedScreenshotUrl = await uploadImage(screenshotFile, 'order-receipts');
       }
 
       // 7. Insert Order (including invoice_url and payment_screenshot_url)
-      const { data: order, error: orderError } = await supabase.from('orders').insert({
+      const { data: order, error: orderError } = await firebase.from('orders').insert({
         customer_id: customerId,
         total_amount: orderData.netTotal,
         status: 'Pending',
         invoice_url: publicUrl,
         payment_screenshot_url: uploadedScreenshotUrl,
         notes: `App Order ID: ${orderData.orderId}`
-      }).select('id').single();
+      });
 
       if (orderError) throw orderError;
 
@@ -200,13 +188,13 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
         unit_price: item.product.price
       }));
 
-      const { error: itemsError } = await supabase.from('order_items').insert(orderItemsData);
+      const { error: itemsError } = await firebase.from('order_items').insert(orderItemsData);
       if (itemsError) throw itemsError;
 
       // 8.5. Deduct stock from products
       for (const item of orderData.items) {
         // Fetch current stock
-        const { data: productData, error: fetchError } = await supabase
+        const { data: productData, error: fetchError } = await firebase
           .from('products')
           .select('stock')
           .eq('id', item.product.id)
@@ -221,7 +209,7 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
         const newStock = Math.max(0, currentStock - item.quantity);
 
         // Update with new stock
-        const { error: updateError } = await supabase
+        const { error: updateError } = await firebase
           .from('products')
           .update({ stock: newStock })
           .eq('id', item.product.id);
