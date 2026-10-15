@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ShieldCheck, Download, CheckCircle, ArrowLeft, Copy, CheckCheck, Upload, Image as ImageIcon, X } from 'lucide-react';
+import { ShieldCheck, Download, CheckCircle, ArrowLeft, Copy, CheckCheck } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 import logoImg from '../assets/lo.png';
 import { firebase, uploadImage } from '../lib/firebase';
-import imageCompression from 'browser-image-compression';
 import './PaymentPage.css';
 import payment from "../assets/bay.png";
 import qrCodeImg from "../assets/qr.jpeg";
@@ -15,8 +14,6 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
   const [paymentStatus, setPaymentStatus] = useState('pending'); // pending, verifying, success
   const [downloadUrl, setDownloadUrl] = useState(null);
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
-  const [paymentScreenshot, setPaymentScreenshot] = useState(null);
-  const [screenshotPreview, setScreenshotPreview] = useState(null);
   const invoiceRef = useRef(null);
 
   useEffect(() => {
@@ -48,93 +45,63 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
     };
   }
 
-  const handleFileChange = async (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      if (file.size > 5 * 1024 * 1024) { // 5MB limit
-        alert("File is too large. Please upload an image smaller than 5MB.");
-        return;
-      }
 
-      try {
-        const options = {
-          maxSizeMB: 0.2, // Max size 200KB
-          maxWidthOrHeight: 1024,
-          useWebWorker: true
-        };
-        const compressedFile = await imageCompression(file, options);
-        setPaymentScreenshot(compressedFile);
-        setScreenshotPreview(URL.createObjectURL(compressedFile));
-      } catch (error) {
-        console.error("Error compressing image:", error);
-        // Fallback to original file if compression fails
-        setPaymentScreenshot(file);
-        setScreenshotPreview(URL.createObjectURL(file));
-      }
-    }
-  };
 
-  const handleRemoveScreenshot = () => {
-    setPaymentScreenshot(null);
-    setScreenshotPreview(null);
-  };
-
-  const handlePlaceOrder = async () => {
-    if (!paymentScreenshot) {
-      alert("Please upload the payment screenshot before proceeding.");
-      return;
-    }
-
-    setPaymentStatus('verifying');
-    setIsGeneratingPdf(true);
-
+  const generateAndUploadInvoiceAsync = async (orderId, orderData) => {
     try {
-      // 1. Wait a tick for React to render the invoice container off-screen
-      await new Promise(resolve => setTimeout(resolve, 500));
+      setIsGeneratingPdf(true);
+      // Wait for React to render invoice container
+      await new Promise(resolve => setTimeout(resolve, 300));
 
-      // 2. Capture the invoice DOM element wrapper
       const element = invoiceRef.current;
-      if (!element) throw new Error("Invoice element not found");
+      if (!element) return;
 
       const pages = element.querySelectorAll('.premium-invoice-page');
       const pdf = new jsPDF('p', 'mm', 'a4');
       const pdfWidth = pdf.internal.pageSize.getWidth();
 
-      // 3. Generate PDF (A4 Multi-page Support via precise DOM chunking)
       for (let i = 0; i < pages.length; i++) {
         if (i > 0) pdf.addPage();
-
-        // Hide all pages except the current one to prevent html2canvas coordinate shifting bug
         pages.forEach((p, idx) => {
           p.style.display = idx === i ? 'flex' : 'none';
         });
 
         const pageEl = pages[i];
         const canvas = await html2canvas(pageEl, {
-          scale: 2,
+          scale: 1.5,
           useCORS: true,
           logging: false
         });
 
-        const imgData = canvas.toDataURL('image/jpeg', 0.98);
+        const imgData = canvas.toDataURL('image/jpeg', 0.95);
         const imgHeightInPdf = (canvas.height * pdfWidth) / canvas.width;
-
         pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, imgHeightInPdf);
       }
 
-      // Restore all pages
       pages.forEach(p => p.style.display = 'flex');
-
-      // Force PDF viewers to fit the entire page on screen by default
       pdf.setDisplayMode('fullpage');
 
       const pdfBlob = pdf.output('blob');
-
-      // 4. Upload PDF to Firebase Storage
       const pdfFile = new File([pdfBlob], `invoice_${orderData.orderId}_${Date.now()}.pdf`, { type: 'application/pdf' });
       const publicUrl = await uploadImage(pdfFile, 'order-receipts');
 
-      // 6. Find or insert customer
+      if (publicUrl) {
+        setDownloadUrl(publicUrl);
+        // Update order in database with invoice_url in background
+        await firebase.from('orders').update({ invoice_url: publicUrl }).eq('id', orderId);
+      }
+    } catch (err) {
+      console.warn("Background invoice generation skipped or failed:", err);
+    } finally {
+      setIsGeneratingPdf(false);
+    }
+  };
+
+  const handlePlaceOrder = async () => {
+    setPaymentStatus('verifying');
+
+    try {
+      // 1. Find or insert customer
       let customerId;
       let existingCustomer = null;
 
@@ -160,26 +127,19 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
         customerId = newCustomer.id;
       }
 
-      // 6.5. Upload Payment Screenshot
-      let uploadedScreenshotUrl = null;
-      if (paymentScreenshot) {
-        const screenshotFile = new File([paymentScreenshot], `screenshot_${orderData.orderId}_${Date.now()}_${paymentScreenshot.name}`, { type: paymentScreenshot.type });
-        uploadedScreenshotUrl = await uploadImage(screenshotFile, 'order-receipts');
-      }
-
-      // 7. Insert Order (including invoice_url and payment_screenshot_url)
+      // 2. Insert Order immediately (no waiting for 2 minutes of PDF rendering & uploading!)
       const { data: order, error: orderError } = await firebase.from('orders').insert({
         customer_id: customerId,
         total_amount: orderData.netTotal,
         status: 'Pending',
-        invoice_url: publicUrl,
-        payment_screenshot_url: uploadedScreenshotUrl,
+        invoice_url: null,
+        payment_screenshot_url: null,
         notes: `App Order ID: ${orderData.orderId}`
       });
 
       if (orderError) throw orderError;
 
-      // 8. Insert Order Items
+      // 3. Insert Order Items in batch
       const orderItemsData = orderData.items.map(item => ({
         order_id: order.id,
         product_id: item.product.id,
@@ -191,46 +151,37 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
       const { error: itemsError } = await firebase.from('order_items').insert(orderItemsData);
       if (itemsError) throw itemsError;
 
-      // 8.5. Deduct stock from products
-      for (const item of orderData.items) {
-        // Fetch current stock
-        const { data: productData, error: fetchError } = await firebase
-          .from('products')
-          .select('stock')
-          .eq('id', item.product.id)
-          .single();
+      // 4. Update stock in parallel in the background or concurrently
+      Promise.all(orderData.items.map(async (item) => {
+        try {
+          const { data: productData, error: fetchError } = await firebase
+            .from('products')
+            .select('stock')
+            .eq('id', item.product.id)
+            .single();
 
-        if (fetchError) {
-          console.error(`Failed to fetch stock for product ${item.product.id}:`, fetchError);
-          continue; // Skip if we can't fetch stock
+          if (!fetchError && productData) {
+            const currentStock = productData.stock || 0;
+            const newStock = Math.max(0, currentStock - item.quantity);
+            await firebase.from('products').update({ stock: newStock }).eq('id', item.product.id);
+          }
+        } catch (stockErr) {
+          console.error(`Stock update error for item ${item.product.id}:`, stockErr);
         }
+      })).catch(err => console.error("Stock reduction error:", err));
 
-        const currentStock = productData.stock || 0;
-        const newStock = Math.max(0, currentStock - item.quantity);
-
-        // Update with new stock
-        const { error: updateError } = await firebase
-          .from('products')
-          .update({ stock: newStock })
-          .eq('id', item.product.id);
-
-        if (updateError) {
-          console.error(`Failed to update stock for product ${item.product.id}:`, updateError);
-        }
-      }
-
-      // 9. Success!
-      setDownloadUrl(publicUrl);
+      // 5. Show Success immediately to user!
       setPaymentStatus('success');
       clearCart();
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
+      // 6. Trigger PDF generation & upload in background without blocking order confirmation
+      generateAndUploadInvoiceAsync(order.id, orderData);
+
     } catch (error) {
       console.error("Error processing order:", error);
-      alert(`Order processing failed: ${error.message}\n\nPlease check that the 'order-receipts' storage bucket has an INSERT policy.`);
+      alert(`Order processing failed: ${error.message}`);
       setPaymentStatus('pending');
-    } finally {
-      setIsGeneratingPdf(false);
     }
   };
 
@@ -314,8 +265,12 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
               For any enquiries or support, please contact our team via WhatsApp.
             </p>
             <div className="pay-invoice-actions">
-              <button className="pay-dl-btn" onClick={handleDownloadInvoice}>
-                <Download size={18} /> Download Invoice
+              <button 
+                className="pay-dl-btn" 
+                onClick={handleDownloadInvoice}
+                title={isGeneratingPdf ? "Invoice is generating in background... Click to print directly or wait a moment" : "Download PDF invoice"}
+              >
+                <Download size={18} /> {isGeneratingPdf ? 'Download Invoice (Ready soon / Print)' : 'Download Invoice'}
               </button>
               <button className="pay-back-btn" onClick={() => onNavigate('products')}>
                 <ArrowLeft size={18} /> Continue Shopping
@@ -416,77 +371,22 @@ export default function PaymentModal({ orderData, onNavigate, clearCart }) {
               </div>
 
               {/* Verify Button & File Upload */}
-              <div className="pay-action-bottom" style={{ flexDirection: 'column', alignItems: 'center', marginTop: '40px', gap: '24px', width: '100%', borderTop: '1px solid #E2E8F0', paddingTop: '40px' }}>
-                <div className="screenshot-upload-container" style={{ width: '100%', maxWidth: '400px', textAlign: 'center' }}>
-                  <label style={{ display: 'block', marginBottom: '16px', fontSize: '1.1rem', fontWeight: '800', color: '#0a0e17', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    Upload Payment Screenshot <span style={{ color: '#ef4444' }}>*</span>
-                  </label>
-
-                  {!screenshotPreview ? (
-                    <div className="upload-box" style={{
-                      border: '2px dashed #cbd5e1', borderRadius: '16px', padding: '35px 20px',
-                      cursor: 'pointer', background: '#F8FAFC', display: 'flex',
-                      flexDirection: 'column', alignItems: 'center', gap: '12px',
-                      transition: 'all 0.2s ease',
-                      boxShadow: '0 4px 6px rgba(0,0,0,0.02)'
-                    }}
-                      onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#ffc107'; e.currentTarget.style.background = '#fffbeb'; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#cbd5e1'; e.currentTarget.style.background = '#F8FAFC'; }}
-                      onClick={() => document.getElementById('screenshot-upload').click()}>
-                      <div style={{ background: '#e2e8f0', padding: '14px', borderRadius: '50%' }}>
-                        <Upload size={32} color="#475569" />
-                      </div>
-                      <span style={{ fontSize: '1rem', color: '#334155', fontWeight: '700' }}>Click to browse images</span>
-                      <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Supports JPG, PNG (Max 5MB)</span>
-                      <input
-                        id="screenshot-upload"
-                        type="file"
-                        accept="image/*"
-                        onChange={handleFileChange}
-                        style={{ display: 'none' }}
-                      />
-                    </div>
-                  ) : (
-                    <div className="screenshot-preview-box" style={{ position: 'relative', display: 'inline-block', width: '100%', maxWidth: '320px' }}>
-                      <img
-                        src={screenshotPreview}
-                        alt="Payment Screenshot"
-                        style={{ width: '100%', height: 'auto', maxHeight: '300px', objectFit: 'contain', borderRadius: '12px', border: '2px solid #e2e8f0', boxShadow: '0 10px 25px rgba(0,0,0,0.08)' }}
-                      />
-                      <button
-                        type="button"
-                        onClick={handleRemoveScreenshot}
-                        style={{
-                          position: 'absolute', top: '-14px', right: '-14px',
-                          background: '#ef4444', color: 'white', border: '2px solid white',
-                          borderRadius: '50%', width: '36px', height: '36px',
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          cursor: 'pointer', boxShadow: '0 4px 10px rgba(239, 68, 68, 0.3)',
-                          transition: 'transform 0.2s',
-                          padding: 0
-                        }}
-                        onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
-                        onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                      >
-                        <X size={20} strokeWidth={3} />
-                      </button>
-                    </div>
-                  )}
-                </div>
-
+              {/* Verify Button */}
+              <div className="pay-action-bottom" style={{ flexDirection: 'column', alignItems: 'center', marginTop: '30px', gap: '16px', width: '100%', borderTop: '1px solid #E2E8F0', paddingTop: '30px' }}>
+                <p style={{ color: '#64748b', fontSize: '0.95rem', margin: '0 0 10px 0', textAlign: 'center' }}>
+                  Completed payment in UPI/Bank? Click below to confirm your order immediately.
+                </p>
                 <button
                   className="pay-verify-btn new-theme-btn"
                   onClick={handlePlaceOrder}
-                  disabled={paymentStatus === 'verifying' || !paymentScreenshot}
+                  disabled={paymentStatus === 'verifying'}
                   style={{
-                    width: '100%', maxWidth: '400px', marginTop: '10px',
-                    opacity: (!paymentScreenshot || paymentStatus === 'verifying') ? 0.6 : 1,
-                    cursor: (!paymentScreenshot || paymentStatus === 'verifying') ? 'not-allowed' : 'pointer',
-                    transform: (!paymentScreenshot || paymentStatus === 'verifying') ? 'none' : '',
-                    boxShadow: (!paymentScreenshot || paymentStatus === 'verifying') ? 'none' : ''
+                    width: '100%', maxWidth: '400px',
+                    opacity: paymentStatus === 'verifying' ? 0.7 : 1,
+                    cursor: paymentStatus === 'verifying' ? 'not-allowed' : 'pointer'
                   }}
                 >
-                  <ShieldCheck size={24} /> I have made the payment
+                  <ShieldCheck size={24} /> {paymentStatus === 'verifying' ? 'Confirming Order...' : 'I have made the payment / Confirm Order'}
                 </button>
               </div>
             </div>
